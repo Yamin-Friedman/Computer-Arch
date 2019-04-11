@@ -20,6 +20,9 @@ int BP_init(unsigned btbSize, unsigned historySize, unsigned tagSize, unsigned f
 	predictor->is_global_table = isGlobalTable;
 	predictor->is_share = Shared;
 	predictor->global_hist = 0;
+	predictor->stats.size = 0;//TODO calc size
+	predictor->stats.br_num = 0;
+	predictor->stats.flush_num = 0;
 
 	predictor->btb = malloc(btbSize * sizeof(BTB_entry));
 	if(predictor->btb == NULL){
@@ -77,7 +80,20 @@ bool BP_predict(uint32_t pc, uint32_t *dst){
 		}
 
 		if(predictor->is_global_table){
-			curr_state = predictor->global_state_array[curr_hist];
+			switch (predictor->is_share) {
+				case 0:
+					curr_state = predictor->global_state_array[curr_hist];
+					break;
+				case 1:
+					uint32_t share_bits = tag % (1 << predictor->history_size);
+					curr_state = predictor->global_state_array[curr_hist ^ share_bits];
+					break;
+				case 2:
+					uint32_t share_bits = ((tag  >> 14) % (1 << predictor->history_size));
+					curr_state = predictor->global_state_array[curr_hist ^ share_bits];
+					break;
+
+			}
 		}
 		else {
 			curr_state = btb_entry->state_array[curr_hist];
@@ -99,19 +115,87 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 	uint32_t tag = pc >> 2;
 	int btb_entry_num = tag % predictor->btb_size;
 	BTB_entry *btb_entry = predictor->btb[btb_entry_num];
-	if(btb_entry->valid_bit){
-		//TODO Check about tag size
-		if(btb_entry->tag != tag){
-
-		}
-	}
 
 	btb_entry->tag = tag;
+	btb_entry->target = targetPc;
 	btb_entry->valid_bit = true;
+
+
+	if (!((taken && targetPc == pred_dst) || (!taken && pred_dst == (pc + 4))))
+		predictor->stats.flush_num++;
+
+	int *curr_hist;
+	int *curr_state;
+
+	if(predictor->is_global_hist){
+		curr_hist = &predictor->global_hist;
+	}
+	else {
+		curr_hist = &btb_entry->history;
+	}
+
+	if(predictor->is_global_table){
+		switch (predictor->is_share) {
+			case 0:
+				curr_state = predictor->global_state_array[curr_hist];
+				break;
+			case 1:
+				uint32_t share_bits = tag % (1 << predictor->history_size);
+				curr_state = predictor->global_state_array[curr_hist ^ share_bits];
+				break;
+			case 2:
+				uint32_t share_bits = ((tag  >> 14) % (1 << predictor->history_size));
+				curr_state = predictor->global_state_array[curr_hist ^ share_bits];
+				break;
+		}
+	}
+	else {
+		curr_state = &btb_entry->state_array[curr_hist];
+	}
+
+	if(taken) {
+		*curr_state = (*curr_state + 1);
+		if(*curr_state > 3) {
+			*curr_state = 3;
+		}
+
+		*curr_hist = ((*curr_hist << 1) + 1) % (1 << predictor->history_size);
+
+	}
+	else {
+		*curr_state = (*curr_state - 1);
+		if(*curr_state < 0) {
+			*curr_state = 0;
+		}
+
+		*curr_hist = (*curr_hist << 1) % (1 << predictor->history_size);
+	}
+
+	predictor->stats.br_num++;
+
 	return;
 }
 
 void BP_GetStats(SIM_stats *curStats){
+	curStats->br_num = predictor->stats.br_num;
+	curStats->flush_num = predictor->stats.flush_num;
+	unsigned size;
+	size = predictor->btb_size*(predictor->tag_size + 32 + (!predictor->is_global_hist)*predictor->history_size +
+			2*(!predictor->is_global_table)*(1 << predictor->history_size));
+	size += (predictor->is_global_hist)*predictor->history_size + 2*(predictor->is_global_table)*(1 << predictor->history_size);
+	curStats->size = size;
+
+	int num_states = (1 << predictor->history_size);
+	if(!predictor->is_global_table) {
+		for (int i = 0; i < predictor->btb_size; i++) {
+			free(predictor->btb[i].state_array);
+		}
+	}
+	else {
+		free(predictor->global_state_array);
+	}
+	free(predictor->btb);
+	free(predictor);
 	return;
 }
 

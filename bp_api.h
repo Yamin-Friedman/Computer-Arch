@@ -35,6 +35,8 @@ typedef struct Predictor_ {
 	bool is_global_table;
 	int is_share;
 
+	SIM_stats stats;
+
 	BTB_entry *btb;
 	uint32_t global_hist;//temp
 	int *global_state_array; //temp
