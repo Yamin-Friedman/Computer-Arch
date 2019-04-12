@@ -8,6 +8,30 @@
 
 Predictor *predictor;
 
+void print_btb(){
+
+	if(!predictor->is_global_table && !predictor->is_global_hist) {
+		for (int i = 0; i < predictor->btb_size; i++) {
+			printf("Entry:%d\n", i);
+			printf("Tag:%lu,History:%lu\n", predictor->btb[i].tag, predictor->btb[i].history);
+			for (int j = 0; j < (1 << predictor->history_size); j++) {
+				printf("array num:%d,value:%d  ", j, predictor->btb[i].state_array[j]);
+			}
+			printf("\n");
+		}
+	}
+	else {
+		for (int i = 0; i < predictor->btb_size; i++) {
+			printf("Entry:%d\n", i);
+			printf("Tag:%lu,History:%lu\n", predictor->btb[i].tag, predictor->global_hist);
+			for (int j = 0; j < (1 << predictor->history_size); j++) {
+				printf("array num:%d,value:%d  ", j, predictor->global_state_array[j]);
+			}
+			printf("\n");
+		}
+	}
+}
+
 int BP_init(unsigned btbSize, unsigned historySize, unsigned tagSize, unsigned fsmState,
 			bool isGlobalHist, bool isGlobalTable, int Shared){
 	predictor = malloc(sizeof(Predictor));
@@ -142,15 +166,15 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 		uint32_t share_bits;
 		switch (predictor->is_share) {
 			case 0:
-				curr_state = predictor->global_state_array[*curr_hist];
+				curr_state = &predictor->global_state_array[*curr_hist];
 				break;
 			case 1:
 				share_bits = tag % (1 << predictor->history_size);
-				curr_state = predictor->global_state_array[*curr_hist ^ share_bits];
+				curr_state = &predictor->global_state_array[*curr_hist ^ share_bits];
 				break;
 			case 2:
 				share_bits = ((tag  >> 14) % (1 << predictor->history_size));
-				curr_state = predictor->global_state_array[*curr_hist ^ share_bits];
+				curr_state = &predictor->global_state_array[*curr_hist ^ share_bits];
 				break;
 		}
 	}

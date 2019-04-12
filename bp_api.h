@@ -11,6 +11,8 @@ extern "C" {
 #include <stdbool.h>
 #include <stdint.h>
 
+void print_btb();
+
 /* A structure to return information about the currect simulator state */
 typedef struct {
 	unsigned flush_num;           // Machine flushes
