@@ -20,30 +20,6 @@ typedef struct {
 	unsigned size;		      // Theoretical allocated BTB and branch predictor size
 } SIM_stats;
 
-typedef struct BTB_entry_ {
-	uint32_t tag;
-	uint32_t target;
-	uint32_t history;
-	bool valid_bit;
-	int *state_array;
-
-} BTB_entry;
-
-typedef struct Predictor_ {
-	int btb_size;
-	int history_size;
-	int tag_size;
-	bool is_global_hist;
-	bool is_global_table;
-	int is_share;
-
-	SIM_stats stats;
-
-	BTB_entry *btb;
-	uint32_t global_hist;//temp
-	int *global_state_array; //temp
-
-} Predictor;
 
 
 /*************************************************************************/
