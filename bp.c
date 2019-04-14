@@ -238,7 +238,7 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 		}
 
 		if (!predictor->is_global_table) {
-			for (int i; i < (1 << predictor->history_size); i++) {
+			for (int i = 0; i < (1 << predictor->history_size); i++) {
 				btb_entry->state_array[i] = predictor->default_state;
 			}
 		}
