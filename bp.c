@@ -41,7 +41,7 @@ void print_btb(){
 	if(!predictor->is_global_table && !predictor->is_global_hist) {
 		for (int i = 0; i < predictor->btb_size; i++) {
 			printf("Entry:%d\n", i);
-			printf("Tag:%lu,History:%lu\n", predictor->btb[i].tag, predictor->btb[i].history);
+			printf("Tag:0x%x,History:%lu,dest:0x%x\n", predictor->btb[i].tag, predictor->btb[i].history,predictor->btb[i].target);
 			for (int j = 0; j < (1 << predictor->history_size); j++) {
 				printf("array num:%d,value:%d  ", j, predictor->btb[i].state_array[j]);
 			}
@@ -51,13 +51,14 @@ void print_btb(){
 	else {
 		for (int i = 0; i < predictor->btb_size; i++) {
 			printf("Entry:%d\n", i);
-			printf("Tag:%lu,History:%lu\n", predictor->btb[i].tag, predictor->global_hist);
+			printf("Tag:0x%x,History:%lu, dest:0x%x\n", predictor->btb[i].tag, predictor->global_hist,predictor->btb[i].target);
 			for (int j = 0; j < (1 << predictor->history_size); j++) {
 				printf("array num:%d,value:%d  ", j, predictor->global_state_array[j]);
 			}
 			printf("\n");
 		}
 	}
+	printf("***********\n");
 }
 
 /*
@@ -199,6 +200,22 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 	uint32_t *curr_hist;
 	int *curr_state;
 
+    // Resetting the btb entry for a new branch instruction
+    if (tag != btb_entry->tag || !btb_entry->valid_bit) {
+        btb_entry->tag = tag;
+        btb_entry->target = targetPc;
+        btb_entry->valid_bit = true;
+        if (!predictor->is_global_hist) {
+            btb_entry->history = 0;
+        }
+
+        if (!predictor->is_global_table) {
+            for (int i = 0; i < (1 << predictor->history_size); i++) {
+                btb_entry->state_array[i] = predictor->default_state;
+            }
+        }
+    }
+
 	// Get the correct history for the current instruction
 	if(predictor->is_global_hist){
 		curr_hist = &predictor->global_hist;
@@ -211,7 +228,7 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 	if(predictor->is_global_table){
 		uint32_t share_bits;
 		switch (predictor->is_share) {
-			case 0:
+		    case 0:
 				curr_state = &predictor->global_state_array[*curr_hist];
 				break;
 			case 1:
@@ -228,21 +245,6 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 		curr_state = &btb_entry->state_array[*curr_hist];
 	}
 
-	// Resetting the btb entry for a new branch instruction
-	if (tag != btb_entry->tag || !btb_entry->valid_bit) {
-		btb_entry->tag = tag;
-		btb_entry->target = targetPc;
-		btb_entry->valid_bit = true;
-		if (!predictor->is_global_hist) {
-			btb_entry->history = 0;
-		}
-
-		if (!predictor->is_global_table) {
-			for (int i = 0; i < (1 << predictor->history_size); i++) {
-				btb_entry->state_array[i] = predictor->default_state;
-			}
-		}
-	}
 
 	// Calculating the change in the history and state machine based on the true result of the branch
 	if(taken) {
@@ -274,7 +276,7 @@ void BP_GetStats(SIM_stats *curStats){
 	curStats->br_num = predictor->stats.br_num;
 	curStats->flush_num = predictor->stats.flush_num;
 	unsigned size;
-	size = predictor->btb_size*(predictor->tag_size + 32 + (!predictor->is_global_hist)*predictor->history_size +
+	size = predictor->btb_size*(predictor->tag_size + 30 + (!predictor->is_global_hist)*predictor->history_size +
 			2*(!predictor->is_global_table)*(1 << predictor->history_size));
 	size += (predictor->is_global_hist)*predictor->history_size + 2*(predictor->is_global_table)*(1 << predictor->history_size);
 	curStats->size = size;
