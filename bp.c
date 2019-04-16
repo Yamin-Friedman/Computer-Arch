@@ -27,39 +27,12 @@ typedef struct Predictor_ {
 	SIM_stats stats;
 
 	BTB_entry *btb;
-	uint32_t global_hist;//temp
-	int *global_state_array; //temp
+	uint32_t global_hist;
+	int *global_state_array;
 
 } Predictor;
 
 Predictor *predictor;
-
-
-//TODO delete function before submitting
-void print_btb(){
-
-	if(!predictor->is_global_table && !predictor->is_global_hist) {
-		for (int i = 0; i < predictor->btb_size; i++) {
-			printf("Entry:%d\n", i);
-			printf("Tag:0x%x,History:%lu,dest:0x%x\n", predictor->btb[i].tag, predictor->btb[i].history,predictor->btb[i].target);
-			for (int j = 0; j < (1 << predictor->history_size); j++) {
-				printf("array num:%d,value:%d  ", j, predictor->btb[i].state_array[j]);
-			}
-			printf("\n");
-		}
-	}
-	else {
-		for (int i = 0; i < predictor->btb_size; i++) {
-			printf("Entry:%d\n", i);
-			printf("Tag:0x%x,History:%lu, dest:0x%x\n", predictor->btb[i].tag, predictor->global_hist,predictor->btb[i].target);
-			for (int j = 0; j < (1 << predictor->history_size); j++) {
-				printf("array num:%d,value:%d  ", j, predictor->global_state_array[j]);
-			}
-			printf("\n");
-		}
-	}
-	printf("***********\n");
-}
 
 /*
  * BP_init - initialize the predictor
@@ -98,7 +71,12 @@ int BP_init(unsigned btbSize, unsigned historySize, unsigned tagSize, unsigned f
 		for (int i = 0; i < predictor->btb_size; i++) {
 			predictor->btb[i].state_array = malloc(num_states * sizeof(int));
 			if (predictor->btb[i].state_array == NULL) {
-				printf("malloc error");//TODO Free everything
+				printf("malloc error");
+				for (int j = i - 1; j >= 0; j--) {
+					free(predictor->btb[j].state_array);
+				}
+				free(predictor->btb);
+				free(predictor);
 				return -1;
 			}
 
@@ -279,8 +257,6 @@ void BP_GetStats(SIM_stats *curStats){
 			2*(!predictor->is_global_table)*(1 << predictor->history_size));
 	size += (predictor->is_global_hist)*predictor->history_size + 2*(predictor->is_global_table)*(1 << predictor->history_size);
 	curStats->size = size;
-
-	int num_states = (1 << predictor->history_size);
 
 	// Free all of the allocated memory
 	if(!predictor->is_global_table) {

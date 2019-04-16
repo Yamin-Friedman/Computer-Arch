@@ -106,7 +106,6 @@ int main(int argc, char **argv) {
 
 
 		BP_update(pc, targetPc, taken, dst);
-		//print_btb();
 	}
 
 	SIM_stats stats;
