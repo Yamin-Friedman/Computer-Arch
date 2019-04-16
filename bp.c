@@ -168,7 +168,7 @@ bool BP_predict(uint32_t pc, uint32_t *dst){
 		}
 
 		if(curr_state < 2){
-			*dst = ((tag + 1) << 2);
+			*dst = pc + 4;
 			return false;
 		}
 		else {
@@ -192,7 +192,6 @@ void BP_update(uint32_t pc, uint32_t targetPc, bool taken, uint32_t pred_dst){
 	BTB_entry *btb_entry = &predictor->btb[btb_entry_num];
 
 	btb_entry->target = targetPc;
-
 
 	if (!((taken && targetPc == pred_dst) || (!taken && pred_dst == (pc + 4))))
 		predictor->stats.flush_num++;
