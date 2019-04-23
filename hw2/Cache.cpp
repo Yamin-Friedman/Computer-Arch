@@ -19,13 +19,15 @@ Cache::~Cache(){
 
 
 //getLine: searches for the given tag in the current cache
-CacheLine& Cache::getLine(int set, long int tag) {
+CacheLine& Cache::getLine(uint32_t address) {
+	int set = (address >> BSize_) % (1 << cache_assoc_);
+	long int tag = (address >> (BSize_ + cache_assoc_));
 	CacheLine* currLine;
 
 	for (int i=0;i <= (1 << cache_assoc_) ;i++){
 		currLine = &cache_array_[i*set];
 		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
-			//currLine->UpdateTime();//accessed line- update time
+			currLine->UpdateTime();//accessed line- update time
 			return *currLine;
 		}
 	}

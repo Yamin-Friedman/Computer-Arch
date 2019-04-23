@@ -23,10 +23,10 @@ public:
 	Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle, unsigned int cache_assoc);
 	~Cache();
 
-	virtual void Read_Line(unsigned long int address) = 0;
-	virtual void Write_Line(unsigned long int address) = 0;
+	virtual void Read_Line(uint32_t address) = 0;
+	virtual void Write_Line(uint32_t address) = 0;
 
-	CacheLine& getLine(int set, long int tag);
+	CacheLine& getLine(uint32_t address);
 
 protected:
 	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;
