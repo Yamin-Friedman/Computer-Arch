@@ -63,6 +63,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
+	Cache cache(MemCyc,BSize,L1Size,L2Size,L1Cyc,L2Cyc,L1Assoc,L2Assoc,WrAlloc,VicCache);
 
 	while (getline(file, line))
 	{
@@ -88,6 +89,14 @@ int main(int argc, char *argv[]) {
 
 		// DEBUG - remove this line
 		cout << " (dec) " << num << endl;
+
+		if (operation == 'R') {
+			cache.Read_Line(num);
+		} else if (operation == 'W') {
+			cache.Write_Line(num);
+		} else {
+			cout << "Bad op type error" << endl;
+		}
 	}
 
 	printf("L1miss=%.03f ", L1MissRate);
