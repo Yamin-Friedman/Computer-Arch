@@ -14,6 +14,7 @@ public:
     long int getTag() const {return tag_;};
     bool isValid() const {return validbit_;};
     bool isDirty() const {return dirtybit_;};
+	void markDirty() {dirtybit_ = true;}
     void UpdateTime(){TimeUsed_=time(NULL);};
     time_t& getTime() const {return TimeUsed_;};
 

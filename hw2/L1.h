@@ -18,6 +18,7 @@ public:
        unsigned int L2_cycle, unsigned int L1_assoc, unsigned int L2_assoc,
        unsigned int wr_alloc, unsigned int victim_cache);
     void ReadLine(uint32_t adrs);
+	void WriteLine(uint32_t address);
     void AddLine(uint32_t address, CacheLine nwLine);
 
 

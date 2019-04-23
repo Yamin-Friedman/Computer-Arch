@@ -27,6 +27,10 @@ void L2::ReadLine(uint32_t address) {
 	AccessNum_++;
 }
 
+void L2::WriteLine(uint32_t address){
+
+}
+
 void L2::AddLine(uint32_t address, CacheLine nwLine) {
 	int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* currLine;

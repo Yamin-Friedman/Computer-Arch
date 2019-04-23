@@ -17,6 +17,7 @@ public:
        unsigned int victim_cache);
     void AddLine(uint32_t address,CacheLine nwLine);
     void ReadLine(uint32_t address);
+	void WriteLine(uint32_t address);
 
 
 private:

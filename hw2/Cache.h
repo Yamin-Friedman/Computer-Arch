@@ -15,7 +15,7 @@ class LINE_NOT_FOUND_EXCEPTION : public std::exception {
 	}
 };
 
-enum WRITE_TYPE {WRITE_THROUGH = 0,WRITE_ALLOCATE};
+enum WRITE_TYPE {NO_WRITE_ALLOCATE = 0,WRITE_ALLOCATE};
 enum VICTIM_USE {USE_VICTIM_CACHE = 0,NOT_USE_VICTIM_CACHE};
 
 class Cache {
@@ -26,7 +26,7 @@ public:
 	virtual void Read_Line(uint32_t address) = 0;
 	virtual void Write_Line(uint32_t address) = 0;
 
-	CacheLine& getLine(uint32_t address);
+	CacheLine* getLine(uint32_t address);
 
 protected:
 	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;

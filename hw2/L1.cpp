@@ -25,6 +25,30 @@ void L1::ReadLine(uint32_t address) {
     AccessNum_++;
 }
 
+void L1::WriteLine(uint32_t address){
+	long int tag = (address >> BSize_);
+	CacheLine *currLine;
+
+	try {
+		currLine = getLine(address);
+		if (wr_type == WRITE_ALLOCATE) {
+			currLine->markDirty();
+		} else if (wr_type == NO_WRITE_ALLOCATE) {
+			L2_.Write_Line(address);
+		}
+	}
+	catch (LINE_NOT_FOUND_EXCEPTION) {
+		MissNum_++;
+
+		L2_.Write_Line(address);
+		if (wr_type == WRITE_ALLOCATE) {
+			AddLine(address,CacheLine(tag,0));
+			currLine = getLine(address);
+			currLine->markDirty();
+		}
+	}
+	AccessNum_++;
+}
 
 //adds a new line to the cache. If needed, evicts from cache according to LRU policy
 void L1::AddLine(uint32_t address, CacheLine nwLine) {
