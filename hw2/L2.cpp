@@ -12,7 +12,7 @@ L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsign
 
 //ReadLine: searches for line according to address, if not found seeks from victim cache if it exists and adds line to L2
 void L2::ReadLine(uint32_t address) {
-	long int tag = (address >> (BSize_ + cache_assoc_));
+	long int tag = (address >> BSize_);
 
 	try {
 		getLine(address);
@@ -28,7 +28,7 @@ void L2::ReadLine(uint32_t address) {
 }
 
 void L2::AddLine(uint32_t address, CacheLine nwLine) {
-	int set = (address >> BSize_) % (1 << cache_assoc_);
+	int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* currLine;
 
     for (int i=0;i <= (1 << cache_assoc_);i++){

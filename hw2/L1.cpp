@@ -13,7 +13,7 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
 void L1::ReadLine(uint32_t address) {
-	long int tag = (address >> (BSize_ + cache_assoc_));
+	long int tag = (address >> BSize_);
 
 	try {
 		getLine(address);
@@ -28,7 +28,7 @@ void L1::ReadLine(uint32_t address) {
 
 //adds a new line to the cache. If needed, evicts from cache according to LRU policy
 void L1::AddLine(uint32_t address, CacheLine nwLine) {
-	int set = (address >> BSize_) % (1 << cache_assoc_);
+	int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* currLine;
     for (int i=0;i <= (1 << cache_assoc_);i++){
         currLine=&cache_array_[i*set];
