@@ -30,7 +30,7 @@ public:
 
 protected:
 	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;
-	const unsigned int NumOfLines = cache_size_/BSize_;
+	const unsigned int NumOfLines = (1 << (cache_size_ - BSize_));
 	CacheLine* cache_array_;
 	int AccessNum_;
 	int MissNum_;
