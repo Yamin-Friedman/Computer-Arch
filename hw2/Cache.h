@@ -6,13 +6,34 @@
 #define COMPARCH_CACHE_H
 
 
+#include "CacheLine.h"
+#include <exception>
+
+class LINE_NOT_FOUND_EXCEPTION : public std::exception {
+	const char* what() const throw() {
+		return "Line not found in cache";
+	}
+};
+
+enum WRITE_TYPE {WRITE_THROUGH = 0,WRITE_ALLOCATE};
+enum VICTIM_USE {USE_VICTIM_CACHE = 0,NOT_USE_VICTIM_CACHE};
+
 class Cache {
 public:
-	Cache(int mem_cycle, int bsize, int L1_size, int L2_size, int L1_cycle, int L2_cycle, int L1_assoc, int L2_assoc,
-	      int wr_alloc, int victim_cache);
+	Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle, unsigned int cache_assoc);
+	~Cache();
 
-	void Read_Line(unsigned long int address);
-	void Write_Line(unsigned long int address);
+	virtual void Read_Line(unsigned long int address) = 0;
+	virtual void Write_Line(unsigned long int address) = 0;
+
+	CacheLine& getLine(int set, long int tag);
+
+protected:
+	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;
+	const unsigned int NumOfLines = cache_size_/BSize_;
+	CacheLine* cache_array_;
+	int AccessNum_;
+	int MissNum_;
 
 };
 
