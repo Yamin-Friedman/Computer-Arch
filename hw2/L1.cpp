@@ -13,14 +13,23 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 //ReadLine: searches for line according to address, if not found seeks from L2
 void L1::ReadLine(uint32_t adrs) {
-    int set = (adrs >> 5)% 4; //get bits [5,6]
-    long int tag = (adrs >> 7);
-    CacheLine& CurrLine = getLine(set,tag);
-    if (CurrLine==NULL){ //there was a miss in L1 cache
-        MissNum_++;
-        CurrLine= L2_.getLine(set,tag);
-        AddLine(set,CurrLine);
-    }
+    int set = (adrs >> BSize_) % (1 << cache_assoc_);
+    long int tag = (adrs >> (BSize_ + cache_assoc_));
+	CacheLine &CurrLine;
+
+	try {
+		CurrLine = getLine(set, tag);
+	}
+	catch (LINE_NOT_FOUND_EXCEPTION) {
+		MissNum_++;
+		try {
+			CurrLine = L2_.getLine(set,tag);
+		} catch (LINE_NOT_FOUND_EXCEPTION) {
+			CurrLine = CacheLine(tag,0);// the zero is temporary
+			L2_.AddLine(set,CurrLine);
+		}
+		AddLine(set,CurrLine);
+	}
     AccessNum_++;
 }
 

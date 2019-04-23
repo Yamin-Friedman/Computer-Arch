@@ -3,3 +3,8 @@
 //
 
 #include "VictimCache.h"
+
+VictimCache::VictimCache() {
+	access_num = 0;
+	next_fill_loc = 0;
+}

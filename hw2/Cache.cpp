@@ -22,10 +22,10 @@ Cache::~Cache(){
 CacheLine& Cache::getLine(int set, long int tag) {
 	CacheLine* currLine;
 
-	for (int i=0;i<=cache_assoc_;i++){
+	for (int i=0;i <= (1 << cache_assoc_) ;i++){
 		currLine = &cache_array_[i*set];
 		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
-			currLine->UpdateTime();//accessed line- update time
+			//currLine->UpdateTime();//accessed line- update time
 			return *currLine;
 		}
 	}

@@ -12,7 +12,19 @@ L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsign
 }
 
 void L2::ReadLine() {
- //TODO: complete
+	int set = (adrs >> BSize_) % (1 << cache_assoc_);
+	long int tag = (adrs >> (BSize_ + cache_assoc_));
+	CacheLine &CurrLine;
+
+	try {
+		CurrLine = getLine(set, tag);
+	}
+	catch (LINE_NOT_FOUND_EXCEPTION) {
+		MissNum_++;
+		CurrLine = CacheLine(tag,0);// the zero is temporary
+		AddLine(set,CurrLine);
+	}
+	AccessNum_++;
 }
 
 void L2::AddLine(int set, CacheLine& nwLine) {

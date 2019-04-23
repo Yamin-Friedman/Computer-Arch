@@ -11,3 +11,8 @@ CacheLine::CacheLine(long int tag, uint32_t data) {
     dirtybit_ = false;
     TimeUsed_ = time(NULL);
 }
+
+CacheLine::CacheLine() {
+	validbit_ = false;
+	dirtybit_ = false;
+}
