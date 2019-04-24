@@ -25,6 +25,8 @@ void L1::ReadLine(uint32_t address) {
     AccessNum_++;
 }
 
+//WriteLine: Searches for the line according to address, if found marks dirty, if not then writes to L2 and if we are
+// using WRITE_ALLOCATE then also writes the line in the L1.
 void L1::WriteLine(uint32_t address){
 	long int tag = (address >> BSize_);
 	CacheLine *currLine;
@@ -32,6 +34,7 @@ void L1::WriteLine(uint32_t address){
 	try {
 		currLine = getLine(address);
 		currLine->markDirty();
+		currLine->UpdateTime();
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
@@ -41,6 +44,7 @@ void L1::WriteLine(uint32_t address){
 			AddLine(address,CacheLine(tag,0));
 			currLine = getLine(address);
 			currLine->markDirty();
+			currLine->UpdateTime();
 		}
 	}
 	AccessNum_++;
