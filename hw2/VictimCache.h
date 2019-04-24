@@ -6,18 +6,20 @@
 #define COMPARCH_VICTIMCACHE_H
 
 #include "CacheLine.h"
+#include <queue>
 
 #define VICTIM_CACHE_SIZE 4
 
 class VictimCache {
 public:
 	VictimCache();
-	CacheLine& getLine(long int tag);
+	CacheLine getLine(uint32_t address);
+	void addLine(uint32_t address);
+	int getAccessNum() const { return access_num;}
 
 private:
 	int access_num; // Number of times the victim cache was accessed
-	int next_fill_loc; // Spot in FIFO to place next entry
-	CacheLine cache[VICTIM_CACHE_SIZE];
+	std::queue<CacheLine> fifo_cache;
 
 
 };

@@ -6,5 +6,37 @@
 
 VictimCache::VictimCache() {
 	access_num = 0;
-	next_fill_loc = 0;
+}
+
+CacheLine VictimCache::getLine(uint32_t address) {
+	uint32_t tag = address >> 2;
+	CacheLine currLine,matched_line;
+	bool found = false;
+
+	for(int i = 0; i < fifo_cache.size(); i++) {
+		currLine = fifo_cache.front();
+		fifo_cache.pop();
+		if(currLine.getTag() != tag) {
+			fifo_cache.push(currLine);
+		} else {
+			matched_line = currLine;
+			found = true;
+		}
+	}
+
+	access_num++;
+
+	if(found)
+		return matched_line;
+	else
+		throw LINE_NOT_FOUND_EXCEPTION();
+
+}
+
+void VictimCache::addLine(uint32_t address) {
+	uint32_t tag = address >> 2;
+	if(fifo_cache.size() >= VICTIM_CACHE_SIZE) {
+		fifo_cache.pop();
+	}
+	fifo_cache.push(CacheLine(tag,0));
 }

@@ -6,6 +6,13 @@
 #define WET2_CACHELINE_H
 
 #include<time.h>
+#include <exception>
+
+class LINE_NOT_FOUND_EXCEPTION : public std::exception {
+	const char* what() const throw() {
+		return "Line not found in cache";
+	}
+};
 
 class CacheLine {
 public:

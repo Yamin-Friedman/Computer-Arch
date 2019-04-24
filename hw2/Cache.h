@@ -7,13 +7,6 @@
 
 
 #include "CacheLine.h"
-#include <exception>
-
-class LINE_NOT_FOUND_EXCEPTION : public std::exception {
-	const char* what() const throw() {
-		return "Line not found in cache";
-	}
-};
 
 enum WRITE_TYPE {NO_WRITE_ALLOCATE = 0,WRITE_ALLOCATE};
 enum VICTIM_USE {USE_VICTIM_CACHE = 0,NOT_USE_VICTIM_CACHE};
