@@ -20,6 +20,8 @@ public:
 	virtual void Write_Line(uint32_t address) = 0;
 
 	CacheLine* getLine(uint32_t address);
+	int getAccessNum() const { return AccessNum_;}
+	int getMissNum() const { return MissNum_;}
 
 protected:
 	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;

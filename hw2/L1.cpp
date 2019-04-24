@@ -13,7 +13,7 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
 void L1::ReadLine(uint32_t address) {
-	long int tag = (address >> BSize_);
+	uint32_t tag = (address >> BSize_);
 
 	try {
 		getLine(address);
@@ -31,11 +31,7 @@ void L1::WriteLine(uint32_t address){
 
 	try {
 		currLine = getLine(address);
-		if (wr_type == WRITE_ALLOCATE) {
-			currLine->markDirty();
-		} else if (wr_type == NO_WRITE_ALLOCATE) {
-			L2_.Write_Line(address);
-		}
+		currLine->markDirty();
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
