@@ -20,7 +20,11 @@ void L1::ReadLine(uint32_t address) {
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
-		AddLine(address,CacheLine(tag,0));
+		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
+		CacheLine* Line = L2_.getLine(address); //get the line from L2
+		//AddLine(address,CacheLine(tag,0)); //TODO: can delete if ok
+		AddLine(address,*Line); //add new line to L1.
+
 	}
     AccessNum_++;
 }
@@ -50,34 +54,39 @@ void L1::WriteLine(uint32_t address){
 	AccessNum_++;
 }
 
-//adds a new line to the cache. If needed, evicts from cache according to LRU policy
+//adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with nwLine
 void L1::AddLine(uint32_t address, CacheLine nwLine) {
 	int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
+    CacheLine* LatestLine = &cache_array_[set];//get from first way
+    double timeDiff;
     CacheLine* currLine;
     for (int i=0;i <= (1 << cache_assoc_);i++){
         currLine=&cache_array_[i*set];
-        if (!(currLine->isValid())){ //line not valid- can delete instantly
+        if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
             *currLine = nwLine;
 	        currLine->UpdateTime();
             return;
         }
-    }
-
-    //could not find an available line- need to evict to L2:
-
-    //first, go over relevant set+ways and choose LRU:
-    CacheLine* LatestLine = &cache_array_[set];//get from first way
-    double timeDiff;
-    for(int i=1;i <= (1 << cache_assoc_);i++){
-        currLine=&cache_array_[set*i];
+        //check if current line has the latest LRU
         timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
         if (timeDiff<0){
             LatestLine=currLine;
         }
     }
 
-    //TODO: question: before we evict, do we need to update the evicted line's time in L2 to its time here?
-    // TODO: cont: if not then its time in L2 would be the last time asked for by L1, even if it was accessed again here
+    //could not find an empty spot in L1. Evict LRU to L2:
+
+    //if line to be evicted is dirty, mark it dirty and update time in L2 (Write Back + per instructions in forum)
+    if(LatestLine->isDirty()){
+        try{
+            CacheLine* ToEvict = L2_.getLine(set,LatestLine->getTag());
+            ToEvict->markDirty();
+            ToEvict->UpdateTime(); //TODO: make sure if it should be current time or last recorded saved in L1
+        }
+        catch (LINE_NOT_FOUND_EXCEPTION) {
+            //TODO: since cache in inclusive, we should not reach here- make sure this does not happen (can remove try-catch if ok)
+        }
+    }
 
     //write new line to evicted' place
     *LatestLine=nwLine;

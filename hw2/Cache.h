@@ -20,6 +20,7 @@ public:
 	virtual void Write_Line(uint32_t address) = 0;
 
 	CacheLine* getLine(uint32_t address);
+	CacheLine* Cache::getLine(int set, long int tag);
 	int getAccessNum() const { return AccessNum_;}
 	int getMissNum() const { return MissNum_;}
 

@@ -15,7 +15,10 @@ public:
 	VictimCache();
 	CacheLine getLine(uint32_t address);
 	void addLine(uint32_t address);
+	void VictimCache::addLine(CacheLine nwLine);
+	void addLine(int );
 	int getAccessNum() const { return access_num;}
+	void
 
 private:
 	int access_num; // Number of times the victim cache was accessed

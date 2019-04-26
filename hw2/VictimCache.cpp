@@ -40,3 +40,11 @@ void VictimCache::addLine(uint32_t address) {
 	}
 	fifo_cache.push(CacheLine(tag,0));
 }
+
+//AddLine for an existing line evicted from L2 to Victim
+void VictimCache::addLine(CacheLine nwLine) {
+	if(fifo_cache.size() >= VICTIM_CACHE_SIZE) {
+		fifo_cache.pop();
+	}
+	fifo_cache.push(nwLine);
+}

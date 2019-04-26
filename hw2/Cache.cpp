@@ -35,3 +35,18 @@ CacheLine* Cache::getLine(uint32_t address) {
 	throw LINE_NOT_FOUND_EXCEPTION();
 
 }
+
+CacheLine* Cache::getLine(int set, long int tag) {
+	CacheLine* currLine;
+
+	for (int i=0;i <= (1 << cache_assoc_) ;i++){
+		currLine = &cache_array_[i*set];
+		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
+			currLine->UpdateTime();//accessed line- update time
+			return currLine;
+		}
+	}
+
+	throw LINE_NOT_FOUND_EXCEPTION();
+
+}
