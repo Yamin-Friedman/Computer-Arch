@@ -8,7 +8,7 @@
 L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigned int L2_size, unsigned int L1_cycle,
        unsigned int L2_cycle, unsigned int L1_assoc, unsigned int L2_assoc,
        unsigned int wr_alloc, unsigned int victim_cache) : Cache(bsize,L1_size,L1_cycle,L1_assoc), wr_type(wr_alloc),
-                                                           L2_(bsize,L2_size,L2_cycle,L2_assoc,mem_cycle,victim_cache) {
+                                                           L2_(bsize,L2_size,L2_cycle,L2_assoc,mem_cycle,victim_cache,this,wr_type) {
 }
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
@@ -42,10 +42,12 @@ void L1::WriteLine(uint32_t address){
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
-
-		L2_.Write_Line(address);
+		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
-			AddLine(address,CacheLine(tag,0));
+		    //get the line from L2 (not marked dirty yet, must come through L2)
+		    CacheLine* ToAdd = L2_.getLine(address); //cannot fail because of L2_.Write_Line
+			AddLine(address,*ToAdd);
+			//need to get line again to update- cannot update ToAdd directly since it is a pointer in L2, copied to L1 at AddLine
 			currLine = getLine(address);
 			currLine->markDirty();
 			currLine->UpdateTime();
@@ -91,4 +93,11 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     //write new line to evicted' place
     *LatestLine=nwLine;
 	LatestLine->UpdateTime();
+}
+
+//This function recieves a line, checks if it exists in the cache- if it does, it evicts it
+//TODO: I think this is needed only in L1. If not, can make virtual in Cache Class
+void EvictLine(uint32_t address, CacheLine VictimLine){
+    int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
+
 }

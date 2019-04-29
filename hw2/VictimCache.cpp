@@ -4,7 +4,7 @@
 
 #include "VictimCache.h"
 
-VictimCache::VictimCache() {
+VictimCache::VictimCache(unsigned int wr_type) {
 	access_num = 0;
 }
 
@@ -47,4 +47,15 @@ void VictimCache::addLine(CacheLine nwLine) {
 		fifo_cache.pop();
 	}
 	fifo_cache.push(nwLine);
+}
+
+void WriteLine(uint32_t address){
+    try{
+        CacheLine* CurrLine = getLine(address);
+        if (wr_type_==NO_WRITE_ALLOCATE){
+            CurrLine->markDirty();
+        }
+
+    }
+    catch(LINE_NOT_FOUND_EXCEPTION){};
 }

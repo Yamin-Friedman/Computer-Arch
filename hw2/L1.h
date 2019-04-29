@@ -20,6 +20,7 @@ public:
     void ReadLine(uint32_t adrs);
 	void WriteLine(uint32_t address);
     void AddLine(uint32_t address, CacheLine nwLine);
+    void EvictLine(uint32_t address, CacheLine VictimLine);
 
 
 private:

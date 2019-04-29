@@ -16,8 +16,8 @@ public:
 	Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle, unsigned int cache_assoc);
 	~Cache();
 
-	virtual void Read_Line(uint32_t address) = 0;
-	virtual void Write_Line(uint32_t address) = 0;
+	virtual void ReadLine(uint32_t address) = 0;
+	virtual void WriteLine(uint32_t address) = 0;
 
 	CacheLine* getLine(uint32_t address);
 	CacheLine* Cache::getLine(int set, long int tag);

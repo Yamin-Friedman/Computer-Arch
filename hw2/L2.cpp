@@ -5,8 +5,8 @@
 #include "L2.h"
 
 L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsigned int BSize, unsigned int mem_cycle,
-       unsigned int victim_cache) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
-                                    mem_cycle_(mem_cycle), victimCache(){
+       unsigned int victim_cache, L1* L1_, unsigned int wr_type) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
+                                    mem_cycle_(mem_cycle), victimCache(wr_type), pL1_(L1_), wr_type_(wr_type){
 
 }
 
@@ -37,8 +37,39 @@ void L2::ReadLine(uint32_t address) {
 }
 
 void L2::WriteLine(uint32_t address){
+    long int tag = (address >> BSize_);
+    CacheLine *currLine;
+    try {
+        currLine = getLine(address);
+        currLine->UpdateTime();
+        if(wr_type_ == NO_WRITE_ALLOCATE){
+            currLine->markDirty();
+        }
+
+    }
+    catch (LINE_NOT_FOUND_EXCEPTION) {
+        MissNum_++;
+        if (use_victim_cache == USE_VICTIM_CACHE) victimCache.WriteLine(address);
+
+        if (wr_type == WRITE_ALLOCATE) {
+            //must bring line to L2 (but not update as dirty)
+            if (use_victim_cache == USE_VICTIM_CACHE) {
+                try {
+                    CacheLine *VictimLine = victimCache.getLine(address);
+                    AddLine(address, *VictimLine);
+                }
+                catch (LINE_NOT_FOUND_EXCEPTION) {
+                    //bring from mem:
+                    AddLine(address, CacheLine(tag, 0));
+                }
+            } else AddLine(address, CacheLine(tag, 0)); //"bring" from mem
+        }
+
+    }
+    AccessNum_++;
 
 }
+
 
 void L2::AddLine(uint32_t address, CacheLine nwLine) {
 
@@ -48,7 +79,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     CacheLine* currLine;
     for (int i=0;i <= (1 << cache_assoc_);i++){
         currLine=&cache_array_[i*set];
-        if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
+        if (!(currLine->isValid())){ //line not valid- can delete instantly and finish //TODO: here we do not need to check in L1 for eviction
             *currLine = nwLine;
             currLine->UpdateTime();
             return;
@@ -62,6 +93,15 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     //could not find an available line- need to evict LRU to Victim/Mem:
     if (use_victim_cache == USE_VICTIM_CACHE) {
         victimCache.addLine(*LatestLine);
+    }
+
+    //Check if LatestLine is in L1- if so, evict it:
+    try{
+        CacheLine* L1Evict = pL1_->getLine(address);
+        L1Evict->ChangeValid(false);
+    }
+    catch(LINE_NOT_FOUND_EXCEPTION){
+        //if not in L1- just continue;
     }
 
     //finally, write new line over evicted line
