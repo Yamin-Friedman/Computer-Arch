@@ -16,7 +16,7 @@ public:
 	VictimCache(unsigned int wr_type):wr_type_(wr_type){};
 	CacheLine getLine(uint32_t address);
 	void addLine(uint32_t address);
-	void VictimCache::addLine(CacheLine nwLine);
+	void addLine(CacheLine nwLine);
 	void addLine(int );
 	int getAccessNum() const { return access_num;}
     void WriteLine(uint32_t address);

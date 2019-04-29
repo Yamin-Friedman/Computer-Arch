@@ -24,7 +24,7 @@ public:
 	void markDirty() {dirtybit_ = true;};
 	void ChangeValid(bool valid){validbit_=valid;};
     void UpdateTime(){TimeUsed_=time(NULL);};
-    time_t& getTime() const {return TimeUsed_;};
+    const time_t& getTime() const {return TimeUsed_;};
 
 private:
     long int tag_, data_;

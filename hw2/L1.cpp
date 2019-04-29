@@ -8,7 +8,9 @@
 L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigned int L2_size, unsigned int L1_cycle,
        unsigned int L2_cycle, unsigned int L1_assoc, unsigned int L2_assoc,
        unsigned int wr_alloc, unsigned int victim_cache) : Cache(bsize,L1_size,L1_cycle,L1_assoc), wr_type(wr_alloc),
-                                                           L2_(bsize,L2_size,L2_cycle,L2_assoc,mem_cycle,victim_cache,this,wr_type) {
+                                                           L2_(L2_size,L2_cycle,L2_assoc,bsize,mem_cycle,victim_cache,this,wr_alloc) {
+
+
 }
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
@@ -95,9 +97,3 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
 	LatestLine->UpdateTime();
 }
 
-//This function recieves a line, checks if it exists in the cache- if it does, it evicts it
-//TODO: I think this is needed only in L1. If not, can make virtual in Cache Class
-void EvictLine(uint32_t address, CacheLine VictimLine){
-    int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
-
-}
