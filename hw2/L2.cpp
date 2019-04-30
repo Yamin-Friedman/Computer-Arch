@@ -90,18 +90,23 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
             LatestLine=currLine;
         }
     }
-    //could not find an available line- need to evict LRU to Victim/Mem:
-    if (use_victim_cache == USE_VICTIM_CACHE) {
-        victimCache.addLine(*LatestLine);
-    }
 
+    //could not find an available line- need to evict LRU to Victim/Mem:
     //Check if LatestLine is in L1- if so, evict it:
     try{
-        CacheLine* L1Evict = pL1_->getLine(address);
+        CacheLine* L1Evict = pL1_->getLine(set,LatestLine->getTag());
+        if(L1Evict->isDirty()){ //snoop:if LatestLine was dirty in L1, write back to L2 before invalidation
+            LatestLine->markDirty();
+        }
         L1Evict->ChangeValid(false);
     }
     catch(LINE_NOT_FOUND_EXCEPTION){
         //if not in L1- just continue;
+    }
+
+
+    if (use_victim_cache == USE_VICTIM_CACHE) {
+        victimCache.addLine(*LatestLine);
     }
 
     //finally, write new line over evicted line
