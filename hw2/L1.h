@@ -10,7 +10,7 @@
 #include "L2.h"
 #include "VictimCache.h"
 
-class L2;
+class L2; //forward declaration
 
 
 class L1 : public Cache {
