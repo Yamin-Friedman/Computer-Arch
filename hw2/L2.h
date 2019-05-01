@@ -10,7 +10,7 @@
 #include "VictimCache.h"
 #include "L1.h"
 
-
+class L1; //forward declaration
 
 class L2 : public Cache {
 public:
@@ -26,7 +26,7 @@ private:
 	unsigned int use_victim_cache;
 	unsigned int mem_cycle_;
 	L1* pL1_;
-	unsigned int wr_type_;
+	unsigned int wr_type;
 
 
 };

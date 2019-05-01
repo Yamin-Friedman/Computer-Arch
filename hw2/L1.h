@@ -10,6 +10,7 @@
 #include "L2.h"
 #include "VictimCache.h"
 
+class L2;
 
 
 class L1 : public Cache {
@@ -24,7 +25,7 @@ public:
 
 
 private:
-    L2 L2_;
+    L2* L2_;
 	unsigned int wr_type;
 
 

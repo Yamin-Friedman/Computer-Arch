@@ -4,9 +4,8 @@
 
 #include "CacheLine.h"
 
-CacheLine::CacheLine(long int tag, uint32_t data) {
+CacheLine::CacheLine(long int tag) {
     tag_ = tag;
-    data_ = data;
     validbit_ = true;
     dirtybit_ = false;
     TimeUsed_ = time(NULL);

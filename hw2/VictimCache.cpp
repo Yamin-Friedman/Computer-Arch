@@ -4,11 +4,8 @@
 
 #include "VictimCache.h"
 
-VictimCache::VictimCache(unsigned int wr_type) {
-	access_num = 0;
-}
 
-CacheLine VictimCache::getLine(uint32_t address) {
+CacheLine* VictimCache::getLine(uint32_t address) {
 	uint32_t tag = address >> 2;
 	CacheLine currLine,matched_line;
 	bool found = false;
@@ -27,7 +24,7 @@ CacheLine VictimCache::getLine(uint32_t address) {
 	access_num++;
 
 	if(found)
-		return matched_line;
+		return &matched_line;
 	else
 		throw LINE_NOT_FOUND_EXCEPTION();
 
@@ -38,7 +35,7 @@ void VictimCache::addLine(uint32_t address) {
 	if(fifo_cache.size() >= VICTIM_CACHE_SIZE) {
 		fifo_cache.pop();
 	}
-	fifo_cache.push(CacheLine(tag,0));
+	fifo_cache.push(CacheLine(tag));
 }
 
 //AddLine for an existing line evicted from L2 to Victim
@@ -49,10 +46,10 @@ void VictimCache::addLine(CacheLine nwLine) {
 	fifo_cache.push(nwLine);
 }
 
-void WriteLine(uint32_t address){
+void VictimCache::WriteLine(uint32_t address){
     try{
         CacheLine* CurrLine = getLine(address);
-        if (wr_type_==NO_WRITE_ALLOCATE){
+        if (wr_type==NO_WRITE_ALLOCATE){
             CurrLine->markDirty();
         }
 

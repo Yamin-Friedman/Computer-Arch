@@ -5,8 +5,10 @@
 #ifndef COMPARCH_CACHE_H
 #define COMPARCH_CACHE_H
 
-
+#include <stdint.h>
+#include <stdbool.h>
 #include "CacheLine.h"
+
 
 enum WRITE_TYPE {NO_WRITE_ALLOCATE = 0,WRITE_ALLOCATE};
 enum VICTIM_USE {USE_VICTIM_CACHE = 0,NOT_USE_VICTIM_CACHE};

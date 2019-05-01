@@ -4,6 +4,7 @@
 #include <sstream>
 
 #include "Cache.h"
+#include "L1.h"
 
 using std::string;
 using std::cout;
@@ -63,7 +64,8 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	Cache cache(MemCyc,BSize,L1Size,L2Size,L1Cyc,L2Cyc,L1Assoc,L2Assoc,WrAlloc,VicCache);
+	//Cache cache(MemCyc,BSize,L1Size,L2Size,L1Cyc,L2Cyc,L1Assoc,L2Assoc,WrAlloc,VicCache);
+	L1 L1_(MemCyc,BSize,L1Size,L2Size,L1Cyc,L2Cyc,L1Assoc,L2Assoc,WrAlloc,VicCache);
 
 	while (getline(file, line))
 	{
@@ -91,17 +93,18 @@ int main(int argc, char *argv[]) {
 		cout << " (dec) " << num << endl;
 
 		if (operation == 'R') {
-			cache.Read_Line(num);
+			L1_.ReadLine(num);
 		} else if (operation == 'W') {
-			cache.Write_Line(num);
+			L1_.WriteLine(num);
 		} else {
 			cout << "Bad op type error" << endl;
 		}
 	}
 
-	printf("L1miss=%.03f ", L1MissRate);
-	printf("L2miss=%.03f ", L2MissRate);
-	printf("AccTimeAvg=%.03f\n", avgAccTime);
+	//TODO: below cancled for debug, make sure to return when ready
+	//printf("L1miss=%.03f ", L1MissRate);
+	//printf("L2miss=%.03f ", L2MissRate);
+	//printf("AccTimeAvg=%.03f\n", avgAccTime);
 
 	return 0;
 }

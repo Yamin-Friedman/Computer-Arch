@@ -6,7 +6,7 @@
 
 L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsigned int BSize, unsigned int mem_cycle,
        unsigned int victim_cache, L1* L1_, unsigned int wr_type) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
-                                    mem_cycle_(mem_cycle), victimCache(wr_type), pL1_(L1_), wr_type_(wr_type){
+                                    mem_cycle_(mem_cycle), victimCache(wr_type), pL1_(L1_), wr_type(wr_type){
 
 }
 
@@ -22,15 +22,16 @@ void L2::ReadLine(uint32_t address) {
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
 			    CacheLine* VictimLine = victimCache.getLine(address);
-			    AddLine(address,VictimLine);
+			    AddLine(address,*VictimLine);
+
 			}
 			catch(LINE_NOT_FOUND_EXCEPTION){ //line was not found in Victim
-			    AddLine(address,CacheLine(tag,0));  //"bring" line from memory directly to L2
+			    AddLine(address,CacheLine(tag));  //"bring" line from memory directly to L2
 			}
 
 		}
 		else{
-		    AddLine(address,CacheLine(tag,0));// the zero is temporary //"bring" line from memory
+		    AddLine(address,CacheLine(tag)); //"bring" line from memory
 		}
 	}
 	AccessNum_++;
@@ -42,7 +43,7 @@ void L2::WriteLine(uint32_t address){
     try {
         currLine = getLine(address);
         currLine->UpdateTime();
-        if(wr_type_ == NO_WRITE_ALLOCATE){
+        if(wr_type == NO_WRITE_ALLOCATE){
             currLine->markDirty();
         }
 
@@ -60,9 +61,9 @@ void L2::WriteLine(uint32_t address){
                 }
                 catch (LINE_NOT_FOUND_EXCEPTION) {
                     //bring from mem:
-                    AddLine(address, CacheLine(tag, 0));
+                    AddLine(address, CacheLine(tag));
                 }
-            } else AddLine(address, CacheLine(tag, 0)); //"bring" from mem
+            } else AddLine(address, CacheLine(tag)); //"bring" from mem
         }
 
     }
