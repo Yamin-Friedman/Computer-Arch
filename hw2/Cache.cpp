@@ -20,8 +20,8 @@ Cache::~Cache(){
 
 //getLine: searches for the given tag in the current cache
 CacheLine* Cache::getLine(uint32_t address) {
-	int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
-	long int tag = (address >> BSize_);
+	int set = ((address % (1 << cache_size_)) >> BSize_);
+	long int tag = (address >> cache_size_);
 	CacheLine* currLine;
 
 	for (int i=0;i <= (1 << cache_assoc_) ;i++){

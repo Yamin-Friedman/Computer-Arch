@@ -18,7 +18,7 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
 void L1::ReadLine(uint32_t address) {
-	uint32_t tag = (address >> BSize_);
+	uint32_t tag = (address >> cache_size_);
 
 	try {
 		getLine(address);
@@ -27,8 +27,7 @@ void L1::ReadLine(uint32_t address) {
 		MissNum_++;
 		L2_->ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
 		CacheLine* Line = L2_->getLine(address); //get the line from L2
-		//AddLine(address,CacheLine(tag,0)); //TODO: can delete if ok
-		AddLine(address,*Line); //add new line to L1.
+		AddLine(address,CacheLine(tag));
 
 	}
     AccessNum_++;
@@ -37,7 +36,7 @@ void L1::ReadLine(uint32_t address) {
 //WriteLine: Searches for the line according to address, if found marks dirty, if not then writes to L2 and if we are
 // using WRITE_ALLOCATE then also writes the line in the L1.
 void L1::WriteLine(uint32_t address){
-	long int tag = (address >> BSize_);
+	long int tag = (address >> cache_size_);
 	CacheLine *currLine;
 
 	try {
@@ -63,7 +62,7 @@ void L1::WriteLine(uint32_t address){
 
 //adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with nwLine
 void L1::AddLine(uint32_t address, CacheLine nwLine) {
-	int set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
+	int set = ((address % (1 << cache_size_)) >> BSize_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff;
     CacheLine* currLine;

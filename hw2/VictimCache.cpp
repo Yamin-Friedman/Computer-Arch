@@ -31,7 +31,7 @@ CacheLine* VictimCache::getLine(uint32_t address) {
 }
 
 void VictimCache::addLine(uint32_t address) {
-	uint32_t tag = address >> 2;
+	uint32_t tag = address;
 	if(fifo_cache.size() >= VICTIM_CACHE_SIZE) {
 		fifo_cache.pop();
 	}
