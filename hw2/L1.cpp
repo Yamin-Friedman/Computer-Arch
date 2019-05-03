@@ -18,6 +18,7 @@ void L1::ReadLine(uint32_t address) {
 
 	try {
 		getLine(address);
+		int a =5;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
@@ -58,7 +59,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     double timeDiff = 0;
     CacheLine* currLine;
 //	nwLine.UpdateTime();
-    for (int i=0;i <= (1 << cache_assoc_);i++){
+    for (int i=0;i < (1 << cache_assoc_);i++){
         currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
             *currLine = nwLine;

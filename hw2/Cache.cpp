@@ -28,7 +28,7 @@ CacheLine* Cache::getLine(uint32_t address) {
 	CacheLine* currLine = NULL;
 	CacheLine* foundLine = NULL;
 
-	for (int i=0;i <= (1 << cache_assoc_) ;i++){
+	for (int i=0;i < (1 << cache_assoc_) ;i++){
 		currLine = &cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
 		currLine->time_counter++;//This pushes all the times for this set up one so that the relative differences remain
 		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
@@ -38,7 +38,7 @@ CacheLine* Cache::getLine(uint32_t address) {
 		}
 	}
 
-	if(foundLine)
+	if(foundLine != NULL)
 		return currLine;
 	else
 		throw LINE_NOT_FOUND_EXCEPTION();
