@@ -7,14 +7,14 @@
 
 CacheLine* VictimCache::getLine(uint32_t address) {
 	uint32_t tag = address >> 2;
-	CacheLine currLine,matched_line;
+	CacheLine *currLine,*matched_line;
 	bool found = false;
 
 	for(int i = 0; i < fifo_cache.size(); i++) {
-		currLine = fifo_cache.front();
+		currLine = &fifo_cache.front();
 		fifo_cache.pop();
-		if(currLine.getTag() != tag) {
-			fifo_cache.push(currLine);
+		if(currLine->getTag() != tag) {
+			fifo_cache.push(*currLine);
 		} else {
 			matched_line = currLine;
 			found = true;
@@ -24,7 +24,7 @@ CacheLine* VictimCache::getLine(uint32_t address) {
 	access_num++;
 
 	if(found)
-		return &matched_line;
+		return matched_line;
 	else {
 		miss_num++;
 		throw LINE_NOT_FOUND_EXCEPTION();

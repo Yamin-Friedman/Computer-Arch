@@ -92,9 +92,9 @@ int main(int argc, char *argv[]) {
 		// DEBUG - remove this line
 		cout << " (dec) " << num << endl;
 
-		if (operation == 'R') {
+		if (operation == 'r') {
 			L1_.ReadLine(num);
-		} else if (operation == 'W') {
+		} else if (operation == 'w') {
 			L1_.WriteLine(num);
 		} else {
 			cout << "Bad op type error" << endl;
@@ -102,8 +102,8 @@ int main(int argc, char *argv[]) {
 	}
 
 	//TODO: below cancled for debug, make sure to return when ready
-	//printf("L1miss=%.03f ", L1MissRate);
-	//printf("L2miss=%.03f ", L2MissRate);
+	printf("L1miss=%.03f ", L1_.GetMissRate());
+	printf("L2miss=%.03f ", L1_.GetL2MissRate());
 	//printf("AccTimeAvg=%.03f\n", avgAccTime);
 
 	return 0;

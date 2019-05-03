@@ -57,6 +57,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff;
     CacheLine* currLine;
+	nwLine.UpdateTime();
     for (int i=0;i <= (1 << cache_assoc_);i++){
         currLine=&cache_array_[i*set];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
@@ -66,7 +67,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
         }
         //check if current line has the latest LRU
         timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
-        if (timeDiff<0){
+        if (timeDiff<0 && i != 0){
             LatestLine=currLine;
         }
     }
@@ -91,5 +92,9 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     //write new line to evicted' place
     *LatestLine=nwLine;
 	LatestLine->UpdateTime();
+}
+
+double L1::GetL2MissRate(){
+	return L2_.GetMissRate();
 }
 

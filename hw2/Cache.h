@@ -24,6 +24,7 @@ public:
 	CacheLine* getLine(uint32_t address);
 	int getAccessNum() const { return AccessNum_;}
 	int getMissNum() const { return MissNum_;}
+	double GetMissRate() const { return ((double)MissNum_ / AccessNum_);};
 
 protected:
 	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;
