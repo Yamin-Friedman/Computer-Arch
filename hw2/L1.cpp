@@ -55,21 +55,24 @@ void L1::WriteLine(uint32_t address){
 void L1::AddLine(uint32_t address, CacheLine nwLine) {
 	int set = ((address % (1 << cache_size_)) >> BSize_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
-    double timeDiff;
+    double timeDiff = 0;
     CacheLine* currLine;
-	nwLine.UpdateTime();
+//	nwLine.UpdateTime();
     for (int i=0;i <= (1 << cache_assoc_);i++){
-        currLine=&cache_array_[i*set];
+        currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
             *currLine = nwLine;
-	        currLine->UpdateTime();
+//	        currLine->UpdateTime();
+	        currLine->time_counter = 0;
             return;
         }
         //check if current line has the latest LRU
-        timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
+//        timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
+	    timeDiff = LatestLine->time_counter - currLine->time_counter;
         if (timeDiff<0 && i != 0){
             LatestLine=currLine;
         }
+
     }
 
     //could not find an empty spot in L1. Evict LRU to L2:
@@ -91,7 +94,8 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
 
     //write new line to evicted' place
     *LatestLine=nwLine;
-	LatestLine->UpdateTime();
+//	LatestLine->UpdateTime();
+	LatestLine->time_counter = 0;
 }
 
 double L1::GetL2MissRate(){

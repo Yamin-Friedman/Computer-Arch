@@ -102,8 +102,8 @@ int main(int argc, char *argv[]) {
 	}
 
 	//TODO: below cancled for debug, make sure to return when ready
-	printf("L1miss=%.03f ", L1_.GetMissRate());
-	printf("L2miss=%.03f ", L1_.GetL2MissRate());
+	printf("L1miss=%.03f \n", L1_.GetMissRate());
+	printf("L2miss=%.03f \n", L1_.GetL2MissRate());
 	//printf("AccTimeAvg=%.03f\n", avgAccTime);
 
 	return 0;

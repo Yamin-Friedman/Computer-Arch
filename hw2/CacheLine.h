@@ -18,13 +18,15 @@ class CacheLine {
 public:
 	CacheLine();
     CacheLine(long int tag);
-    long int getTag() const {return tag_;};
+    uint32_t getTag() const {return tag_;};
     bool isValid() const {return validbit_;};
     bool isDirty() const {return dirtybit_;};
 	void markDirty() {dirtybit_ = true;};
 	void ChangeValid(bool valid){validbit_=valid;};
     void UpdateTime(){TimeUsed_=time(NULL);};
     const time_t& getTime() const {return TimeUsed_;};
+
+	int time_counter;
 
 private:
     long int tag_;

@@ -16,7 +16,7 @@ enum VICTIM_USE {USE_VICTIM_CACHE = 0,NOT_USE_VICTIM_CACHE};
 class Cache {
 public:
 	Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle, unsigned int cache_assoc);
-	~Cache();
+	virtual ~Cache();
 
 	virtual void ReadLine(uint32_t address) = 0;
 	virtual void WriteLine(uint32_t address) = 0;

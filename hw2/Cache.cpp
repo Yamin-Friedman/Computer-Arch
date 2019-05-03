@@ -2,6 +2,7 @@
 // Created by Yamin on 4/23/2019.
 //
 
+#include <iostream>
 #include "Cache.h"
 
 
@@ -14,24 +15,32 @@ Cache::Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cyc
 }
 
 Cache::~Cache(){
-	delete[]cache_array_;
+	delete[] cache_array_;
 }
 
 
 //getLine: searches for the given tag in the current cache
 CacheLine* Cache::getLine(uint32_t address) {
-	int set = ((address % (1 << cache_size_)) >> BSize_);
-	long int tag = (address >> cache_size_);
-	CacheLine* currLine;
+	uint32_t set = ((address % (1 << cache_size_)) >> BSize_);
+	uint32_t tag = (address >> cache_size_);
+//	std::cout << "address:" << address << std::endl;
+//	std::cout << "tag:" << tag << std::endl;
+	CacheLine* currLine = NULL;
+	CacheLine* foundLine = NULL;
 
 	for (int i=0;i <= (1 << cache_assoc_) ;i++){
-		currLine = &cache_array_[i*set];
+		currLine = &cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
+		currLine->time_counter++;//This pushes all the times for this set up one so that the relative differences remain
 		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
-			currLine->UpdateTime();//accessed line- update time
-			return currLine;
+//			currLine->UpdateTime();//accessed line- update time
+			currLine->time_counter = 0;
+			foundLine = currLine;
 		}
 	}
 
-	throw LINE_NOT_FOUND_EXCEPTION();
+	if(foundLine)
+		return currLine;
+	else
+		throw LINE_NOT_FOUND_EXCEPTION();
 
 }
