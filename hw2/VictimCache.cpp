@@ -25,8 +25,10 @@ CacheLine* VictimCache::getLine(uint32_t address) {
 
 	if(found)
 		return &matched_line;
-	else
+	else {
+		miss_num++;
 		throw LINE_NOT_FOUND_EXCEPTION();
+	}
 
 }
 

@@ -5,7 +5,7 @@
 #include "L2.h"
 
 L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsigned int BSize, unsigned int mem_cycle,
-       unsigned int victim_cache, L1* L1_, unsigned int wr_type) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
+       unsigned int victim_cache, Cache* L1_, unsigned int wr_type) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
                                     mem_cycle_(mem_cycle), victimCache(wr_type), pL1_(L1_), wr_type(wr_type){
 
 }
@@ -21,8 +21,8 @@ void L2::ReadLine(uint32_t address) {
 		MissNum_++;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
-			    CacheLine* VictimLine = victimCache.getLine(address);
-			    AddLine(address,*VictimLine);
+			    victimCache.getLine(address);
+			    AddLine(address,CacheLine(tag));
 
 			}
 			catch(LINE_NOT_FOUND_EXCEPTION){ //line was not found in Victim
@@ -42,7 +42,6 @@ void L2::WriteLine(uint32_t address){
     CacheLine *currLine;
     try {
         currLine = getLine(address);
-        currLine->UpdateTime();
         if(wr_type == NO_WRITE_ALLOCATE){
             currLine->markDirty();
         }
@@ -95,7 +94,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     //could not find an available line- need to evict LRU to Victim/Mem:
     //Check if LatestLine is in L1- if so, evict it:
     try{
-        CacheLine* L1Evict = pL1_->getLine(set,LatestLine->getTag());
+	    uint32_t LatestLine_address = (LatestLine->getTag() << BSize_) + set;
+        CacheLine* L1Evict = pL1_->getLine(LatestLine_address);
         if(L1Evict->isDirty()){ //snoop:if LatestLine was dirty in L1, write back to L2 before invalidation
             LatestLine->markDirty();
         }

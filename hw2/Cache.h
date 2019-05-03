@@ -22,7 +22,6 @@ public:
 	virtual void WriteLine(uint32_t address) = 0;
 
 	CacheLine* getLine(uint32_t address);
-	CacheLine* getLine(int set, long int tag);
 	int getAccessNum() const { return AccessNum_;}
 	int getMissNum() const { return MissNum_;}
 
