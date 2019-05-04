@@ -93,7 +93,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish //TODO: here we do not need to check in L1 for eviction
-            *currLine = nwLine;
+//            *currLine = nwLine;
+	        *currLine = CacheLine(address >> (cache_size_));
 //            currLine->UpdateTime();
 	        currLine->time_counter = 0;
             return;
@@ -101,8 +102,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
         //check if current line has the latest LRU
         //timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
 	    timeDiff = LatestLine->time_counter - currLine->time_counter;
-        if (timeDiff<0 && i != 0){
-            LatestLine=currLine;
+        if (timeDiff < 0){
+            LatestLine = currLine;
         }
     }
 
@@ -126,7 +127,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     }
 
     //finally, write new line over evicted line
-    *LatestLine=nwLine;
+    //*LatestLine=nwLine;
+	*LatestLine = CacheLine(address >> (cache_size_));
 //    LatestLine->UpdateTime();
 	LatestLine->time_counter = 0;
 }
