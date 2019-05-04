@@ -90,6 +90,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
+
+
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish //TODO: here we do not need to check in L1 for eviction
@@ -116,6 +118,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
             LatestLine->markDirty();
         }
         L1Evict->ChangeValid(false);
+        //DEBUG
+        printf("L2 Evicted from L1!!\n");
     }
     catch(LINE_NOT_FOUND_EXCEPTION){
         //if not in L1- just continue;

@@ -21,8 +21,12 @@ Cache::~Cache(){
 
 //getLine: searches for the given tag in the current cache
 CacheLine* Cache::getLine(uint32_t address) {
+
 	uint32_t set = ((address % (1 << cache_size_)) >> BSize_);
 	uint32_t tag = (address >> cache_size_);
+    //DEBUG
+    std::cout<<"looking for tag: "<<tag<<std::endl;
+
 //	std::cout << "address:" << address << std::endl;
 //	std::cout << "tag:" << tag << std::endl;
 	CacheLine* currLine = NULL;
@@ -35,6 +39,7 @@ CacheLine* Cache::getLine(uint32_t address) {
 //			currLine->UpdateTime();//accessed line- update time
 			currLine->time_counter = 0;
 			foundLine = currLine;
+			break;
 		}
 
 		//DEBUG
@@ -43,8 +48,12 @@ CacheLine* Cache::getLine(uint32_t address) {
 		}
 	}
 
-	if(foundLine != NULL)
-		return currLine;
+	if(foundLine != NULL) {
+        //DEBUG
+        std::cout << "found the line, curr tag is: " << currLine->getTag() << " and looked for tag: " << tag
+                  << std::endl;
+        return currLine;
+    }
 	else
 		throw LINE_NOT_FOUND_EXCEPTION();
 

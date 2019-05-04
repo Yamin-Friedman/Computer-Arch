@@ -13,12 +13,17 @@ CacheLine* VictimCache::getLine(uint32_t address) {
 	for(int i = 0; i < fifo_cache.size(); i++) {
 		currLine = &fifo_cache.front();
 		fifo_cache.pop();
-		if(currLine->getTag() != tag) {
-			fifo_cache.push(*currLine);
-		} else {
-			matched_line = currLine;
-			found = true;
+		//if(currLine->getTag() != tag) {
+			//fifo_cache.push(*currLine);
+		//} else {
+			//matched_line = currLine;
+			//found = true;
+		//}
+		if(currLine->getTag() == tag){
+			matched_line=currLine;
+			found=true;
 		}
+        fifo_cache.push(*currLine);
 	}
 
 	access_num++;

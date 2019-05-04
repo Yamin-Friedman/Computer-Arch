@@ -50,6 +50,7 @@ void L1::WriteLine(uint32_t address){
 		std::cout << "L1 miss" << std::endl;
 		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
+
 			AddLine(address,CacheLine(tag));
 			//need to get line again to update
 			currLine = getLine(address);

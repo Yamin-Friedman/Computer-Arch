@@ -7,6 +7,7 @@
 
 #include<time.h>
 #include <exception>
+#include <stdint.h>
 
 class LINE_NOT_FOUND_EXCEPTION : public std::exception {
 	const char* what() const throw() {
