@@ -4,7 +4,7 @@
 
 #include "CacheLine.h"
 
-CacheLine::CacheLine(long int tag) {
+CacheLine::CacheLine(uint32_t tag) {
     tag_ = tag;
     validbit_ = true;
     dirtybit_ = false;

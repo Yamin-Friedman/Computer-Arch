@@ -36,6 +36,11 @@ CacheLine* Cache::getLine(uint32_t address) {
 			currLine->time_counter = 0;
 			foundLine = currLine;
 		}
+
+		//DEBUG
+		if(currLine->isValid()) {
+			std::cout << "Curr line address:" << (currLine->getTag() << cache_size_) + (set << BSize_) << "i = " << i << std::endl;
+		}
 	}
 
 	if(foundLine != NULL)

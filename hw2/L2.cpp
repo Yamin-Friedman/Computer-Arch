@@ -2,6 +2,7 @@
 // Created by Omer on 4/23/2019.
 //
 
+#include <iostream>
 #include "L2.h"
 
 L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsigned int BSize, unsigned int mem_cycle,
@@ -12,17 +13,23 @@ L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsign
 
 //ReadLine: searches for line according to address, if not found seeks from victim cache if it exists and adds line to L2
 void L2::ReadLine(uint32_t address) {
-	long int tag = (address >> cache_size_);
+	uint32_t tag = (address >> cache_size_);
 
 	try {
 		getLine(address);
+		//DEBUG
+		std::cout << "L2 Hit" << std::endl;
+
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
+		//DEBUG
+		std::cout << "L2 miss" << std::endl;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
 			    victimCache.getLine(address);
 			    AddLine(address,CacheLine(tag));
+
 
 			}
 			catch(LINE_NOT_FOUND_EXCEPTION){ //line was not found in Victim
@@ -38,18 +45,21 @@ void L2::ReadLine(uint32_t address) {
 }
 
 void L2::WriteLine(uint32_t address){
-    long int tag = (address >> cache_size_);
+    uint32_t tag = (address >> cache_size_);
     CacheLine *currLine;
     try {
         currLine = getLine(address);
         if(wr_type == NO_WRITE_ALLOCATE){
             currLine->markDirty();
         }
+	    //DEBUG
+	    std::cout << "L2 hit" << std::endl;
 
     }
     catch (LINE_NOT_FOUND_EXCEPTION) {
         MissNum_++;
-
+		//DEBUG
+	    std::cout << "L2 miss" << std::endl;
 
         if (wr_type == WRITE_ALLOCATE) {
             //must bring line to L2 (but not update as dirty)

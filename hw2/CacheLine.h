@@ -17,7 +17,7 @@ class LINE_NOT_FOUND_EXCEPTION : public std::exception {
 class CacheLine {
 public:
 	CacheLine();
-    CacheLine(long int tag);
+    CacheLine(uint32_t tag);
     uint32_t getTag() const {return tag_;};
     bool isValid() const {return validbit_;};
     bool isDirty() const {return dirtybit_;};
@@ -29,7 +29,7 @@ public:
 	int time_counter;
 
 private:
-    long int tag_;
+    uint32_t tag_;
     bool dirtybit_;
     bool validbit_;
     time_t TimeUsed_; //Last time line was used. Yamin: Not sure that this is the method we should use

@@ -18,10 +18,13 @@ void L1::ReadLine(uint32_t address) {
 
 	try {
 		getLine(address);
-		int a =5;
+		//DEBUG
+		std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
+		//DEBUG
+		std::cout << "L1 miss" << std::endl;
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
 		AddLine(address,CacheLine(tag));
 
@@ -38,9 +41,13 @@ void L1::WriteLine(uint32_t address){
 	try {
 		currLine = getLine(address);
 		currLine->markDirty();
+		//DEBUG
+		std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
+		//DEBUG
+		std::cout << "L1 miss" << std::endl;
 		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
 			AddLine(address,CacheLine(tag));
@@ -83,9 +90,12 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     //if line to be evicted is dirty, mark it dirty and update time in L2 (Write Back + per instructions in forum)
     if(LatestLine->isDirty()){
         try{
-	        uint32_t LatestLine_address = (LatestLine->getTag() << BSize_) + set;
+	        uint32_t LatestLine_address = (LatestLine->getTag() << cache_size_) + (set << BSize_);
+	        //DEBUG
+	        std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
+
 			//TODO: make sure if it should be current time or last recorded saved in L1
         }
         catch (LINE_NOT_FOUND_EXCEPTION) {
