@@ -25,6 +25,7 @@ public:
     void AddLine(uint32_t address, CacheLine nwLine);
     void EvictLine(uint32_t address, CacheLine VictimLine);
 	double GetL2MissRate();
+	double GetAvgTime() const;
 
 
 private:

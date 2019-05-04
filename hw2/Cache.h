@@ -11,7 +11,7 @@
 
 
 enum WRITE_TYPE {NO_WRITE_ALLOCATE = 0,WRITE_ALLOCATE};
-enum VICTIM_USE {USE_VICTIM_CACHE = 0,NOT_USE_VICTIM_CACHE};
+enum VICTIM_USE {NOT_USE_VICTIM_CACHE = 0,USE_VICTIM_CACHE};
 
 class Cache {
 public:
@@ -32,6 +32,7 @@ protected:
 	CacheLine* cache_array_;
 	int AccessNum_;
 	int MissNum_;
+	unsigned int wr_access_num;
 
 };
 

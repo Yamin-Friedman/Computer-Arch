@@ -17,6 +17,7 @@ public:
     void AddLine(uint32_t address,CacheLine nwLine);
     void ReadLine(uint32_t address);
 	void WriteLine(uint32_t address);
+	double GetAvgTime() const;
 
 	Cache* pL1_;
 

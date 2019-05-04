@@ -19,6 +19,7 @@ public:
 	void addLine(CacheLine nwLine);
 	void addLine(int );
 	int getAccessNum() const { return access_num;}
+	int getMissNum() const { return miss_num;}
     void WriteLine(uint32_t address);
 
 private:

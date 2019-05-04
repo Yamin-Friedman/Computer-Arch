@@ -49,7 +49,7 @@ void L2::WriteLine(uint32_t address){
     }
     catch (LINE_NOT_FOUND_EXCEPTION) {
         MissNum_++;
-        if (use_victim_cache == USE_VICTIM_CACHE) victimCache.WriteLine(address);
+
 
         if (wr_type == WRITE_ALLOCATE) {
             //must bring line to L2 (but not update as dirty)
@@ -63,6 +63,9 @@ void L2::WriteLine(uint32_t address){
                     AddLine(address, CacheLine(tag));
                 }
             } else AddLine(address, CacheLine(tag)); //"bring" from mem
+        } else {
+	        if (use_victim_cache == USE_VICTIM_CACHE) victimCache.WriteLine(address);
+	        wr_access_num++;
         }
 
     }
@@ -116,4 +119,16 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     *LatestLine=nwLine;
 //    LatestLine->UpdateTime();
 	LatestLine->time_counter = 0;
+}
+
+double L2::GetAvgTime() const {
+	double time = 0;
+	time += AccessNum_ * cache_cyc_;
+	if(use_victim_cache == USE_VICTIM_CACHE) {
+		time += victimCache.getAccessNum();
+		time += mem_cycle_ * (victimCache.getMissNum() - wr_access_num);
+	} else {
+		time += mem_cycle_ * MissNum_;
+	}
+	return time;
 }

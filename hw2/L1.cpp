@@ -47,6 +47,8 @@ void L1::WriteLine(uint32_t address){
 			//need to get line again to update
 			currLine = getLine(address);
 			currLine->markDirty();
+		} else {
+			wr_access_num++;
 		}
 	}
 	AccessNum_++;
@@ -101,5 +103,13 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
 
 double L1::GetL2MissRate(){
 	return L2_.GetMissRate();
+}
+
+double L1::GetAvgTime() const{
+	double time = 0;
+	time += AccessNum_ * cache_cyc_;
+	time += L2_.GetAvgTime();
+	double avgTime = time / AccessNum_;
+	return avgTime;
 }
 
