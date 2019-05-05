@@ -14,6 +14,7 @@ class L2 : public Cache {
 public:
     L2(unsigned int L2size, unsigned int L2Cyc,unsigned int L2Assoc, unsigned int BSize, unsigned int mem_cycle,
        unsigned int victim_cache, Cache* pL1_, unsigned int wr_type);
+    ~L2(){};
     void AddLine(uint32_t address,CacheLine nwLine);
     void ReadLine(uint32_t address);
 	void WriteLine(uint32_t address);

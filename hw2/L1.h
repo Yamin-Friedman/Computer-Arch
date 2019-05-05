@@ -20,6 +20,7 @@ public:
     L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigned int L2_size, unsigned int L1_cycle,
        unsigned int L2_cycle, unsigned int L1_assoc, unsigned int L2_assoc,
        unsigned int wr_alloc, unsigned int victim_cache);
+    ~L1(){};
     void ReadLine(uint32_t adrs);
 	void WriteLine(uint32_t address);
     void AddLine(uint32_t address, CacheLine nwLine);

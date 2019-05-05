@@ -18,13 +18,13 @@ void L2::ReadLine(uint32_t address) {
 	try {
 		getLine(address);
 		//DEBUG
-		std::cout << "L2 Hit" << std::endl;
+		//std::cout << "L2 Hit" << std::endl;
 
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
 		//DEBUG
-		std::cout << "L2 miss" << std::endl;
+		//std::cout << "L2 miss" << std::endl;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
 			    victimCache.getLine(address);
@@ -53,13 +53,13 @@ void L2::WriteLine(uint32_t address){
             currLine->markDirty();
         }
 	    //DEBUG
-	    std::cout << "L2 hit" << std::endl;
+	    //std::cout << "L2 hit" << std::endl;
 
     }
     catch (LINE_NOT_FOUND_EXCEPTION) {
         MissNum_++;
 		//DEBUG
-	    std::cout << "L2 miss" << std::endl;
+	    //std::cout << "L2 miss" << std::endl;
 
         if (wr_type == WRITE_ALLOCATE) {
             //must bring line to L2 (but not update as dirty)
@@ -119,7 +119,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
         }
         L1Evict->ChangeValid(false);
         //DEBUG
-        printf("L2 Evicted from L1!!\n");
+        //printf("L2 Evicted from L1!!\n");
     }
     catch(LINE_NOT_FOUND_EXCEPTION){
         //if not in L1- just continue;

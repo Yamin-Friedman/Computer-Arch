@@ -27,7 +27,7 @@ public:
 	double GetMissRate() const { return ((double)MissNum_ / AccessNum_);};
 
 protected:
-	unsigned int cache_size_, cache_cyc_, cache_assoc_, BSize_;
+	unsigned int BSize_,cache_size_, cache_cyc_, cache_assoc_;
 	const unsigned int NumOfLines = (1 << (cache_size_ - BSize_));
 	CacheLine* cache_array_;
 	int AccessNum_;

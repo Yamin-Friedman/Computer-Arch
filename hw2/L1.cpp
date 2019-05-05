@@ -19,12 +19,12 @@ void L1::ReadLine(uint32_t address) {
 	try {
 		getLine(address);
 		//DEBUG
-		std::cout << "L1 hit" << std::endl;
+		//std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
 		//DEBUG
-		std::cout << "L1 miss" << std::endl;
+		//std::cout << "L1 miss" << std::endl;
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
 		AddLine(address,CacheLine(tag));
 
@@ -42,12 +42,12 @@ void L1::WriteLine(uint32_t address){
 		currLine = getLine(address);
 		currLine->markDirty();
 		//DEBUG
-		std::cout << "L1 hit" << std::endl;
+		//std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
 		//DEBUG
-		std::cout << "L1 miss" << std::endl;
+		//std::cout << "L1 miss" << std::endl;
 		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
 
@@ -93,7 +93,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
         try{
 	        uint32_t LatestLine_address = (LatestLine->getTag() << cache_size_) + (set << BSize_);
 	        //DEBUG
-	        std::cout << "Evict line address:" << LatestLine_address << std::endl;
+	        //std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
 
@@ -101,7 +101,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
         }
         catch (LINE_NOT_FOUND_EXCEPTION) {
 	        //DEBUG
-	        cout << "Reached unreachable spot number 1" << endl;
+	        //cout << "Reached unreachable spot number 1" << endl;
             //TODO: since cache in inclusive, we should not reach here- make sure this does not happen (can remove try-catch if ok)
         }
     }

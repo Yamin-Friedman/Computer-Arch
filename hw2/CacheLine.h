@@ -19,6 +19,7 @@ class CacheLine {
 public:
 	CacheLine();
     CacheLine(uint32_t tag);
+    ~CacheLine(){};
     uint32_t getTag() const {return tag_;};
     bool isValid() const {return validbit_;};
     bool isDirty() const {return dirtybit_;};
