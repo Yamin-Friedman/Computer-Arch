@@ -47,7 +47,6 @@ CacheLine* Cache::getLine(uint32_t address) {
 //			currLine->UpdateTime();//accessed line- update time
 			currLine->time_counter = 0;
 			foundLine = currLine;
-			break;
 		}
 
 		//DEBUG
