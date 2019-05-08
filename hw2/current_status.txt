@@ -1,0 +1,1985 @@
+Running tests...
+The test succeed if there are no diffs printed.
+
+tests/test0
+./cacheSim tests/test0.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test100
+./cacheSim tests/test100.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test101
+./cacheSim tests/test101.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test102
+./cacheSim tests/test102.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test103
+./cacheSim tests/test103.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test104
+./cacheSim tests/test104.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test105
+./cacheSim tests/test105.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test106
+./cacheSim tests/test106.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test107
+./cacheSim tests/test107.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test108
+./cacheSim tests/test108.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test108 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.485 AccTimeAvg=126.341
+---
+> L1miss=0.829 L2miss=0.471 AccTimeAvg=127.780
+tests/test109
+./cacheSim tests/test109.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test109 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.625 AccTimeAvg=132.488
+---
+> L1miss=0.780 L2miss=0.594 AccTimeAvg=132.463
+tests/test10
+./cacheSim tests/test10.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test110
+./cacheSim tests/test110.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test111
+./cacheSim tests/test111.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test111 didnt pass
+1c1
+< L1miss=0.512 L2miss=0.857 AccTimeAvg=114.244
+---
+> L1miss=0.463 L2miss=0.947 AccTimeAvg=111.366
+tests/test112
+./cacheSim tests/test112.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test113
+./cacheSim tests/test113.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test114
+./cacheSim tests/test114.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test115
+./cacheSim tests/test115.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test116
+./cacheSim tests/test116.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test116 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.800 AccTimeAvg=157.610
+---
+> L1miss=0.878 L2miss=0.778 AccTimeAvg=159.049
+tests/test117
+./cacheSim tests/test117.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test118
+./cacheSim tests/test118.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test119
+./cacheSim tests/test119.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test11
+./cacheSim tests/test11.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test120
+./cacheSim tests/test120.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test121
+./cacheSim tests/test121.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test122
+./cacheSim tests/test122.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test123
+./cacheSim tests/test123.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test124
+./cacheSim tests/test124.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test125
+./cacheSim tests/test125.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test125 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.629 AccTimeAvg=136.854
+---
+> L1miss=0.854 L2miss=0.571 AccTimeAvg=139.171
+tests/test126
+./cacheSim tests/test126.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test127
+./cacheSim tests/test127.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test128
+./cacheSim tests/test128.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test128 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.909 AccTimeAvg=159.463
+---
+> L1miss=0.780 L2miss=0.938 AccTimeAvg=158.024
+tests/test129
+./cacheSim tests/test129.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test12
+./cacheSim tests/test12.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test12 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.613 AccTimeAvg=130.561
+---
+> L1miss=0.732 L2miss=0.633 AccTimeAvg=129.122
+tests/test130
+./cacheSim tests/test130.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test131
+./cacheSim tests/test131.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test132
+./cacheSim tests/test132.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test132 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.788 AccTimeAvg=150.000
+---
+> L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+tests/test133
+./cacheSim tests/test133.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test133 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.714 AccTimeAvg=151.122
+---
+> L1miss=0.878 L2miss=0.694 AccTimeAvg=152.561
+tests/test134
+./cacheSim tests/test134.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test135
+./cacheSim tests/test135.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test136
+./cacheSim tests/test136.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test137
+./cacheSim tests/test137.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test138
+./cacheSim tests/test138.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test139
+./cacheSim tests/test139.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test13
+./cacheSim tests/test13.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test140
+./cacheSim tests/test140.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test141
+./cacheSim tests/test141.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test141 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.514 AccTimeAvg=137.293
+---
+> L1miss=0.902 L2miss=0.514 AccTimeAvg=139.659
+tests/test142
+./cacheSim tests/test142.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test143
+./cacheSim tests/test143.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test144
+./cacheSim tests/test144.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test145
+./cacheSim tests/test145.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test146
+./cacheSim tests/test146.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test147
+./cacheSim tests/test147.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test148
+./cacheSim tests/test148.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test149
+./cacheSim tests/test149.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test149 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.743 AccTimeAvg=153.512
+---
+> L1miss=0.878 L2miss=0.722 AccTimeAvg=154.951
+tests/test14
+./cacheSim tests/test14.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test150
+./cacheSim tests/test150.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test151
+./cacheSim tests/test151.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test152
+./cacheSim tests/test152.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test153
+./cacheSim tests/test153.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test154
+./cacheSim tests/test154.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test155
+./cacheSim tests/test155.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test156
+./cacheSim tests/test156.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test156 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.485 AccTimeAvg=126.341
+---
+> L1miss=0.829 L2miss=0.471 AccTimeAvg=127.780
+tests/test157
+./cacheSim tests/test157.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test157 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.559 AccTimeAvg=135.341
+---
+> L1miss=0.854 L2miss=0.543 AccTimeAvg=136.780
+tests/test158
+./cacheSim tests/test158.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test159
+./cacheSim tests/test159.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test159 didnt pass
+1c1
+< L1miss=0.463 L2miss=0.947 AccTimeAvg=111.366
+---
+> L1miss=0.439 L2miss=1.000 AccTimeAvg=109.927
+tests/test15
+./cacheSim tests/test15.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test160
+./cacheSim tests/test160.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test160 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.967 AccTimeAvg=152.780
+---
+> L1miss=0.756 L2miss=0.935 AccTimeAvg=154.220
+tests/test161
+./cacheSim tests/test161.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test162
+./cacheSim tests/test162.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test163
+./cacheSim tests/test163.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test164
+./cacheSim tests/test164.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test165
+./cacheSim tests/test165.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test165 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.622 AccTimeAvg=149.220
+---
+> L1miss=0.878 L2miss=0.639 AccTimeAvg=147.780
+tests/test166
+./cacheSim tests/test166.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test167
+./cacheSim tests/test167.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test168
+./cacheSim tests/test168.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test168 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.771 AccTimeAvg=155.244
+---
+> L1miss=0.829 L2miss=0.794 AccTimeAvg=153.805
+tests/test169
+./cacheSim tests/test169.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test16
+./cacheSim tests/test16.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test170
+./cacheSim tests/test170.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test171
+./cacheSim tests/test171.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test172
+./cacheSim tests/test172.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test173
+./cacheSim tests/test173.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test174
+./cacheSim tests/test174.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test175
+./cacheSim tests/test175.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test176
+./cacheSim tests/test176.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test177
+./cacheSim tests/test177.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test178
+./cacheSim tests/test178.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test179
+./cacheSim tests/test179.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test17
+./cacheSim tests/test17.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test180
+./cacheSim tests/test180.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test181
+./cacheSim tests/test181.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test181 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.737 AccTimeAvg=162.610
+---
+> L1miss=0.902 L2miss=0.757 AccTimeAvg=161.171
+tests/test182
+./cacheSim tests/test182.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test183
+./cacheSim tests/test183.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test184
+./cacheSim tests/test184.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test185
+./cacheSim tests/test185.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test185 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.639 AccTimeAvg=147.780
+---
+> L1miss=0.854 L2miss=0.657 AccTimeAvg=146.341
+tests/test186
+./cacheSim tests/test186.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test187
+./cacheSim tests/test187.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test188
+./cacheSim tests/test188.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test188 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.528 AccTimeAvg=137.756
+---
+> L1miss=0.878 L2miss=0.556 AccTimeAvg=140.122
+tests/test189
+./cacheSim tests/test189.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test189 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.579 AccTimeAvg=143.537
+---
+> L1miss=0.902 L2miss=0.568 AccTimeAvg=144.439
+tests/test18
+./cacheSim tests/test18.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test190
+./cacheSim tests/test190.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test190 didnt pass
+1c1
+< L1miss=0.512 L2miss=0.905 AccTimeAvg=116.171
+---
+> L1miss=0.488 L2miss=0.950 AccTimeAvg=114.732
+tests/test191
+./cacheSim tests/test191.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test192
+./cacheSim tests/test192.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test193
+./cacheSim tests/test193.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test194
+./cacheSim tests/test194.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test195
+./cacheSim tests/test195.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test196
+./cacheSim tests/test196.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test197
+./cacheSim tests/test197.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test198
+./cacheSim tests/test198.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test199
+./cacheSim tests/test199.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test19
+./cacheSim tests/test19.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test1
+./cacheSim tests/test1.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test200
+./cacheSim tests/test200.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test201
+./cacheSim tests/test201.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test201 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=152.073
+---
+> L1miss=0.878 L2miss=0.722 AccTimeAvg=154.951
+tests/test202
+./cacheSim tests/test202.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test203
+./cacheSim tests/test203.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test204
+./cacheSim tests/test204.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test204 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.543 AccTimeAvg=136.317
+---
+> L1miss=0.854 L2miss=0.600 AccTimeAvg=141.049
+tests/test205
+./cacheSim tests/test205.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test205 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.636 AccTimeAvg=133.951
+---
+> L1miss=0.829 L2miss=0.588 AccTimeAvg=137.732
+tests/test206
+./cacheSim tests/test206.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test207
+./cacheSim tests/test207.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test208
+./cacheSim tests/test208.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test209
+./cacheSim tests/test209.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test20
+./cacheSim tests/test20.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test210
+./cacheSim tests/test210.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test211
+./cacheSim tests/test211.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test212
+./cacheSim tests/test212.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test213
+./cacheSim tests/test213.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test213 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.742 AccTimeAvg=140.585
+---
+> L1miss=0.732 L2miss=0.767 AccTimeAvg=139.146
+tests/test214
+./cacheSim tests/test214.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test215
+./cacheSim tests/test215.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test216
+./cacheSim tests/test216.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test216 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.839 AccTimeAvg=147.122
+---
+> L1miss=0.732 L2miss=0.867 AccTimeAvg=145.683
+tests/test217
+./cacheSim tests/test217.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test218
+./cacheSim tests/test218.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test219
+./cacheSim tests/test219.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test21
+./cacheSim tests/test21.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test220
+./cacheSim tests/test220.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test221
+./cacheSim tests/test221.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test222
+./cacheSim tests/test222.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test223
+./cacheSim tests/test223.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test224
+./cacheSim tests/test224.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test225
+./cacheSim tests/test225.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test225 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.853 AccTimeAvg=159.244
+---
+> L1miss=0.805 L2miss=0.879 AccTimeAvg=157.805
+tests/test226
+./cacheSim tests/test226.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test227
+./cacheSim tests/test227.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test228
+./cacheSim tests/test228.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test229
+./cacheSim tests/test229.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test22
+./cacheSim tests/test22.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test230
+./cacheSim tests/test230.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test231
+./cacheSim tests/test231.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test232
+./cacheSim tests/test232.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test233
+./cacheSim tests/test233.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test234
+./cacheSim tests/test234.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test235
+./cacheSim tests/test235.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test236
+./cacheSim tests/test236.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test237
+./cacheSim tests/test237.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test238
+./cacheSim tests/test238.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test239
+./cacheSim tests/test239.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test239 didnt pass
+1c1
+< L1miss=0.561 L2miss=0.870 AccTimeAvg=121.902
+---
+> L1miss=0.585 L2miss=0.833 AccTimeAvg=123.341
+tests/test23
+./cacheSim tests/test23.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test240
+./cacheSim tests/test240.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test241
+./cacheSim tests/test241.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test242
+./cacheSim tests/test242.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test243
+./cacheSim tests/test243.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test244
+./cacheSim tests/test244.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test244 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.750 AccTimeAvg=143.829
+---
+> L1miss=0.805 L2miss=0.727 AccTimeAvg=145.268
+tests/test245
+./cacheSim tests/test245.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test246
+./cacheSim tests/test246.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test247
+./cacheSim tests/test247.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test248
+./cacheSim tests/test248.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test249
+./cacheSim tests/test249.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test24
+./cacheSim tests/test24.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test250
+./cacheSim tests/test250.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test251
+./cacheSim tests/test251.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test252
+./cacheSim tests/test252.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test253
+./cacheSim tests/test253.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test254
+./cacheSim tests/test254.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test255
+./cacheSim tests/test255.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test255 didnt pass
+1c1
+< L1miss=0.488 L2miss=0.900 AccTimeAvg=112.805
+---
+> L1miss=0.512 L2miss=0.857 AccTimeAvg=114.244
+tests/test256
+./cacheSim tests/test256.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test257
+./cacheSim tests/test257.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test258
+./cacheSim tests/test258.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test259
+./cacheSim tests/test259.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test25
+./cacheSim tests/test25.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test260
+./cacheSim tests/test260.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test260 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.771 AccTimeAvg=155.244
+---
+> L1miss=0.829 L2miss=0.794 AccTimeAvg=153.805
+tests/test261
+./cacheSim tests/test261.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test261 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.812 AccTimeAvg=149.195
+---
+> L1miss=0.805 L2miss=0.788 AccTimeAvg=150.634
+tests/test262
+./cacheSim tests/test262.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test263
+./cacheSim tests/test263.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test264
+./cacheSim tests/test264.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test265
+./cacheSim tests/test265.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test266
+./cacheSim tests/test266.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test267
+./cacheSim tests/test267.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test268
+./cacheSim tests/test268.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test269
+./cacheSim tests/test269.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test269 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.700 AccTimeAvg=129.634
+---
+> L1miss=0.756 L2miss=0.677 AccTimeAvg=135.805
+tests/test26
+./cacheSim tests/test26.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test270
+./cacheSim tests/test270.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test271
+./cacheSim tests/test271.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test271 didnt pass
+1c1
+< L1miss=0.537 L2miss=0.864 AccTimeAvg=118.073
+---
+> L1miss=0.512 L2miss=0.905 AccTimeAvg=116.634
+tests/test272
+./cacheSim tests/test272.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test273
+./cacheSim tests/test273.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test274
+./cacheSim tests/test274.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test275
+./cacheSim tests/test275.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test276
+./cacheSim tests/test276.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test277
+./cacheSim tests/test277.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test277 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.727 AccTimeAvg=145.854
+---
+> L1miss=0.780 L2miss=0.750 AccTimeAvg=144.415
+tests/test278
+./cacheSim tests/test278.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test279
+./cacheSim tests/test279.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test27
+./cacheSim tests/test27.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test280
+./cacheSim tests/test280.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test281
+./cacheSim tests/test281.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test282
+./cacheSim tests/test282.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test283
+./cacheSim tests/test283.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test284
+./cacheSim tests/test284.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test284 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.559 AccTimeAvg=134.878
+---
+> L1miss=0.854 L2miss=0.571 AccTimeAvg=138.683
+tests/test285
+./cacheSim tests/test285.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test285 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.486 AccTimeAvg=132.000
+---
+> L1miss=0.854 L2miss=0.514 AccTimeAvg=134.390
+tests/test286
+./cacheSim tests/test286.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test287
+./cacheSim tests/test287.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test288
+./cacheSim tests/test288.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test289
+./cacheSim tests/test289.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test289 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.946 AccTimeAvg=177.902
+---
+> L1miss=0.878 L2miss=0.972 AccTimeAvg=176.463
+tests/test28
+./cacheSim tests/test28.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test290
+./cacheSim tests/test290.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test291
+./cacheSim tests/test291.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test292
+./cacheSim tests/test292.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test293
+./cacheSim tests/test293.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test293 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.794 AccTimeAvg=154.463
+---
+> L1miss=0.780 L2miss=0.844 AccTimeAvg=151.585
+tests/test294
+./cacheSim tests/test294.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test295
+./cacheSim tests/test295.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test296
+./cacheSim tests/test296.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test297
+./cacheSim tests/test297.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test297 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.737 AccTimeAvg=160.244
+---
+> L1miss=0.927 L2miss=0.737 AccTimeAvg=162.610
+tests/test298
+./cacheSim tests/test298.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test299
+./cacheSim tests/test299.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test29
+./cacheSim tests/test29.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test29 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.548 AccTimeAvg=126.244
+---
+> L1miss=0.732 L2miss=0.567 AccTimeAvg=124.805
+tests/test2
+./cacheSim tests/test2.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test300
+./cacheSim tests/test300.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test301
+./cacheSim tests/test301.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test302
+./cacheSim tests/test302.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test303
+./cacheSim tests/test303.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test304
+./cacheSim tests/test304.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test305
+./cacheSim tests/test305.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test306
+./cacheSim tests/test306.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test307
+./cacheSim tests/test307.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test308
+./cacheSim tests/test308.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test308 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.703 AccTimeAvg=155.756
+---
+> L1miss=0.878 L2miss=0.722 AccTimeAvg=154.317
+tests/test309
+./cacheSim tests/test309.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test309 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.794 AccTimeAvg=154.463
+---
+> L1miss=0.805 L2miss=0.818 AccTimeAvg=153.024
+tests/test30
+./cacheSim tests/test30.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test310
+./cacheSim tests/test310.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test311
+./cacheSim tests/test311.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test312
+./cacheSim tests/test312.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test313
+./cacheSim tests/test313.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test314
+./cacheSim tests/test314.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test315
+./cacheSim tests/test315.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test316
+./cacheSim tests/test316.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test316 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.553 AccTimeAvg=145.366
+---
+> L1miss=0.927 L2miss=0.632 AccTimeAvg=152.463
+tests/test317
+./cacheSim tests/test317.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test318
+./cacheSim tests/test318.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test319
+./cacheSim tests/test319.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test31
+./cacheSim tests/test31.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test320
+./cacheSim tests/test320.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test321
+./cacheSim tests/test321.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test322
+./cacheSim tests/test322.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test323
+./cacheSim tests/test323.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test324
+./cacheSim tests/test324.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test324 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+---
+> L1miss=0.854 L2miss=0.743 AccTimeAvg=152.878
+tests/test325
+./cacheSim tests/test325.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test325 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.676 AccTimeAvg=154.000
+---
+> L1miss=0.927 L2miss=0.658 AccTimeAvg=155.439
+tests/test326
+./cacheSim tests/test326.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test327
+./cacheSim tests/test327.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test328
+./cacheSim tests/test328.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test329
+./cacheSim tests/test329.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test32
+./cacheSim tests/test32.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test32 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.912 AccTimeAvg=163.268
+---
+> L1miss=0.854 L2miss=0.886 AccTimeAvg=164.707
+tests/test330
+./cacheSim tests/test330.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test331
+./cacheSim tests/test331.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test332
+./cacheSim tests/test332.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test333
+./cacheSim tests/test333.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test333 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.571 AccTimeAvg=134.439
+---
+> L1miss=0.854 L2miss=0.600 AccTimeAvg=141.561
+tests/test334
+./cacheSim tests/test334.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test335
+./cacheSim tests/test335.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test336
+./cacheSim tests/test336.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test336 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.971 AccTimeAvg=168.000
+---
+> L1miss=0.854 L2miss=0.943 AccTimeAvg=169.439
+tests/test337
+./cacheSim tests/test337.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test338
+./cacheSim tests/test338.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test339
+./cacheSim tests/test339.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test33
+./cacheSim tests/test33.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test33 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.875 AccTimeAvg=153.976
+---
+> L1miss=0.805 L2miss=0.848 AccTimeAvg=155.415
+tests/test340
+./cacheSim tests/test340.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test341
+./cacheSim tests/test341.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test341 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.735 AccTimeAvg=149.683
+---
+> L1miss=0.878 L2miss=0.694 AccTimeAvg=152.561
+tests/test342
+./cacheSim tests/test342.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test343
+./cacheSim tests/test343.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test344
+./cacheSim tests/test344.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test345
+./cacheSim tests/test345.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test346
+./cacheSim tests/test346.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test347
+./cacheSim tests/test347.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test348
+./cacheSim tests/test348.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test349
+./cacheSim tests/test349.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test349 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.629 AccTimeAvg=139.220
+---
+> L1miss=0.829 L2miss=0.618 AccTimeAvg=140.122
+tests/test34
+./cacheSim tests/test34.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test350
+./cacheSim tests/test350.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test351
+./cacheSim tests/test351.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test352
+./cacheSim tests/test352.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test353
+./cacheSim tests/test353.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test354
+./cacheSim tests/test354.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test355
+./cacheSim tests/test355.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test356
+./cacheSim tests/test356.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test356 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.714 AccTimeAvg=150.512
+---
+> L1miss=0.829 L2miss=0.735 AccTimeAvg=149.073
+tests/test357
+./cacheSim tests/test357.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test357 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.844 AccTimeAvg=151.585
+---
+> L1miss=0.805 L2miss=0.818 AccTimeAvg=153.024
+tests/test358
+./cacheSim tests/test358.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test359
+./cacheSim tests/test359.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test35
+./cacheSim tests/test35.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test360
+./cacheSim tests/test360.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test361
+./cacheSim tests/test361.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test362
+./cacheSim tests/test362.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test363
+./cacheSim tests/test363.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test364
+./cacheSim tests/test364.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test364 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.629 AccTimeAvg=143.415
+---
+> L1miss=0.878 L2miss=0.611 AccTimeAvg=144.854
+tests/test365
+./cacheSim tests/test365.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test365 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.543 AccTimeAvg=134.415
+---
+> L1miss=0.829 L2miss=0.559 AccTimeAvg=135.341
+tests/test366
+./cacheSim tests/test366.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test367
+./cacheSim tests/test367.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test368
+./cacheSim tests/test368.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test369
+./cacheSim tests/test369.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test36
+./cacheSim tests/test36.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test36 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.788 AccTimeAvg=150.000
+---
+> L1miss=0.780 L2miss=0.812 AccTimeAvg=148.561
+tests/test370
+./cacheSim tests/test370.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test371
+./cacheSim tests/test371.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test372
+./cacheSim tests/test372.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test373
+./cacheSim tests/test373.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test374
+./cacheSim tests/test374.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test375
+./cacheSim tests/test375.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test376
+./cacheSim tests/test376.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test377
+./cacheSim tests/test377.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test377 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.722 AccTimeAvg=154.951
+---
+> L1miss=0.854 L2miss=0.743 AccTimeAvg=153.512
+tests/test378
+./cacheSim tests/test378.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test379
+./cacheSim tests/test379.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test37
+./cacheSim tests/test37.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test37 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.735 AccTimeAvg=149.683
+---
+> L1miss=0.854 L2miss=0.714 AccTimeAvg=151.122
+tests/test380
+./cacheSim tests/test380.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test380 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.486 AccTimeAvg=136.829
+---
+> L1miss=0.902 L2miss=0.459 AccTimeAvg=134.463
+tests/test381
+./cacheSim tests/test381.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test382
+./cacheSim tests/test382.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test383
+./cacheSim tests/test383.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test384
+./cacheSim tests/test384.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test385
+./cacheSim tests/test385.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test386
+./cacheSim tests/test386.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test387
+./cacheSim tests/test387.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test388
+./cacheSim tests/test388.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test388 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+---
+> L1miss=0.780 L2miss=0.812 AccTimeAvg=148.561
+tests/test389
+./cacheSim tests/test389.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test389 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.757 AccTimeAvg=161.171
+---
+> L1miss=0.927 L2miss=0.737 AccTimeAvg=162.610
+tests/test38
+./cacheSim tests/test38.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test390
+./cacheSim tests/test390.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test391
+./cacheSim tests/test391.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test392
+./cacheSim tests/test392.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test393
+./cacheSim tests/test393.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test394
+./cacheSim tests/test394.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test395
+./cacheSim tests/test395.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test396
+./cacheSim tests/test396.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test397
+./cacheSim tests/test397.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test397 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.649 AccTimeAvg=142.146
+---
+> L1miss=0.902 L2miss=0.649 AccTimeAvg=151.610
+tests/test398
+./cacheSim tests/test398.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test399
+./cacheSim tests/test399.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test39
+./cacheSim tests/test39.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test3
+./cacheSim tests/test3.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test400
+./cacheSim tests/test400.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test401
+./cacheSim tests/test401.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test401 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.972 AccTimeAvg=176.463
+---
+> L1miss=0.902 L2miss=0.946 AccTimeAvg=177.902
+tests/test402
+./cacheSim tests/test402.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test403
+./cacheSim tests/test403.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test404
+./cacheSim tests/test404.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test405
+./cacheSim tests/test405.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test405 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.774 AccTimeAvg=142.976
+---
+> L1miss=0.805 L2miss=0.727 AccTimeAvg=145.854
+tests/test406
+./cacheSim tests/test406.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test407
+./cacheSim tests/test407.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test408
+./cacheSim tests/test408.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test409
+./cacheSim tests/test409.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test40
+./cacheSim tests/test40.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test410
+./cacheSim tests/test410.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test411
+./cacheSim tests/test411.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test412
+./cacheSim tests/test412.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test413
+./cacheSim tests/test413.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test414
+./cacheSim tests/test414.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test415
+./cacheSim tests/test415.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test415 didnt pass
+1c1
+< L1miss=0.512 L2miss=0.952 AccTimeAvg=119.024
+---
+> L1miss=0.537 L2miss=0.909 AccTimeAvg=120.463
+tests/test416
+./cacheSim tests/test416.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test417
+./cacheSim tests/test417.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test418
+./cacheSim tests/test418.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test419
+./cacheSim tests/test419.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test41
+./cacheSim tests/test41.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test420
+./cacheSim tests/test420.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test420 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.806 AccTimeAvg=144.756
+---
+> L1miss=0.780 L2miss=0.781 AccTimeAvg=146.195
+tests/test421
+./cacheSim tests/test421.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test422
+./cacheSim tests/test422.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test423
+./cacheSim tests/test423.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test424
+./cacheSim tests/test424.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test425
+./cacheSim tests/test425.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test425 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.727 AccTimeAvg=145.854
+---
+> L1miss=0.829 L2miss=0.706 AccTimeAvg=147.293
+tests/test426
+./cacheSim tests/test426.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test427
+./cacheSim tests/test427.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test428
+./cacheSim tests/test428.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test428 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.613 AccTimeAvg=130.561
+---
+> L1miss=0.756 L2miss=0.581 AccTimeAvg=128.195
+tests/test429
+./cacheSim tests/test429.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test429 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.667 AccTimeAvg=140.707
+---
+> L1miss=0.878 L2miss=0.667 AccTimeAvg=150.171
+tests/test42
+./cacheSim tests/test42.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test42 didnt pass
+1c1
+< L1miss=0.537 L2miss=0.955 AccTimeAvg=122.341
+---
+> L1miss=0.512 L2miss=1.000 AccTimeAvg=120.902
+tests/test430
+./cacheSim tests/test430.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test431
+./cacheSim tests/test431.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test432
+./cacheSim tests/test432.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test433
+./cacheSim tests/test433.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test434
+./cacheSim tests/test434.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test435
+./cacheSim tests/test435.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test436
+./cacheSim tests/test436.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test436 didnt pass
+1c1
+< L1miss=0.951 L2miss=0.718 AccTimeAvg=163.366
+---
+> L1miss=0.878 L2miss=0.778 AccTimeAvg=159.049
+tests/test437
+./cacheSim tests/test437.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test438
+./cacheSim tests/test438.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test439
+./cacheSim tests/test439.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test43
+./cacheSim tests/test43.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test440
+./cacheSim tests/test440.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test441
+./cacheSim tests/test441.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test442
+./cacheSim tests/test442.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test443
+./cacheSim tests/test443.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test444
+./cacheSim tests/test444.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test444 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.548 AccTimeAvg=125.829
+---
+> L1miss=0.707 L2miss=0.586 AccTimeAvg=122.951
+tests/test445
+./cacheSim tests/test445.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test445 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.595 AccTimeAvg=139.732
+---
+> L1miss=0.902 L2miss=0.568 AccTimeAvg=144.439
+tests/test446
+./cacheSim tests/test446.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test447
+./cacheSim tests/test447.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test448
+./cacheSim tests/test448.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test449
+./cacheSim tests/test449.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test44
+./cacheSim tests/test44.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test44 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.515 AccTimeAvg=128.707
+---
+> L1miss=0.780 L2miss=0.531 AccTimeAvg=127.268
+tests/test450
+./cacheSim tests/test450.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test451
+./cacheSim tests/test451.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test452
+./cacheSim tests/test452.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test453
+./cacheSim tests/test453.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test454
+./cacheSim tests/test454.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test455
+./cacheSim tests/test455.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test456
+./cacheSim tests/test456.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test457
+./cacheSim tests/test457.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test458
+./cacheSim tests/test458.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test459
+./cacheSim tests/test459.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test45
+./cacheSim tests/test45.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test45 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.543 AccTimeAvg=134.415
+---
+> L1miss=0.829 L2miss=0.559 AccTimeAvg=135.341
+tests/test460
+./cacheSim tests/test460.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test460 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.548 AccTimeAvg=125.829
+---
+> L1miss=0.780 L2miss=0.531 AccTimeAvg=127.268
+tests/test461
+./cacheSim tests/test461.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test461 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.700 AccTimeAvg=129.634
+---
+> L1miss=0.756 L2miss=0.677 AccTimeAvg=135.805
+tests/test462
+./cacheSim tests/test462.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test463
+./cacheSim tests/test463.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test464
+./cacheSim tests/test464.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test465
+./cacheSim tests/test465.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test466
+./cacheSim tests/test466.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test467
+./cacheSim tests/test467.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test468
+./cacheSim tests/test468.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test468 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.743 AccTimeAvg=152.878
+---
+> L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+tests/test469
+./cacheSim tests/test469.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test46
+./cacheSim tests/test46.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test470
+./cacheSim tests/test470.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test471
+./cacheSim tests/test471.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test472
+./cacheSim tests/test472.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test473
+./cacheSim tests/test473.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test474
+./cacheSim tests/test474.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test475
+./cacheSim tests/test475.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test476
+./cacheSim tests/test476.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test476 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.543 AccTimeAvg=136.317
+---
+> L1miss=0.854 L2miss=0.600 AccTimeAvg=141.049
+tests/test477
+./cacheSim tests/test477.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test478
+./cacheSim tests/test478.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test479
+./cacheSim tests/test479.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test47
+./cacheSim tests/test47.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test480
+./cacheSim tests/test480.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test481
+./cacheSim tests/test481.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test482
+./cacheSim tests/test482.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test483
+./cacheSim tests/test483.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test484
+./cacheSim tests/test484.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test485
+./cacheSim tests/test485.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test486
+./cacheSim tests/test486.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test487
+./cacheSim tests/test487.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test488
+./cacheSim tests/test488.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test489
+./cacheSim tests/test489.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test48
+./cacheSim tests/test48.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test490
+./cacheSim tests/test490.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test491
+./cacheSim tests/test491.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test492
+./cacheSim tests/test492.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test492 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.625 AccTimeAvg=134.366
+---
+> L1miss=0.780 L2miss=0.594 AccTimeAvg=132.000
+tests/test493
+./cacheSim tests/test493.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test493 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.514 AccTimeAvg=137.293
+---
+> L1miss=0.902 L2miss=0.514 AccTimeAvg=139.659
+tests/test494
+./cacheSim tests/test494.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test495
+./cacheSim tests/test495.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test496
+./cacheSim tests/test496.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test497
+./cacheSim tests/test497.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test497 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.971 AccTimeAvg=172.634
+---
+> L1miss=0.878 L2miss=0.944 AccTimeAvg=174.073
+tests/test498
+./cacheSim tests/test498.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test499
+./cacheSim tests/test499.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test49
+./cacheSim tests/test49.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test4
+./cacheSim tests/test4.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test4 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.844 AccTimeAvg=150.927
+---
+> L1miss=0.829 L2miss=0.794 AccTimeAvg=153.805
+tests/test500
+./cacheSim tests/test500.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test501
+./cacheSim tests/test501.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test502
+./cacheSim tests/test502.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test503
+./cacheSim tests/test503.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test504
+./cacheSim tests/test504.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test504 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+---
+> L1miss=0.805 L2miss=0.788 AccTimeAvg=150.000
+tests/test505
+./cacheSim tests/test505.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test505 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.844 AccTimeAvg=151.585
+---
+> L1miss=0.805 L2miss=0.818 AccTimeAvg=153.024
+tests/test506
+./cacheSim tests/test506.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test507
+./cacheSim tests/test507.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test508
+./cacheSim tests/test508.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test509
+./cacheSim tests/test509.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test509 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.579 AccTimeAvg=141.171
+---
+> L1miss=0.927 L2miss=0.579 AccTimeAvg=148.268
+tests/test50
+./cacheSim tests/test50.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test510
+./cacheSim tests/test510.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test511
+./cacheSim tests/test511.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test512
+./cacheSim tests/test512.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test513
+./cacheSim tests/test513.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test514
+./cacheSim tests/test514.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test515
+./cacheSim tests/test515.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test516
+./cacheSim tests/test516.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test517
+./cacheSim tests/test517.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test517 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.781 AccTimeAvg=146.805
+---
+> L1miss=0.805 L2miss=0.758 AccTimeAvg=148.244
+tests/test518
+./cacheSim tests/test518.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test519
+./cacheSim tests/test519.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test51
+./cacheSim tests/test51.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test520
+./cacheSim tests/test520.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test521
+./cacheSim tests/test521.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test522
+./cacheSim tests/test522.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test523
+./cacheSim tests/test523.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test524
+./cacheSim tests/test524.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test524 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.694 AccTimeAvg=151.951
+---
+> L1miss=0.878 L2miss=0.667 AccTimeAvg=149.585
+tests/test525
+./cacheSim tests/test525.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test525 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.600 AccTimeAvg=127.195
+---
+> L1miss=0.732 L2miss=0.633 AccTimeAvg=129.585
+tests/test526
+./cacheSim tests/test526.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test526 didnt pass
+1c1
+< L1miss=0.439 L2miss=1.000 AccTimeAvg=109.488
+---
+> L1miss=0.463 L2miss=0.947 AccTimeAvg=110.927
+tests/test527
+./cacheSim tests/test527.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test527 didnt pass
+1c1
+< L1miss=0.463 L2miss=0.947 AccTimeAvg=111.366
+---
+> L1miss=0.439 L2miss=1.000 AccTimeAvg=109.927
+tests/test528
+./cacheSim tests/test528.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test529
+./cacheSim tests/test529.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test529 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.879 AccTimeAvg=157.805
+---
+> L1miss=0.854 L2miss=0.829 AccTimeAvg=160.683
+tests/test52
+./cacheSim tests/test52.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test530
+./cacheSim tests/test530.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test531
+./cacheSim tests/test531.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test532
+./cacheSim tests/test532.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test533
+./cacheSim tests/test533.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test534
+./cacheSim tests/test534.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test535
+./cacheSim tests/test535.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test536
+./cacheSim tests/test536.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test537
+./cacheSim tests/test537.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test537 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.694 AccTimeAvg=150.195
+---
+> L1miss=0.878 L2miss=0.667 AccTimeAvg=150.171
+tests/test538
+./cacheSim tests/test538.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test539
+./cacheSim tests/test539.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test53
+./cacheSim tests/test53.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test540
+./cacheSim tests/test540.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test540 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.548 AccTimeAvg=125.829
+---
+> L1miss=0.732 L2miss=0.567 AccTimeAvg=124.390
+tests/test541
+./cacheSim tests/test541.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test541 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.639 AccTimeAvg=140.683
+---
+> L1miss=0.878 L2miss=0.639 AccTimeAvg=147.780
+tests/test542
+./cacheSim tests/test542.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test543
+./cacheSim tests/test543.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test544
+./cacheSim tests/test544.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test544 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.912 AccTimeAvg=163.268
+---
+> L1miss=0.805 L2miss=0.939 AccTimeAvg=161.829
+tests/test545
+./cacheSim tests/test545.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test546
+./cacheSim tests/test546.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test547
+./cacheSim tests/test547.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test548
+./cacheSim tests/test548.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test549
+./cacheSim tests/test549.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test54
+./cacheSim tests/test54.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test550
+./cacheSim tests/test550.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test551
+./cacheSim tests/test551.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test552
+./cacheSim tests/test552.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test553
+./cacheSim tests/test553.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test554
+./cacheSim tests/test554.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test555
+./cacheSim tests/test555.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test556
+./cacheSim tests/test556.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test556 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.667 AccTimeAvg=131.488
+---
+> L1miss=0.756 L2miss=0.613 AccTimeAvg=130.561
+tests/test557
+./cacheSim tests/test557.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test557 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.553 AccTimeAvg=138.780
+---
+> L1miss=0.927 L2miss=0.553 AccTimeAvg=145.878
+tests/test558
+./cacheSim tests/test558.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test558 didnt pass
+1c1
+< L1miss=0.439 L2miss=1.000 AccTimeAvg=109.488
+---
+> L1miss=0.463 L2miss=0.947 AccTimeAvg=110.927
+tests/test559
+./cacheSim tests/test559.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test55
+./cacheSim tests/test55.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test560
+./cacheSim tests/test560.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test561
+./cacheSim tests/test561.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test561 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.892 AccTimeAvg=173.122
+---
+> L1miss=0.878 L2miss=0.917 AccTimeAvg=171.683
+tests/test562
+./cacheSim tests/test562.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test563
+./cacheSim tests/test563.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test564
+./cacheSim tests/test564.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test564 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.676 AccTimeAvg=153.390
+---
+> L1miss=0.927 L2miss=0.658 AccTimeAvg=154.829
+tests/test565
+./cacheSim tests/test565.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test566
+./cacheSim tests/test566.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test567
+./cacheSim tests/test567.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test568
+./cacheSim tests/test568.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test569
+./cacheSim tests/test569.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test56
+./cacheSim tests/test56.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test570
+./cacheSim tests/test570.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test571
+./cacheSim tests/test571.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test572
+./cacheSim tests/test572.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test572 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.639 AccTimeAvg=147.220
+---
+> L1miss=0.878 L2miss=0.611 AccTimeAvg=144.854
+tests/test573
+./cacheSim tests/test573.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test573 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.486 AccTimeAvg=132.000
+---
+> L1miss=0.854 L2miss=0.571 AccTimeAvg=139.171
+tests/test574
+./cacheSim tests/test574.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test575
+./cacheSim tests/test575.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test576
+./cacheSim tests/test576.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test577
+./cacheSim tests/test577.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test578
+./cacheSim tests/test578.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test579
+./cacheSim tests/test579.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test57
+./cacheSim tests/test57.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test580
+./cacheSim tests/test580.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test580 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.833 AccTimeAvg=163.780
+---
+> L1miss=0.854 L2miss=0.857 AccTimeAvg=162.341
+tests/test581
+./cacheSim tests/test581.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test582
+./cacheSim tests/test582.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test583
+./cacheSim tests/test583.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test584
+./cacheSim tests/test584.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test584 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.588 AccTimeAvg=137.244
+---
+> L1miss=0.878 L2miss=0.556 AccTimeAvg=140.122
+tests/test585
+./cacheSim tests/test585.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test586
+./cacheSim tests/test586.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test587
+./cacheSim tests/test587.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test588
+./cacheSim tests/test588.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test589
+./cacheSim tests/test589.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test589 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.594 AccTimeAvg=132.463
+---
+> L1miss=0.805 L2miss=0.576 AccTimeAvg=133.902
+tests/test58
+./cacheSim tests/test58.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test590
+./cacheSim tests/test590.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test591
+./cacheSim tests/test591.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test592
+./cacheSim tests/test592.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test593
+./cacheSim tests/test593.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test594
+./cacheSim tests/test594.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test595
+./cacheSim tests/test595.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test596
+./cacheSim tests/test596.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test597
+./cacheSim tests/test597.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test598
+./cacheSim tests/test598.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test599
+./cacheSim tests/test599.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test59
+./cacheSim tests/test59.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test5
+./cacheSim tests/test5.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test600
+./cacheSim tests/test600.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test601
+./cacheSim tests/test601.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test602
+./cacheSim tests/test602.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test603
+./cacheSim tests/test603.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test604
+./cacheSim tests/test604.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test604 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.647 AccTimeAvg=141.976
+---
+> L1miss=0.780 L2miss=0.688 AccTimeAvg=139.098
+tests/test605
+./cacheSim tests/test605.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test605 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.571 AccTimeAvg=136.805
+---
+> L1miss=0.854 L2miss=0.543 AccTimeAvg=136.780
+tests/test606
+./cacheSim tests/test606.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test607
+./cacheSim tests/test607.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test608
+./cacheSim tests/test608.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test608 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.912 AccTimeAvg=163.268
+---
+> L1miss=0.805 L2miss=0.939 AccTimeAvg=161.829
+tests/test609
+./cacheSim tests/test609.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test609 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.933 AccTimeAvg=151.098
+---
+> L1miss=0.756 L2miss=0.903 AccTimeAvg=152.537
+tests/test60
+./cacheSim tests/test60.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test610
+./cacheSim tests/test610.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test611
+./cacheSim tests/test611.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test612
+./cacheSim tests/test612.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test612 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.694 AccTimeAvg=151.951
+---
+> L1miss=0.829 L2miss=0.735 AccTimeAvg=149.073
+tests/test613
+./cacheSim tests/test613.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test614
+./cacheSim tests/test614.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test615
+./cacheSim tests/test615.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test616
+./cacheSim tests/test616.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test617
+./cacheSim tests/test617.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test618
+./cacheSim tests/test618.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test619
+./cacheSim tests/test619.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test61
+./cacheSim tests/test61.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test61 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.559 AccTimeAvg=132.976
+---
+> L1miss=0.829 L2miss=0.559 AccTimeAvg=135.341
+tests/test620
+./cacheSim tests/test620.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test621
+./cacheSim tests/test621.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test622
+./cacheSim tests/test622.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test623
+./cacheSim tests/test623.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test623 didnt pass
+1c1
+< L1miss=0.512 L2miss=0.952 AccTimeAvg=119.024
+---
+> L1miss=0.537 L2miss=0.909 AccTimeAvg=120.463
+tests/test624
+./cacheSim tests/test624.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test624 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.919 AccTimeAvg=174.683
+---
+> L1miss=0.878 L2miss=0.944 AccTimeAvg=173.244
+tests/test625
+./cacheSim tests/test625.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test626
+./cacheSim tests/test626.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test627
+./cacheSim tests/test627.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test628
+./cacheSim tests/test628.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test628 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.857 AccTimeAvg=162.341
+---
+> L1miss=0.829 L2miss=0.882 AccTimeAvg=160.902
+tests/test629
+./cacheSim tests/test629.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test629 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=152.073
+---
+> L1miss=0.805 L2miss=0.788 AccTimeAvg=150.634
+tests/test62
+./cacheSim tests/test62.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test630
+./cacheSim tests/test630.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test631
+./cacheSim tests/test631.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test632
+./cacheSim tests/test632.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test633
+./cacheSim tests/test633.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test634
+./cacheSim tests/test634.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test635
+./cacheSim tests/test635.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test636
+./cacheSim tests/test636.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test637
+./cacheSim tests/test637.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test637 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.559 AccTimeAvg=130.610
+---
+> L1miss=0.854 L2miss=0.600 AccTimeAvg=141.561
+tests/test638
+./cacheSim tests/test638.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test639
+./cacheSim tests/test639.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test63
+./cacheSim tests/test63.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test640
+./cacheSim tests/test640.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test641
+./cacheSim tests/test641.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test642
+./cacheSim tests/test642.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test643
+./cacheSim tests/test643.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test644
+./cacheSim tests/test644.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test644 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.788 AccTimeAvg=150.000
+---
+> L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+tests/test645
+./cacheSim tests/test645.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test646
+./cacheSim tests/test646.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test647
+./cacheSim tests/test647.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test648
+./cacheSim tests/test648.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test649
+./cacheSim tests/test649.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test64
+./cacheSim tests/test64.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test64 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.941 AccTimeAvg=165.634
+---
+> L1miss=0.805 L2miss=0.970 AccTimeAvg=164.195
+tests/test650
+./cacheSim tests/test650.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test651
+./cacheSim tests/test651.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test652
+./cacheSim tests/test652.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test652 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.568 AccTimeAvg=143.927
+---
+> L1miss=0.878 L2miss=0.556 AccTimeAvg=140.122
+tests/test653
+./cacheSim tests/test653.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test653 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.613 AccTimeAvg=128.659
+---
+> L1miss=0.756 L2miss=0.613 AccTimeAvg=131.024
+tests/test654
+./cacheSim tests/test654.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test655
+./cacheSim tests/test655.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test656
+./cacheSim tests/test656.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test657
+./cacheSim tests/test657.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test658
+./cacheSim tests/test658.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test659
+./cacheSim tests/test659.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test65
+./cacheSim tests/test65.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test660
+./cacheSim tests/test660.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test660 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.697 AccTimeAvg=142.902
+---
+> L1miss=0.829 L2miss=0.676 AccTimeAvg=144.341
+tests/test661
+./cacheSim tests/test661.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test662
+./cacheSim tests/test662.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test663
+./cacheSim tests/test663.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test664
+./cacheSim tests/test664.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test664 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.710 AccTimeAvg=137.659
+---
+> L1miss=0.732 L2miss=0.733 AccTimeAvg=136.220
+tests/test665
+./cacheSim tests/test665.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test666
+./cacheSim tests/test666.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test667
+./cacheSim tests/test667.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test668
+./cacheSim tests/test668.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test669
+./cacheSim tests/test669.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test66
+./cacheSim tests/test66.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test670
+./cacheSim tests/test670.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test671
+./cacheSim tests/test671.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test671 didnt pass
+1c1
+< L1miss=0.439 L2miss=0.889 AccTimeAvg=105.146
+---
+> L1miss=0.415 L2miss=0.941 AccTimeAvg=103.707
+tests/test672
+./cacheSim tests/test672.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test673
+./cacheSim tests/test673.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test673 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.974 AccTimeAvg=184.122
+---
+> L1miss=0.951 L2miss=0.949 AccTimeAvg=185.561
+tests/test674
+./cacheSim tests/test674.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test675
+./cacheSim tests/test675.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test676
+./cacheSim tests/test676.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test677
+./cacheSim tests/test677.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test678
+./cacheSim tests/test678.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test679
+./cacheSim tests/test679.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test67
+./cacheSim tests/test67.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test680
+./cacheSim tests/test680.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test681
+./cacheSim tests/test681.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test682
+./cacheSim tests/test682.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test683
+./cacheSim tests/test683.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test684
+./cacheSim tests/test684.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test685
+./cacheSim tests/test685.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test686
+./cacheSim tests/test686.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test687
+./cacheSim tests/test687.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test688
+./cacheSim tests/test688.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test689
+./cacheSim tests/test689.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test689 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.935 AccTimeAvg=154.927
+---
+> L1miss=0.780 L2miss=0.906 AccTimeAvg=156.366
+tests/test68
+./cacheSim tests/test68.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test690
+./cacheSim tests/test690.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test691
+./cacheSim tests/test691.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test692
+./cacheSim tests/test692.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test693
+./cacheSim tests/test693.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test694
+./cacheSim tests/test694.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test695
+./cacheSim tests/test695.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test696
+./cacheSim tests/test696.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test696 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.771 AccTimeAvg=155.244
+---
+> L1miss=0.854 L2miss=0.829 AccTimeAvg=159.976
+tests/test697
+./cacheSim tests/test697.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test698
+./cacheSim tests/test698.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test699
+./cacheSim tests/test699.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test69
+./cacheSim tests/test69.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test69 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.703 AccTimeAvg=156.390
+---
+> L1miss=0.878 L2miss=0.722 AccTimeAvg=154.951
+tests/test6
+./cacheSim tests/test6.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test700
+./cacheSim tests/test700.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test701
+./cacheSim tests/test701.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test701 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.562 AccTimeAvg=127.707
+---
+> L1miss=0.780 L2miss=0.562 AccTimeAvg=130.073
+tests/test702
+./cacheSim tests/test702.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test702 didnt pass
+1c1
+< L1miss=0.463 L2miss=0.895 AccTimeAvg=108.561
+---
+> L1miss=0.439 L2miss=0.944 AccTimeAvg=107.122
+tests/test703
+./cacheSim tests/test703.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test704
+./cacheSim tests/test704.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test705
+./cacheSim tests/test705.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test706
+./cacheSim tests/test706.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test707
+./cacheSim tests/test707.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test708
+./cacheSim tests/test708.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test708 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+---
+> L1miss=0.780 L2miss=0.812 AccTimeAvg=148.561
+tests/test709
+./cacheSim tests/test709.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test709 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.758 AccTimeAvg=148.244
+---
+> L1miss=0.780 L2miss=0.781 AccTimeAvg=146.805
+tests/test70
+./cacheSim tests/test70.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test710
+./cacheSim tests/test710.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test711
+./cacheSim tests/test711.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test712
+./cacheSim tests/test712.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test713
+./cacheSim tests/test713.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test714
+./cacheSim tests/test714.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test715
+./cacheSim tests/test715.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test716
+./cacheSim tests/test716.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test716 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.531 AccTimeAvg=127.268
+---
+> L1miss=0.805 L2miss=0.545 AccTimeAvg=131.073
+tests/test717
+./cacheSim tests/test717.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test717 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.568 AccTimeAvg=139.707
+---
+> L1miss=0.902 L2miss=0.595 AccTimeAvg=146.829
+tests/test718
+./cacheSim tests/test718.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test718 didnt pass
+1c1
+< L1miss=0.463 L2miss=0.895 AccTimeAvg=108.561
+---
+> L1miss=0.488 L2miss=0.850 AccTimeAvg=110.000
+tests/test719
+./cacheSim tests/test719.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test719 didnt pass
+1c1
+< L1miss=0.463 L2miss=0.842 AccTimeAvg=106.585
+---
+> L1miss=0.439 L2miss=0.889 AccTimeAvg=105.146
+tests/test71
+./cacheSim tests/test71.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test720
+./cacheSim tests/test720.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test721
+./cacheSim tests/test721.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test721 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.941 AccTimeAvg=166.415
+---
+> L1miss=0.854 L2miss=0.914 AccTimeAvg=167.854
+tests/test722
+./cacheSim tests/test722.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test723
+./cacheSim tests/test723.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test724
+./cacheSim tests/test724.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test725
+./cacheSim tests/test725.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test725 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.706 AccTimeAvg=147.293
+---
+> L1miss=0.854 L2miss=0.686 AccTimeAvg=148.732
+tests/test726
+./cacheSim tests/test726.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test727
+./cacheSim tests/test727.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test728
+./cacheSim tests/test728.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test729
+./cacheSim tests/test729.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test72
+./cacheSim tests/test72.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test730
+./cacheSim tests/test730.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test731
+./cacheSim tests/test731.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test732
+./cacheSim tests/test732.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test733
+./cacheSim tests/test733.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test733 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.571 AccTimeAvg=132.073
+---
+> L1miss=0.854 L2miss=0.571 AccTimeAvg=139.171
+tests/test734
+./cacheSim tests/test734.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test735
+./cacheSim tests/test735.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test736
+./cacheSim tests/test736.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test737
+./cacheSim tests/test737.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test738
+./cacheSim tests/test738.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test739
+./cacheSim tests/test739.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test73
+./cacheSim tests/test73.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test73 didnt pass
+1c1
+< L1miss=0.683 L2miss=0.893 AccTimeAvg=141.049
+---
+> L1miss=0.707 L2miss=0.862 AccTimeAvg=142.488
+tests/test740
+./cacheSim tests/test740.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test741
+./cacheSim tests/test741.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test741 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.714 AccTimeAvg=151.122
+---
+> L1miss=0.878 L2miss=0.694 AccTimeAvg=152.561
+tests/test742
+./cacheSim tests/test742.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test743
+./cacheSim tests/test743.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test744
+./cacheSim tests/test744.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test745
+./cacheSim tests/test745.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test746
+./cacheSim tests/test746.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test747
+./cacheSim tests/test747.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test748
+./cacheSim tests/test748.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test748 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.667 AccTimeAvg=131.488
+---
+> L1miss=0.756 L2miss=0.645 AccTimeAvg=132.927
+tests/test749
+./cacheSim tests/test749.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test74
+./cacheSim tests/test74.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test750
+./cacheSim tests/test750.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test751
+./cacheSim tests/test751.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test752
+./cacheSim tests/test752.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test752 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.914 AccTimeAvg=167.073
+---
+> L1miss=0.829 L2miss=0.941 AccTimeAvg=165.634
+tests/test753
+./cacheSim tests/test753.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test754
+./cacheSim tests/test754.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test755
+./cacheSim tests/test755.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test756
+./cacheSim tests/test756.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test756 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.735 AccTimeAvg=149.073
+---
+> L1miss=0.854 L2miss=0.714 AccTimeAvg=150.512
+tests/test757
+./cacheSim tests/test757.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test757 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.694 AccTimeAvg=152.561
+---
+> L1miss=0.854 L2miss=0.714 AccTimeAvg=151.122
+tests/test758
+./cacheSim tests/test758.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test759
+./cacheSim tests/test759.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test75
+./cacheSim tests/test75.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test760
+./cacheSim tests/test760.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test761
+./cacheSim tests/test761.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test762
+./cacheSim tests/test762.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test763
+./cacheSim tests/test763.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test764
+./cacheSim tests/test764.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test764 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.613 AccTimeAvg=130.561
+---
+> L1miss=0.780 L2miss=0.594 AccTimeAvg=132.000
+tests/test765
+./cacheSim tests/test765.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test765 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.571 AccTimeAvg=134.439
+---
+> L1miss=0.854 L2miss=0.571 AccTimeAvg=139.171
+tests/test766
+./cacheSim tests/test766.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test766 didnt pass
+1c1
+< L1miss=0.512 L2miss=0.952 AccTimeAvg=118.537
+---
+> L1miss=0.537 L2miss=0.909 AccTimeAvg=119.976
+tests/test767
+./cacheSim tests/test767.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test768
+./cacheSim tests/test768.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test769
+./cacheSim tests/test769.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test76
+./cacheSim tests/test76.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test770
+./cacheSim tests/test770.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test771
+./cacheSim tests/test771.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test772
+./cacheSim tests/test772.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test773
+./cacheSim tests/test773.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test773 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.742 AccTimeAvg=140.585
+---
+> L1miss=0.732 L2miss=0.767 AccTimeAvg=139.146
+tests/test774
+./cacheSim tests/test774.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test775
+./cacheSim tests/test775.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test776
+./cacheSim tests/test776.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test776 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.771 AccTimeAvg=155.244
+---
+> L1miss=0.902 L2miss=0.730 AccTimeAvg=158.122
+tests/test777
+./cacheSim tests/test777.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test778
+./cacheSim tests/test778.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test779
+./cacheSim tests/test779.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test77
+./cacheSim tests/test77.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test780
+./cacheSim tests/test780.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test780 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.471 AccTimeAvg=127.780
+---
+> L1miss=0.805 L2miss=0.485 AccTimeAvg=126.341
+tests/test781
+./cacheSim tests/test781.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test781 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.600 AccTimeAvg=139.195
+---
+> L1miss=0.854 L2miss=0.629 AccTimeAvg=143.951
+tests/test782
+./cacheSim tests/test782.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test782 didnt pass
+1c1
+< L1miss=0.488 L2miss=0.900 AccTimeAvg=112.366
+---
+> L1miss=0.463 L2miss=0.947 AccTimeAvg=110.927
+tests/test783
+./cacheSim tests/test783.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test783 didnt pass
+1c1
+< L1miss=0.415 L2miss=0.941 AccTimeAvg=103.707
+---
+> L1miss=0.439 L2miss=0.889 AccTimeAvg=105.146
+tests/test784
+./cacheSim tests/test784.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test785
+./cacheSim tests/test785.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test786
+./cacheSim tests/test786.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test787
+./cacheSim tests/test787.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test788
+./cacheSim tests/test788.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test789
+./cacheSim tests/test789.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test78
+./cacheSim tests/test78.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test790
+./cacheSim tests/test790.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test791
+./cacheSim tests/test791.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test792
+./cacheSim tests/test792.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test793
+./cacheSim tests/test793.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test793 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.750 AccTimeAvg=157.341
+---
+> L1miss=0.902 L2miss=0.730 AccTimeAvg=158.780
+tests/test794
+./cacheSim tests/test794.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test795
+./cacheSim tests/test795.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test796
+./cacheSim tests/test796.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test797
+./cacheSim tests/test797.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test797 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.533 AccTimeAvg=122.415
+---
+> L1miss=0.756 L2miss=0.516 AccTimeAvg=123.854
+tests/test798
+./cacheSim tests/test798.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test799
+./cacheSim tests/test799.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test79
+./cacheSim tests/test79.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test7
+./cacheSim tests/test7.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test800
+./cacheSim tests/test800.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test801
+./cacheSim tests/test801.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test801 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.946 AccTimeAvg=177.902
+---
+> L1miss=0.927 L2miss=0.921 AccTimeAvg=179.341
+tests/test802
+./cacheSim tests/test802.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test803
+./cacheSim tests/test803.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test804
+./cacheSim tests/test804.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test804 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.818 AccTimeAvg=152.366
+---
+> L1miss=0.829 L2miss=0.794 AccTimeAvg=153.805
+tests/test805
+./cacheSim tests/test805.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test805 didnt pass
+1c1
+< L1miss=0.683 L2miss=0.786 AccTimeAvg=133.878
+---
+> L1miss=0.707 L2miss=0.759 AccTimeAvg=135.317
+tests/test806
+./cacheSim tests/test806.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test807
+./cacheSim tests/test807.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test808
+./cacheSim tests/test808.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test808 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.765 AccTimeAvg=151.439
+---
+> L1miss=0.854 L2miss=0.714 AccTimeAvg=150.512
+tests/test809
+./cacheSim tests/test809.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test80
+./cacheSim tests/test80.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test810
+./cacheSim tests/test810.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test810 didnt pass
+1c1
+< L1miss=0.610 L2miss=0.960 AccTimeAvg=133.756
+---
+> L1miss=0.585 L2miss=1.000 AccTimeAvg=132.317
+tests/test811
+./cacheSim tests/test811.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test812
+./cacheSim tests/test812.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test812 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.677 AccTimeAvg=135.293
+---
+> L1miss=0.756 L2miss=0.710 AccTimeAvg=137.659
+tests/test813
+./cacheSim tests/test813.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test813 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.625 AccTimeAvg=130.122
+---
+> L1miss=0.805 L2miss=0.576 AccTimeAvg=133.902
+tests/test814
+./cacheSim tests/test814.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test815
+./cacheSim tests/test815.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test815 didnt pass
+1c1
+< L1miss=0.512 L2miss=0.952 AccTimeAvg=119.024
+---
+> L1miss=0.537 L2miss=0.909 AccTimeAvg=120.463
+tests/test816
+./cacheSim tests/test816.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test816 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.971 AccTimeAvg=168.000
+---
+> L1miss=0.854 L2miss=0.943 AccTimeAvg=169.439
+tests/test817
+./cacheSim tests/test817.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test818
+./cacheSim tests/test818.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test819
+./cacheSim tests/test819.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test81
+./cacheSim tests/test81.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test820
+./cacheSim tests/test820.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test821
+./cacheSim tests/test821.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test822
+./cacheSim tests/test822.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test823
+./cacheSim tests/test823.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test824
+./cacheSim tests/test824.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test825
+./cacheSim tests/test825.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test826
+./cacheSim tests/test826.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test827
+./cacheSim tests/test827.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test828
+./cacheSim tests/test828.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test829
+./cacheSim tests/test829.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test829 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.636 AccTimeAvg=136.317
+---
+> L1miss=0.829 L2miss=0.618 AccTimeAvg=140.122
+tests/test82
+./cacheSim tests/test82.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test830
+./cacheSim tests/test830.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test831
+./cacheSim tests/test831.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test832
+./cacheSim tests/test832.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test833
+./cacheSim tests/test833.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test834
+./cacheSim tests/test834.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test835
+./cacheSim tests/test835.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test836
+./cacheSim tests/test836.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test836 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.694 AccTimeAvg=151.951
+---
+> L1miss=0.854 L2miss=0.714 AccTimeAvg=150.512
+tests/test837
+./cacheSim tests/test837.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test837 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.757 AccTimeAvg=161.171
+---
+> L1miss=0.878 L2miss=0.778 AccTimeAvg=159.732
+tests/test838
+./cacheSim tests/test838.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test839
+./cacheSim tests/test839.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test83
+./cacheSim tests/test83.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test840
+./cacheSim tests/test840.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test840 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.742 AccTimeAvg=140.024
+---
+> L1miss=0.780 L2miss=0.719 AccTimeAvg=141.463
+tests/test841
+./cacheSim tests/test841.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test842
+./cacheSim tests/test842.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test843
+./cacheSim tests/test843.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test844
+./cacheSim tests/test844.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test845
+./cacheSim tests/test845.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test846
+./cacheSim tests/test846.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test847
+./cacheSim tests/test847.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test847 didnt pass
+1c1
+< L1miss=0.463 L2miss=1.000 AccTimeAvg=113.756
+---
+> L1miss=0.488 L2miss=0.950 AccTimeAvg=115.195
+tests/test848
+./cacheSim tests/test848.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test849
+./cacheSim tests/test849.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test84
+./cacheSim tests/test84.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test850
+./cacheSim tests/test850.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test851
+./cacheSim tests/test851.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test852
+./cacheSim tests/test852.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test852 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.742 AccTimeAvg=140.024
+---
+> L1miss=0.805 L2miss=0.697 AccTimeAvg=142.902
+tests/test853
+./cacheSim tests/test853.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test854
+./cacheSim tests/test854.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test855
+./cacheSim tests/test855.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test856
+./cacheSim tests/test856.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test857
+./cacheSim tests/test857.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test858
+./cacheSim tests/test858.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test859
+./cacheSim tests/test859.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test85
+./cacheSim tests/test85.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test85 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.743 AccTimeAvg=153.512
+---
+> L1miss=0.829 L2miss=0.765 AccTimeAvg=152.073
+tests/test860
+./cacheSim tests/test860.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test860 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.562 AccTimeAvg=129.634
+---
+> L1miss=0.780 L2miss=0.531 AccTimeAvg=127.268
+tests/test861
+./cacheSim tests/test861.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test861 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.543 AccTimeAvg=134.415
+---
+> L1miss=0.854 L2miss=0.543 AccTimeAvg=136.780
+tests/test862
+./cacheSim tests/test862.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test863
+./cacheSim tests/test863.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test864
+./cacheSim tests/test864.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test865
+./cacheSim tests/test865.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test866
+./cacheSim tests/test866.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test867
+./cacheSim tests/test867.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test868
+./cacheSim tests/test868.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test869
+./cacheSim tests/test869.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test869 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.771 AccTimeAvg=155.902
+---
+> L1miss=0.878 L2miss=0.750 AccTimeAvg=157.341
+tests/test86
+./cacheSim tests/test86.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test870
+./cacheSim tests/test870.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test871
+./cacheSim tests/test871.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test872
+./cacheSim tests/test872.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test872 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.595 AccTimeAvg=146.293
+---
+> L1miss=0.902 L2miss=0.622 AccTimeAvg=148.659
+tests/test873
+./cacheSim tests/test873.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test874
+./cacheSim tests/test874.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test875
+./cacheSim tests/test875.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test876
+./cacheSim tests/test876.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test876 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.629 AccTimeAvg=143.415
+---
+> L1miss=0.854 L2miss=0.600 AccTimeAvg=141.049
+tests/test877
+./cacheSim tests/test877.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test878
+./cacheSim tests/test878.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test879
+./cacheSim tests/test879.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test87
+./cacheSim tests/test87.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test880
+./cacheSim tests/test880.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test880 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.833 AccTimeAvg=163.780
+---
+> L1miss=0.854 L2miss=0.857 AccTimeAvg=162.341
+tests/test881
+./cacheSim tests/test881.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test882
+./cacheSim tests/test882.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test883
+./cacheSim tests/test883.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test884
+./cacheSim tests/test884.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test884 didnt pass
+1c1
+< L1miss=0.902 L2miss=0.676 AccTimeAvg=153.390
+---
+> L1miss=0.829 L2miss=0.735 AccTimeAvg=149.073
+tests/test885
+./cacheSim tests/test885.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test886
+./cacheSim tests/test886.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test887
+./cacheSim tests/test887.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test888
+./cacheSim tests/test888.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test889
+./cacheSim tests/test889.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test88
+./cacheSim tests/test88.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test890
+./cacheSim tests/test890.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test891
+./cacheSim tests/test891.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test892
+./cacheSim tests/test892.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test892 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.667 AccTimeAvg=140.537
+---
+> L1miss=0.829 L2miss=0.647 AccTimeAvg=141.976
+tests/test893
+./cacheSim tests/test893.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test893 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.583 AccTimeAvg=138.268
+---
+> L1miss=0.878 L2miss=0.583 AccTimeAvg=143.000
+tests/test894
+./cacheSim tests/test894.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test895
+./cacheSim tests/test895.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test896
+./cacheSim tests/test896.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test897
+./cacheSim tests/test897.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test898
+./cacheSim tests/test898.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test899
+./cacheSim tests/test899.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test89
+./cacheSim tests/test89.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test8
+./cacheSim tests/test8.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test8 didnt pass
+1c1
+< L1miss=0.927 L2miss=0.579 AccTimeAvg=147.732
+---
+> L1miss=0.854 L2miss=0.657 AccTimeAvg=145.780
+tests/test900
+./cacheSim tests/test900.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test901
+./cacheSim tests/test901.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test902
+./cacheSim tests/test902.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test903
+./cacheSim tests/test903.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test904
+./cacheSim tests/test904.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test905
+./cacheSim tests/test905.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test906
+./cacheSim tests/test906.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test907
+./cacheSim tests/test907.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test908
+./cacheSim tests/test908.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test909
+./cacheSim tests/test909.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test909 didnt pass
+1c1
+< L1miss=0.854 L2miss=0.571 AccTimeAvg=136.805
+---
+> L1miss=0.854 L2miss=0.571 AccTimeAvg=139.171
+tests/test90
+./cacheSim tests/test90.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test910
+./cacheSim tests/test910.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test910 didnt pass
+1c1
+< L1miss=0.439 L2miss=0.944 AccTimeAvg=107.122
+---
+> L1miss=0.415 L2miss=1.000 AccTimeAvg=105.683
+tests/test911
+./cacheSim tests/test911.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test912
+./cacheSim tests/test912.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test912 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.912 AccTimeAvg=163.268
+---
+> L1miss=0.854 L2miss=0.886 AccTimeAvg=164.707
+tests/test913
+./cacheSim tests/test913.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test913 didnt pass
+1c1
+< L1miss=0.829 L2miss=1.000 AccTimeAvg=171.195
+---
+> L1miss=0.854 L2miss=0.971 AccTimeAvg=172.634
+tests/test914
+./cacheSim tests/test914.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test915
+./cacheSim tests/test915.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test916
+./cacheSim tests/test916.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test917
+./cacheSim tests/test917.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test917 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.750 AccTimeAvg=144.415
+---
+> L1miss=0.829 L2miss=0.706 AccTimeAvg=147.293
+tests/test918
+./cacheSim tests/test918.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test919
+./cacheSim tests/test919.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test91
+./cacheSim tests/test91.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test920
+./cacheSim tests/test920.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test921
+./cacheSim tests/test921.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test922
+./cacheSim tests/test922.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test923
+./cacheSim tests/test923.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test924
+./cacheSim tests/test924.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test924 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.606 AccTimeAvg=135.805
+---
+> L1miss=0.805 L2miss=0.636 AccTimeAvg=138.171
+tests/test925
+./cacheSim tests/test925.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test925 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.697 AccTimeAvg=136.366
+---
+> L1miss=0.805 L2miss=0.697 AccTimeAvg=143.463
+tests/test926
+./cacheSim tests/test926.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test927
+./cacheSim tests/test927.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1The test tests/test927 didnt pass
+1c1
+< L1miss=0.561 L2miss=0.870 AccTimeAvg=121.902
+---
+> L1miss=0.537 L2miss=0.909 AccTimeAvg=120.463
+tests/test928
+./cacheSim tests/test928.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test929
+./cacheSim tests/test929.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test92
+./cacheSim tests/test92.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test92 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.677 AccTimeAvg=135.293
+---
+> L1miss=0.780 L2miss=0.656 AccTimeAvg=136.732
+tests/test930
+./cacheSim tests/test930.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test931
+./cacheSim tests/test931.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test932
+./cacheSim tests/test932.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test932 didnt pass
+1c1
+< L1miss=0.756 L2miss=0.806 AccTimeAvg=144.756
+---
+> L1miss=0.732 L2miss=0.833 AccTimeAvg=143.317
+tests/test933
+./cacheSim tests/test933.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test933 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.788 AccTimeAvg=150.634
+---
+> L1miss=0.829 L2miss=0.765 AccTimeAvg=152.073
+tests/test934
+./cacheSim tests/test934.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test935
+./cacheSim tests/test935.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test936
+./cacheSim tests/test936.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test937
+./cacheSim tests/test937.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1tests/test938
+./cacheSim tests/test938.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test939
+./cacheSim tests/test939.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test93
+./cacheSim tests/test93.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test93 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.667 AccTimeAvg=129.244
+---
+> L1miss=0.805 L2miss=0.697 AccTimeAvg=143.463
+tests/test940
+./cacheSim tests/test940.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0The test tests/test940 didnt pass
+1c1
+< L1miss=0.780 L2miss=0.500 AccTimeAvg=124.902
+---
+> L1miss=0.756 L2miss=0.516 AccTimeAvg=123.463
+tests/test941
+./cacheSim tests/test941.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test941 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.676 AccTimeAvg=135.439
+---
+> L1miss=0.829 L2miss=0.676 AccTimeAvg=144.902
+tests/test942
+./cacheSim tests/test942.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0The test tests/test942 didnt pass
+1c1
+< L1miss=0.488 L2miss=0.900 AccTimeAvg=112.366
+---
+> L1miss=0.463 L2miss=0.947 AccTimeAvg=110.927
+tests/test943
+./cacheSim tests/test943.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test944
+./cacheSim tests/test944.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test945
+./cacheSim tests/test945.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1The test tests/test945 didnt pass
+1c1
+< L1miss=0.780 L2miss=1.000 AccTimeAvg=163.537
+---
+> L1miss=0.805 L2miss=0.970 AccTimeAvg=164.976
+tests/test946
+./cacheSim tests/test946.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test947
+./cacheSim tests/test947.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test948
+./cacheSim tests/test948.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0The test tests/test948 didnt pass
+1c1
+< L1miss=0.732 L2miss=0.800 AccTimeAvg=140.951
+---
+> L1miss=0.756 L2miss=0.774 AccTimeAvg=142.390
+tests/test949
+./cacheSim tests/test949.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test94
+./cacheSim tests/test94.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test950
+./cacheSim tests/test950.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test951
+./cacheSim tests/test951.in --mem-cyc 97 --bsize 2 --wr-alloc 1 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test952
+./cacheSim tests/test952.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test953
+./cacheSim tests/test953.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test953 didnt pass
+1c1
+< L1miss=0.829 L2miss=0.676 AccTimeAvg=144.902
+---
+> L1miss=0.854 L2miss=0.657 AccTimeAvg=146.341
+tests/test954
+./cacheSim tests/test954.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test955
+./cacheSim tests/test955.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test956
+./cacheSim tests/test956.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 0tests/test957
+./cacheSim tests/test957.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test957 didnt pass
+1c1
+< L1miss=0.878 L2miss=0.528 AccTimeAvg=135.854
+---
+> L1miss=0.878 L2miss=0.528 AccTimeAvg=138.220
+tests/test958
+./cacheSim tests/test958.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 0tests/test959
+./cacheSim tests/test959.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test95
+./cacheSim tests/test95.in --mem-cyc 97 --bsize 3 --wr-alloc 1 --l1-size 7 --l1-assoc 3 --l1-cyc 41 --l2-size 9 --l2-assoc 5 --l2-cyc 59 --vic-cache 1tests/test96
+./cacheSim tests/test96.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 0tests/test97
+./cacheSim tests/test97.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 5 --l1-assoc 2 --l1-cyc 41 --l2-size 7 --l2-assoc 4 --l2-cyc 59 --vic-cache 1tests/test98
+./cacheSim tests/test98.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 0tests/test99
+./cacheSim tests/test99.in --mem-cyc 97 --bsize 2 --wr-alloc 0 --l1-size 7 --l1-assoc 4 --l1-cyc 41 --l2-size 9 --l2-assoc 6 --l2-cyc 59 --vic-cache 1tests/test9
+./cacheSim tests/test9.in --mem-cyc 97 --bsize 3 --wr-alloc 0 --l1-size 5 --l1-assoc 1 --l1-cyc 41 --l2-size 7 --l2-assoc 3 --l2-cyc 59 --vic-cache 1The test tests/test9 didnt pass
+1c1
+< L1miss=0.805 L2miss=0.758 AccTimeAvg=148.244
+---
+> L1miss=0.780 L2miss=0.781 AccTimeAvg=146.805
+
+Ran all tests.

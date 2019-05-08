@@ -13,7 +13,7 @@ L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsign
 
 //ReadLine: searches for line according to address, if not found seeks from victim cache if it exists and adds line to L2
 void L2::ReadLine(uint32_t address) {
-	uint32_t tag = (address >> cache_size_);
+	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 
 	try {
 		getLine(address);
@@ -45,7 +45,7 @@ void L2::ReadLine(uint32_t address) {
 }
 
 void L2::WriteLine(uint32_t address){
-    uint32_t tag = (address >> cache_size_);
+    uint32_t tag = (address >> (cache_size_ - cache_assoc_));
     CacheLine *currLine;
     try {
         currLine = getLine(address);
@@ -86,7 +86,7 @@ void L2::WriteLine(uint32_t address){
 
 void L2::AddLine(uint32_t address, CacheLine nwLine) {
 
-	int set = ((address % (1 << cache_size_)) >> BSize_);
+	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
@@ -96,7 +96,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
         currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish //TODO: here we do not need to check in L1 for eviction
 //            *currLine = nwLine;
-	        *currLine = CacheLine(address >> (cache_size_));
+	        *currLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //            currLine->UpdateTime();
 	        currLine->time_counter = 0;
             return;
@@ -112,7 +112,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     //could not find an available line- need to evict LRU to Victim/Mem:
     //Check if LatestLine is in L1- if so, evict it:
     try{
-	    uint32_t LatestLine_address = (LatestLine->getTag() << cache_size_) + (set << BSize_);
+	    uint32_t LatestLine_address = (LatestLine->getTag() << (cache_size_ - cache_assoc_)) + (set << BSize_);
         CacheLine* L1Evict = pL1_->getLine(LatestLine_address);
         if(L1Evict->isDirty()){ //snoop:if LatestLine was dirty in L1, write back to L2 before invalidation
             LatestLine->markDirty();
@@ -132,7 +132,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
 
     //finally, write new line over evicted line
     //*LatestLine=nwLine;
-	*LatestLine = CacheLine(address >> (cache_size_));
+	*LatestLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //    LatestLine->UpdateTime();
 	LatestLine->time_counter = 0;
 }
@@ -142,7 +142,7 @@ double L2::GetAvgTime() const {
 	time += AccessNum_ * cache_cyc_;
 	if(use_victim_cache == USE_VICTIM_CACHE) {
 		time += victimCache.getAccessNum();
-		time += mem_cycle_ * (victimCache.getMissNum() - wr_access_num);
+		time += mem_cycle_ * (victimCache.getMissNum());
 	} else {
 		time += mem_cycle_ * MissNum_;
 	}

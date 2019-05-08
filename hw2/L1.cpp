@@ -14,7 +14,7 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
 void L1::ReadLine(uint32_t address) {
-	uint32_t tag = (address >> cache_size_);
+	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 
 	try {
 		getLine(address);
@@ -35,7 +35,7 @@ void L1::ReadLine(uint32_t address) {
 //WriteLine: Searches for the line according to address, if found marks dirty, if not then writes to L2 and if we are
 // using WRITE_ALLOCATE then also writes the line in the L1.
 void L1::WriteLine(uint32_t address){
-	long int tag = (address >> cache_size_);
+	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 	CacheLine *currLine;
 
 	try {
@@ -53,7 +53,12 @@ void L1::WriteLine(uint32_t address){
 
 			AddLine(address,CacheLine(tag));
 			//need to get line again to update
-			currLine = getLine(address);
+			try {
+				currLine = getLine(address);
+			}
+			catch(LINE_NOT_FOUND_EXCEPTION) {
+				std::cout << "error" << std::endl;
+			}
 			currLine->markDirty();
 		} else {
 			wr_access_num++;
@@ -64,7 +69,7 @@ void L1::WriteLine(uint32_t address){
 
 //adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with nwLine
 void L1::AddLine(uint32_t address, CacheLine nwLine) {
-	int set = ((address % (1 << cache_size_)) >> BSize_);
+	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
@@ -72,7 +77,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine = &cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
-            *currLine = CacheLine(address >> cache_size_);
+            *currLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //	        currLine->UpdateTime();
 	        currLine->time_counter = 0;
             return;
@@ -91,7 +96,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     //if line to be evicted is dirty, mark it dirty and update time in L2 (Write Back + per instructions in forum)
     if(LatestLine->isDirty()){
         try{
-	        uint32_t LatestLine_address = (LatestLine->getTag() << cache_size_) + (set << BSize_);
+	        uint32_t LatestLine_address = (LatestLine->getTag() << (cache_size_ - cache_assoc_)) + (set << BSize_);
 	        //DEBUG
 	        //std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
@@ -107,7 +112,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     }
 
     //write new line to evicted' place
-    *LatestLine = CacheLine(address >> cache_size_);
+    *LatestLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //	LatestLine->UpdateTime();
 	LatestLine->time_counter = 0;
 }

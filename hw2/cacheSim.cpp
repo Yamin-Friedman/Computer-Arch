@@ -79,18 +79,18 @@ int main(int argc, char *argv[]) {
 		}
 
 		// DEBUG - remove this line
-		//cout << "operation: " << operation;
+//		cout << "operation: " << operation;
 
 		string cutAddress = address.substr(2); // Removing the "0x" part of the address
 
 		// DEBUG - remove this line
-		//cout << ", address (hex)" << cutAddress;
+//		cout << ", address (hex)" << cutAddress;
 
 		unsigned long int num = 0;
 		num = strtoul(cutAddress.c_str(), NULL, 16);
 
 		// DEBUG - remove this line
-		//cout << " (dec) " << num << endl;
+//		cout << " (dec) " << num << endl;
 
 		if (operation == 'r') {
 			L1_.ReadLine(num);
@@ -102,8 +102,8 @@ int main(int argc, char *argv[]) {
 	}
 
 	//TODO: below cancled for debug, make sure to return when ready
-	printf("L1miss=%.03f \n", L1_.GetMissRate());
-	printf("L2miss=%.03f \n", L1_.GetL2MissRate());
+	printf("L1miss=%.03f ", L1_.GetMissRate());
+	printf("L2miss=%.03f ", L1_.GetL2MissRate());
 	printf("AccTimeAvg=%.03f\n", L1_.GetAvgTime());
 
 	return 0;
