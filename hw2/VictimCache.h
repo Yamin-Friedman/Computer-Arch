@@ -16,7 +16,6 @@ public:
 	VictimCache(unsigned int wr_type_):wr_type(wr_type_){access_num=0;miss_num=0;};
 	~VictimCache(){};
 	CacheLine* getLine(uint32_t address);
-    CacheLine* get_and_remove_Line(uint32_t address);
 	void addLine(uint32_t address);
 	void addLine(CacheLine nwLine);
 	void addLine(int );

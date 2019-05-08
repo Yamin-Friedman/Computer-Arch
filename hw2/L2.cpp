@@ -16,20 +16,18 @@ void L2::ReadLine(uint32_t address) {
 	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 
 	try {
-		//getLine(address); //OMER
-		CacheLine* currLine = getLine(address); //OMER
-		currLine->time_counter=0; //OMER
+		getLine(address);
 		//DEBUG
-		std::cout << "L2 Hit" << std::endl;
+		//std::cout << "L2 Hit" << std::endl;
 
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
 		//DEBUG
-		std::cout << "L2 miss" << std::endl;
+		//std::cout << "L2 miss" << std::endl;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
-			    victimCache.get_and_remove_Line(address);
+			    victimCache.getLine(address);
 			    AddLine(address,CacheLine(tag));
 
 
@@ -51,25 +49,23 @@ void L2::WriteLine(uint32_t address){
     CacheLine *currLine;
     try {
         currLine = getLine(address);
-        currLine->time_counter=0; //OMER
         if(wr_type == NO_WRITE_ALLOCATE){
             currLine->markDirty();
         }
 	    //DEBUG
-	    std::cout << "L2 hit" << std::endl;
+	    //std::cout << "L2 hit" << std::endl;
 
     }
     catch (LINE_NOT_FOUND_EXCEPTION) {
         MissNum_++;
 		//DEBUG
-	    std::cout << "L2 miss" << std::endl;
+	    //std::cout << "L2 miss" << std::endl;
 
         if (wr_type == WRITE_ALLOCATE) {
             //must bring line to L2 (but not update as dirty)
             if (use_victim_cache == USE_VICTIM_CACHE) {
                 try {
-                    //CacheLine *VictimLine = victimCache.getLine(address); //OMER
-                    CacheLine *VictimLine = victimCache.get_and_remove_Line(address);
+                    CacheLine *VictimLine = victimCache.getLine(address);
                     AddLine(address, *VictimLine);
                 }
                 catch (LINE_NOT_FOUND_EXCEPTION) {
@@ -118,11 +114,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
     try{
 	    uint32_t LatestLine_address = (LatestLine->getTag() << (cache_size_ - cache_assoc_)) + (set << BSize_);
         CacheLine* L1Evict = pL1_->getLine(LatestLine_address);
-        printf("reached getline 2\n"); //DEBUG
-        std::cout<<"will evict from L2, invalidate in L1: "<<L1Evict->getTag()<<std::endl; //DEBUG
         if(L1Evict->isDirty()){ //snoop:if LatestLine was dirty in L1, write back to L2 before invalidation
             LatestLine->markDirty();
-            LatestLine->time_counter=0; //OMER //NOT SURE
         }
         L1Evict->ChangeValid(false);
         //DEBUG

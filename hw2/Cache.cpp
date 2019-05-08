@@ -29,12 +29,12 @@ CacheLine* Cache::getLine(uint32_t address) {
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
 	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
     //DEBUG
-    std::cout<<"looking for tag: "<<tag<<std::endl;
+    //std::cout<<"looking for tag: "<<tag<<std::endl;
 
-	std::cout << "address:" << address;
-	std::cout << " tag:" << tag;
-	std::cout << " preset: " << (address % (1 << cache_size_));
-	std::cout << " set: " << set << std::endl;
+//	std::cout << "address:" << address << std::endl;
+//	std::cout << "tag:" << tag << std::endl;
+//	std::cout << "preset: " << (address % (1 << cache_size_)) << std::endl;
+//	std::cout << "set: " << set << std::endl;
 	CacheLine* currLine = NULL;
 	CacheLine* foundLine = NULL;
 
@@ -45,7 +45,7 @@ CacheLine* Cache::getLine(uint32_t address) {
 		currLine->time_counter++;//This pushes all the times for this set up one so that the relative differences remain
 		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
 //			currLine->UpdateTime();//accessed line- update time
-			//currLine->time_counter = 0;  //OMER
+			currLine->time_counter = 0;
 			foundLine = currLine;
 		}
 
