@@ -6,34 +6,55 @@
 
 
 CacheLine* VictimCache::getLine(uint32_t address) {
-	uint32_t tag = address >> 2;
-	CacheLine *currLine,*matched_line;
-	bool found = false;
+    uint32_t tag = address >> 2;
+    CacheLine *currLine,*matched_line;
+    bool found = false;
 
-	for(int i = 0; i < fifo_cache.size(); i++) {
-		currLine = &fifo_cache.front();
-		fifo_cache.pop();
-		//if(currLine->getTag() != tag) {
-			//fifo_cache.push(*currLine);
-		//} else {
-			//matched_line = currLine;
-			//found = true;
-		//}
-		if(currLine->getTag() == tag){
-			matched_line=currLine;
-			found=true;
-		}
+    for(int i = 0; i < fifo_cache.size(); i++) {
+        currLine = &fifo_cache.front();
+        fifo_cache.pop();
+        if(currLine->getTag() == tag){
+            matched_line=currLine;
+            found=true;
+        }
         fifo_cache.push(*currLine);
-	}
+    }
 
-	access_num++;
+    access_num++;
 
-	if(found)
-		return matched_line;
-	else {
-		miss_num++;
-		throw LINE_NOT_FOUND_EXCEPTION();
-	}
+    if(found)
+        return matched_line;
+    else {
+        miss_num++;
+        throw LINE_NOT_FOUND_EXCEPTION();
+    }
+
+}
+
+CacheLine* VictimCache::get_and_remove_Line(uint32_t address) {
+    uint32_t tag = address >> 2;
+    CacheLine *currLine,*matched_line;
+    bool found = false;
+
+    for(int i = 0; i < fifo_cache.size(); i++) {
+        currLine = &fifo_cache.front();
+        fifo_cache.pop();
+        if(currLine->getTag() != tag) {
+            fifo_cache.push(*currLine);
+        } else {
+            matched_line = currLine;
+            found = true;
+        }
+    }
+
+    access_num++;
+
+    if(found)
+        return matched_line;
+    else {
+        miss_num++;
+        throw LINE_NOT_FOUND_EXCEPTION();
+    }
 
 }
 

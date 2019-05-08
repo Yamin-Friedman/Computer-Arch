@@ -17,14 +17,16 @@ void L1::ReadLine(uint32_t address) {
 	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 
 	try {
-		getLine(address);
+		//getLine(address); //OMER
+		CacheLine* currLine = getLine(address); //OMER
+		currLine->time_counter=0; //OMER
 		//DEBUG
-		//std::cout << "L1 hit" << std::endl;
+		std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
 		//DEBUG
-		//std::cout << "L1 miss" << std::endl;
+		std::cout << "L1 miss" << std::endl;
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
 		AddLine(address,CacheLine(tag));
 
@@ -42,12 +44,12 @@ void L1::WriteLine(uint32_t address){
 		currLine = getLine(address);
 		currLine->markDirty();
 		//DEBUG
-		//std::cout << "L1 hit" << std::endl;
+		std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
 		//DEBUG
-		//std::cout << "L1 miss" << std::endl;
+		std::cout << "L1 miss" << std::endl;
 		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
 
@@ -73,7 +75,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
-//	nwLine.UpdateTime();
+
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine = &cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
@@ -101,7 +103,9 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
 	        //std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
-	        L2_.getLine(address);
+            ToEvict->time_counter=0; //OMER //this is in L2!
+            printf("reached get line 1\n"); //DEBUG
+	        L2_.getLine(address); //make sure current new line exists in L2 (inclusive)
 
 			//TODO: make sure if it should be current time or last recorded saved in L1
         }
