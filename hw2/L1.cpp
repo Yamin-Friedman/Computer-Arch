@@ -101,6 +101,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
 	        //std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
+	        L2_.getLine(address);
 
 			//TODO: make sure if it should be current time or last recorded saved in L1
         }
