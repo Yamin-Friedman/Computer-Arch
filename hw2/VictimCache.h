@@ -13,7 +13,7 @@
 
 class VictimCache {
 public:
-	VictimCache(unsigned int wr_type_):wr_type(wr_type_){access_num=0;miss_num=0;};
+	VictimCache(unsigned int wr_type_, unsigned int BSize):wr_type(wr_type_), BSize_(BSize){access_num=0;miss_num=0;next_to_push = 0;};
 	~VictimCache(){};
 	void getLine(uint32_t address);
 	void get_and_remove_Line(uint32_t address);
@@ -25,7 +25,9 @@ public:
 private:
 	int access_num; // Number of times the victim cache was accessed
 	int miss_num;
-	std::queue<CacheLine> fifo_cache;
+	unsigned int BSize_;
+	int next_to_push;
+	CacheLine fifo_cache[VICTIM_CACHE_SIZE];
 	unsigned int wr_type;
 
 

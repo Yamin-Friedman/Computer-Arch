@@ -127,6 +127,8 @@ double L1::GetL2MissRate(){
 double L1::GetAvgTime() const{
 	double time = 0;
 	time += AccessNum_ * cache_cyc_;
+//	if (wr_type == NO_WRITE_ALLOCATE)
+//		time -= wr_access_num * cache_cyc_;
 	time += L2_.GetAvgTime();
 	double avgTime = time / AccessNum_;
 	return avgTime;

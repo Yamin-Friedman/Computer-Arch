@@ -7,7 +7,7 @@
 
 L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsigned int BSize, unsigned int mem_cycle,
        unsigned int victim_cache, Cache* L1_, unsigned int wr_type) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
-                                    mem_cycle_(mem_cycle), victimCache(wr_type), pL1_(L1_), wr_type(wr_type){
+                                    mem_cycle_(mem_cycle), victimCache(wr_type,BSize), pL1_(L1_), wr_type(wr_type){
 
 }
 
@@ -141,9 +141,14 @@ void L2::AddLine(uint32_t address) {
 
 double L2::GetAvgTime() const {
 	double time = 0;
-	time += AccessNum_ * cache_cyc_;
+	double access_num = AccessNum_;
+//	if(wr_access_num == NO_WRITE_ALLOCATE)
+//		access_num -= wr_access_num;
+	time += access_num * cache_cyc_;
 	if(use_victim_cache == USE_VICTIM_CACHE) {
 		time += victimCache.getAccessNum();
+//		std::cout << "Victim access = " << victimCache.getAccessNum() << std::endl;
+//		std::cout << "Victim miss = " << victimCache.getMissNum() << std::endl;
 		time += mem_cycle_ * (victimCache.getMissNum());
 	} else {
 		time += mem_cycle_ * MissNum_;
