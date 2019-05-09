@@ -91,6 +91,14 @@ int main(int argc, char *argv[]) {
 
 		// DEBUG - remove this line
 //		cout << " (dec) " << num << endl;
+//		uint32_t L1_set = ((num % (1 << (L1Size - L1Assoc))) >> BSize);
+//		uint32_t L1_tag = (num >> (L1Size - L1Assoc));
+//		uint32_t L2_set = ((num % (1 << (L2Size - L2Assoc))) >> BSize);
+//		uint32_t L2_tag = (num >> (L2Size - L2Assoc));
+//		uint32_t LLC_tag = (num >> BSize);
+//		cout << "L1: tag = " << L1_tag << " Set = " << L1_set << endl;
+//		cout << "L2: tag = " << L2_tag << " Set = " << L2_set << endl;
+//		cout << "LLC: tag = " << LLC_tag << endl;
 
 		if (operation == 'r') {
 			L1_.ReadLine(num);
