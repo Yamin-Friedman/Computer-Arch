@@ -24,6 +24,7 @@ public:
     bool isValid() const {return validbit_;};
     bool isDirty() const {return dirtybit_;};
 	void markDirty() {dirtybit_ = true;};
+	void markClean(){dirtybit_=false;};
 	void ChangeValid(bool valid){validbit_=valid;};
 
 	int time_counter;

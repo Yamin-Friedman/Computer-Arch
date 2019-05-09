@@ -52,6 +52,7 @@ void L2::WriteLine(uint32_t address){
         if(wr_type == NO_WRITE_ALLOCATE){
             currLine->markDirty();
         }
+        else currLine->markClean(); // going to be dirty in L1
 	    //DEBUG
 	    //std::cout << "L2 hit" << std::endl;
 

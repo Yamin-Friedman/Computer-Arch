@@ -28,11 +28,14 @@ void VictimCache::get_and_remove_Line(uint32_t address) {
 
 }
 
+
+
 void VictimCache::addLine(uint32_t address) {
 	uint32_t tag = address >> BSize_;
 
 	fifo_cache[next_to_push] = CacheLine(tag);
 	next_to_push = ((next_to_push + 1) % VICTIM_CACHE_SIZE);
+
 }
 
 

@@ -26,7 +26,11 @@ void L1::ReadLine(uint32_t address) {
 		//DEBUG
 		//std::cout << "L1 miss" << std::endl;
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
-		AddLine(address);
+		CacheLine* L2Line = L2_.getLine(address);
+        L2Line->markClean();
+        AddLine(address);
+
+
 
 	}
     AccessNum_++;
@@ -100,6 +104,7 @@ void L1::AddLine(uint32_t address) {
 	        //std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
+
 
 			//TODO: make sure if it should be current time or last recorded saved in L1
         }
