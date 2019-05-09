@@ -7,7 +7,9 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <vector>
 #include "CacheLine.h"
+
 
 
 enum WRITE_TYPE {NO_WRITE_ALLOCATE = 0,WRITE_ALLOCATE};
@@ -29,7 +31,7 @@ public:
 protected:
 	unsigned int BSize_,cache_size_, cache_cyc_, cache_assoc_;
 	const unsigned int NumOfLines = (1 << (cache_size_ - BSize_));
-	CacheLine* cache_array_;
+	std::vector<CacheLine> cache_array_;
 	int AccessNum_;
 	int MissNum_;
 	unsigned int wr_access_num;

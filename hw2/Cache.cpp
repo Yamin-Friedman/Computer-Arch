@@ -9,17 +9,16 @@
 
 Cache::Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle,
              unsigned int cache_assoc) : BSize_(bsize), cache_size_(cache_size),
-                                         cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), wr_access_num(0)
+                                         cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), wr_access_num(0), cache_array_(NumOfLines)
 {
 
     //DEBUG
 //    printf("Num of Lines: %d\n",NumOfLines);
-    cache_array_ = new CacheLine[NumOfLines];
 
 }
 
 Cache::~Cache(){
-	delete[] cache_array_;
+//	delete[] cache_array_;
 }
 
 
@@ -59,7 +58,7 @@ CacheLine* Cache::getLine(uint32_t address) {
         //DEBUG
         //std::cout << "found the line, curr tag is: " << currLine->getTag() << " and looked for tag: " << tag
                   //<< std::endl;
-        return currLine;
+        return foundLine;
     }
 	else
 		throw LINE_NOT_FOUND_EXCEPTION();

@@ -23,7 +23,7 @@ public:
     ~L1(){};
     void ReadLine(uint32_t adrs);
 	void WriteLine(uint32_t address);
-    void AddLine(uint32_t address, CacheLine nwLine);
+    void AddLine(uint32_t address);
     void EvictLine(uint32_t address, CacheLine VictimLine);
 	double GetL2MissRate();
 	double GetAvgTime() const;

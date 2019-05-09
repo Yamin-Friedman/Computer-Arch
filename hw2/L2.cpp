@@ -27,18 +27,18 @@ void L2::ReadLine(uint32_t address) {
 		//std::cout << "L2 miss" << std::endl;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
-			    victimCache.getLine(address);
-			    AddLine(address,CacheLine(tag));
+			    victimCache.get_and_remove_Line(address);
+			    AddLine(address);
 
 
 			}
 			catch(LINE_NOT_FOUND_EXCEPTION){ //line was not found in Victim
-			    AddLine(address,CacheLine(tag));  //"bring" line from memory directly to L2
+			    AddLine(address);  //"bring" line from memory directly to L2
 			}
 
 		}
 		else{
-		    AddLine(address,CacheLine(tag)); //"bring" line from memory
+		    AddLine(address); //"bring" line from memory
 		}
 	}
 	AccessNum_++;
@@ -65,14 +65,14 @@ void L2::WriteLine(uint32_t address){
             //must bring line to L2 (but not update as dirty)
             if (use_victim_cache == USE_VICTIM_CACHE) {
                 try {
-                    CacheLine *VictimLine = victimCache.getLine(address);
-                    AddLine(address, *VictimLine);
+                    victimCache.get_and_remove_Line(address);
+                    AddLine(address);
                 }
                 catch (LINE_NOT_FOUND_EXCEPTION) {
                     //bring from mem:
-                    AddLine(address, CacheLine(tag));
+                    AddLine(address);
                 }
-            } else AddLine(address, CacheLine(tag)); //"bring" from mem
+            } else AddLine(address); //"bring" from mem
         } else {
 	        if (use_victim_cache == USE_VICTIM_CACHE) victimCache.WriteLine(address);
 	        wr_access_num++;
@@ -84,7 +84,7 @@ void L2::WriteLine(uint32_t address){
 }
 
 
-void L2::AddLine(uint32_t address, CacheLine nwLine) {
+void L2::AddLine(uint32_t address) {
 
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
@@ -99,6 +99,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
 	        *currLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //            currLine->UpdateTime();
 	        currLine->time_counter = 0;
+	        currLine->ChangeValid(true);
             return;
         }
         //check if current line has the latest LRU
@@ -111,8 +112,8 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
 
     //could not find an available line- need to evict LRU to Victim/Mem:
     //Check if LatestLine is in L1- if so, evict it:
+	uint32_t LatestLine_address = (LatestLine->getTag() << (cache_size_ - cache_assoc_)) + (set << BSize_);
     try{
-	    uint32_t LatestLine_address = (LatestLine->getTag() << (cache_size_ - cache_assoc_)) + (set << BSize_);
         CacheLine* L1Evict = pL1_->getLine(LatestLine_address);
         if(L1Evict->isDirty()){ //snoop:if LatestLine was dirty in L1, write back to L2 before invalidation
             LatestLine->markDirty();
@@ -127,7 +128,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
 
 
     if (use_victim_cache == USE_VICTIM_CACHE) {
-        victimCache.addLine(*LatestLine);
+        victimCache.addLine(LatestLine_address);
     }
 
     //finally, write new line over evicted line
@@ -135,6 +136,7 @@ void L2::AddLine(uint32_t address, CacheLine nwLine) {
 	*LatestLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //    LatestLine->UpdateTime();
 	LatestLine->time_counter = 0;
+	LatestLine->ChangeValid(true);
 }
 
 double L2::GetAvgTime() const {

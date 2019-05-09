@@ -26,7 +26,7 @@ void L1::ReadLine(uint32_t address) {
 		//DEBUG
 		//std::cout << "L1 miss" << std::endl;
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
-		AddLine(address,CacheLine(tag));
+		AddLine(address);
 
 	}
     AccessNum_++;
@@ -51,7 +51,7 @@ void L1::WriteLine(uint32_t address){
 		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
 
-			AddLine(address,CacheLine(tag));
+			AddLine(address);
 			//need to get line again to update
 			try {
 				currLine = getLine(address);
@@ -68,7 +68,7 @@ void L1::WriteLine(uint32_t address){
 }
 
 //adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with nwLine
-void L1::AddLine(uint32_t address, CacheLine nwLine) {
+void L1::AddLine(uint32_t address) {
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
@@ -80,6 +80,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
             *currLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //	        currLine->UpdateTime();
 	        currLine->time_counter = 0;
+	        currLine->ChangeValid(true);
             return;
         }
         //check if current line has the latest LRU
@@ -116,6 +117,7 @@ void L1::AddLine(uint32_t address, CacheLine nwLine) {
     *LatestLine = CacheLine(address >> (cache_size_ - cache_assoc_));
 //	LatestLine->UpdateTime();
 	LatestLine->time_counter = 0;
+	LatestLine->ChangeValid(true);
 }
 
 double L1::GetL2MissRate(){

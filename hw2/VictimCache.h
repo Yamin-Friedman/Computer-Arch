@@ -15,10 +15,9 @@ class VictimCache {
 public:
 	VictimCache(unsigned int wr_type_):wr_type(wr_type_){access_num=0;miss_num=0;};
 	~VictimCache(){};
-	CacheLine* getLine(uint32_t address);
+	void getLine(uint32_t address);
+	void get_and_remove_Line(uint32_t address);
 	void addLine(uint32_t address);
-	void addLine(CacheLine nwLine);
-	void addLine(int );
 	int getAccessNum() const { return access_num;}
 	int getMissNum() const { return miss_num;}
     void WriteLine(uint32_t address);
