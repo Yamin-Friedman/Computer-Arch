@@ -11,14 +11,9 @@ Cache::Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cyc
              unsigned int cache_assoc) : BSize_(bsize), cache_size_(cache_size),
                                          cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), wr_access_num(0), cache_array_(NumOfLines)
 {
-
-    //DEBUG
-//    printf("Num of Lines: %d\n",NumOfLines);
-
 }
 
 Cache::~Cache(){
-//	delete[] cache_array_;
 }
 
 
@@ -29,7 +24,6 @@ CacheLine* Cache::getLine(uint32_t address) {
 	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
     //DEBUG
     //std::cout<<"looking for tag: "<<tag<<std::endl;
-
 //	std::cout << "address:" << address << std::endl;
 //	std::cout << "tag:" << tag << std::endl;
 //	std::cout << "preset: " << (address % (1 << cache_size_)) << std::endl;
@@ -43,7 +37,6 @@ CacheLine* Cache::getLine(uint32_t address) {
 		currLine = &cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
 		currLine->time_counter++;//This pushes all the times for this set up one so that the relative differences remain
 		if ((currLine->isValid()) && (tag==(currLine->getTag()))){
-//			currLine->UpdateTime();//accessed line- update time
 			currLine->time_counter = 0;
 			foundLine = currLine;
 		}

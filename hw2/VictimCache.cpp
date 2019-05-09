@@ -12,12 +12,8 @@ void VictimCache::get_and_remove_Line(uint32_t address) {
 
 	for(int i = 0; i < VICTIM_CACHE_SIZE; i++) {
 		currLine = &fifo_cache[i];
-
 		if(currLine->isValid() && currLine->getTag() == tag) {
-			currLine->ChangeValid(false);
 			found = true;
-		} else {
-
 		}
 	}
 

@@ -87,6 +87,7 @@ void L2::WriteLine(uint32_t address){
 void L2::AddLine(uint32_t address) {
 
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
+	uint32_t tag = address >> (cache_size_ - cache_assoc_);
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
@@ -95,15 +96,12 @@ void L2::AddLine(uint32_t address) {
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish //TODO: here we do not need to check in L1 for eviction
-//            *currLine = nwLine;
-	        *currLine = CacheLine(address >> (cache_size_ - cache_assoc_));
-//            currLine->UpdateTime();
+	        *currLine = CacheLine(tag);
 	        currLine->time_counter = 0;
 	        currLine->ChangeValid(true);
             return;
         }
         //check if current line has the latest LRU
-        //timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
 	    timeDiff = LatestLine->time_counter - currLine->time_counter;
         if (timeDiff < 0){
             LatestLine = currLine;
@@ -132,23 +130,17 @@ void L2::AddLine(uint32_t address) {
     }
 
     //finally, write new line over evicted line
-    //*LatestLine=nwLine;
-	*LatestLine = CacheLine(address >> (cache_size_ - cache_assoc_));
-//    LatestLine->UpdateTime();
+	*LatestLine = CacheLine(tag);
 	LatestLine->time_counter = 0;
 	LatestLine->ChangeValid(true);
 }
 
 double L2::GetAvgTime() const {
 	double time = 0;
-	double access_num = AccessNum_;
-//	if(wr_access_num == NO_WRITE_ALLOCATE)
-//		access_num -= wr_access_num;
-	time += access_num * cache_cyc_;
+
+	time += AccessNum_ * cache_cyc_;
 	if(use_victim_cache == USE_VICTIM_CACHE) {
 		time += victimCache.getAccessNum();
-//		std::cout << "Victim access = " << victimCache.getAccessNum() << std::endl;
-//		std::cout << "Victim miss = " << victimCache.getMissNum() << std::endl;
 		time += mem_cycle_ * (victimCache.getMissNum());
 	} else {
 		time += mem_cycle_ * MissNum_;

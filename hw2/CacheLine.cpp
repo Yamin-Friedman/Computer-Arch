@@ -8,7 +8,6 @@ CacheLine::CacheLine(uint32_t tag) {
     tag_ = tag;
     validbit_ = true;
     dirtybit_ = false;
-    TimeUsed_ = time(NULL);
 	time_counter = 0;
 }
 

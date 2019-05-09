@@ -70,21 +70,19 @@ void L1::WriteLine(uint32_t address){
 //adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with nwLine
 void L1::AddLine(uint32_t address) {
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
+	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
-//	nwLine.UpdateTime();
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine = &cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
         if (!(currLine->isValid())){ //line not valid- can delete instantly and finish
-            *currLine = CacheLine(address >> (cache_size_ - cache_assoc_));
-//	        currLine->UpdateTime();
+            *currLine = CacheLine(tag);
 	        currLine->time_counter = 0;
 	        currLine->ChangeValid(true);
             return;
         }
         //check if current line has the latest LRU
-//        timeDiff= difftime(LatestLine->getTime(),currLine->getTime());
 	    timeDiff = LatestLine->time_counter - currLine->time_counter;
         if (timeDiff < 0){
             LatestLine = currLine;
@@ -107,15 +105,11 @@ void L1::AddLine(uint32_t address) {
 			//TODO: make sure if it should be current time or last recorded saved in L1
         }
         catch (LINE_NOT_FOUND_EXCEPTION) {
-	        //DEBUG
-	        //cout << "Reached unreachable spot number 1" << endl;
-            //TODO: since cache in inclusive, we should not reach here- make sure this does not happen (can remove try-catch if ok)
         }
     }
 
     //write new line to evicted' place
-    *LatestLine = CacheLine(address >> (cache_size_ - cache_assoc_));
-//	LatestLine->UpdateTime();
+    *LatestLine = CacheLine(tag);
 	LatestLine->time_counter = 0;
 	LatestLine->ChangeValid(true);
 }
@@ -127,8 +121,6 @@ double L1::GetL2MissRate(){
 double L1::GetAvgTime() const{
 	double time = 0;
 	time += AccessNum_ * cache_cyc_;
-//	if (wr_type == NO_WRITE_ALLOCATE)
-//		time -= wr_access_num * cache_cyc_;
 	time += L2_.GetAvgTime();
 	double avgTime = time / AccessNum_;
 	return avgTime;
