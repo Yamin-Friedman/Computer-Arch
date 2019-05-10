@@ -39,7 +39,6 @@ void L2::ReadLine(uint32_t address) {
 }
 
 void L2::WriteLine(uint32_t address){
-    uint32_t tag = (address >> (cache_size_ - cache_assoc_));
     CacheLine *currLine;
     try {
         currLine = getLine(address);
@@ -55,11 +54,8 @@ void L2::WriteLine(uint32_t address){
             //must bring line to L2 (but not update as dirty)
             if (use_victim_cache == USE_VICTIM_CACHE) {
                 try {
-                    bool is_dirty = victimCache.get_and_remove_Line(address);
+					victimCache.get_and_remove_Line(address);
                     AddLine(address);
-	                currLine = getLine(address);
-	                if(is_dirty)
-	                    currLine->markDirty();
                 }
                 catch (LINE_NOT_FOUND_EXCEPTION) {
                     //bring from mem:
@@ -68,7 +64,6 @@ void L2::WriteLine(uint32_t address){
             } else AddLine(address); //"bring" from mem
         } else {
 	        if (use_victim_cache == USE_VICTIM_CACHE) victimCache.WriteLine(address);
-	        wr_access_num++;
         }
 
     }

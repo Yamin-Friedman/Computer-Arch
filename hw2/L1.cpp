@@ -56,8 +56,6 @@ void L1::WriteLine(uint32_t address){
 			catch(LINE_NOT_FOUND_EXCEPTION) {
 			}
 			currLine->markDirty();
-		} else {
-			wr_access_num++;
 		}
 	}
 	AccessNum_++;
@@ -95,8 +93,6 @@ void L1::AddLine(uint32_t address) {
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
 
-
-			//TODO: make sure if it should be current time or last recorded saved in L1
         }
         catch (LINE_NOT_FOUND_EXCEPTION) {
         }

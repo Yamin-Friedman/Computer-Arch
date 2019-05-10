@@ -4,7 +4,7 @@ echo Running tests...
 echo The test succeed if there are no diffs printed.
 echo
 
-for filename in long_tests/test*.command; do
+for filename in tests/test*.command; do
     test_num=`echo $filename | cut -d'.' -f1`
 #    echo $test_num
 #    cat ${filename}

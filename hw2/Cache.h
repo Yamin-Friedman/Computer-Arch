@@ -29,7 +29,6 @@ protected:
 	std::vector<CacheLine> cache_array_;
 	int AccessNum_;
 	int MissNum_;
-	unsigned int wr_access_num;
 
 };
 
