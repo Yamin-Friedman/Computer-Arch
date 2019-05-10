@@ -15,7 +15,7 @@ class VictimCache {
 public:
 	VictimCache(unsigned int wr_type_, unsigned int BSize):wr_type(wr_type_), BSize_(BSize){access_num=0;miss_num=0;next_to_push = 0;};
 	~VictimCache(){};
-	void get_and_remove_Line(uint32_t address);
+	bool get_and_remove_Line(uint32_t address);
 	void addLine(uint32_t address);
 	int getAccessNum() const { return access_num;}
 	int getMissNum() const { return miss_num;}

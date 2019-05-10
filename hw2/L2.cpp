@@ -27,8 +27,11 @@ void L2::ReadLine(uint32_t address) {
 		//std::cout << "L2 miss" << std::endl;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
-			    victimCache.get_and_remove_Line(address);
+			    bool is_dirty = victimCache.get_and_remove_Line(address);
 			    AddLine(address);
+				CacheLine *currLine = getLine(address);
+				if(is_dirty)
+					currLine->markDirty();
 
 
 			}
@@ -66,8 +69,11 @@ void L2::WriteLine(uint32_t address){
             //must bring line to L2 (but not update as dirty)
             if (use_victim_cache == USE_VICTIM_CACHE) {
                 try {
-                    victimCache.get_and_remove_Line(address);
+                    bool is_dirty = victimCache.get_and_remove_Line(address);
                     AddLine(address);
+	                currLine = getLine(address);
+	                if(is_dirty)
+	                    currLine->markDirty();
                 }
                 catch (LINE_NOT_FOUND_EXCEPTION) {
                     //bring from mem:

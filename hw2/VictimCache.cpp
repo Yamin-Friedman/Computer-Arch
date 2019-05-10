@@ -5,22 +5,24 @@
 #include "VictimCache.h"
 
 
-void VictimCache::get_and_remove_Line(uint32_t address) {
+bool VictimCache::get_and_remove_Line(uint32_t address) {
 	uint32_t tag = address >> BSize_;
 	CacheLine *currLine;
 	bool found = false;
+	bool is_dirty = false;
 
 	for(int i = 0; i < VICTIM_CACHE_SIZE; i++) {
 		currLine = &fifo_cache[i];
 		if(currLine->isValid() && currLine->getTag() == tag) {
 			found = true;
+			is_dirty = true;
 		}
 	}
 
 	access_num++;
 
 	if(found)
-		return;
+		return is_dirty;
 	else {
 		miss_num++;
 		throw LINE_NOT_FOUND_EXCEPTION();

@@ -27,8 +27,12 @@ void L1::ReadLine(uint32_t address) {
 		//std::cout << "L1 miss" << std::endl;
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
 		CacheLine* L2Line = L2_.getLine(address);
-        L2Line->markClean();
+
         AddLine(address);
+		CacheLine *currLine = getLine(address);
+		if(L2Line->isDirty())
+			currLine->markDirty();
+		L2Line->markClean();
 
 
 
