@@ -1,6 +1,3 @@
-//
-// Created by Yamin on 4/23/2019.
-//
 
 #ifndef COMPARCH_CACHE_H
 #define COMPARCH_CACHE_H
@@ -24,8 +21,6 @@ public:
 	virtual void WriteLine(uint32_t address) = 0;
 
 	CacheLine* getLine(uint32_t address);
-	int getAccessNum() const { return AccessNum_;}
-	int getMissNum() const { return MissNum_;}
 	double GetMissRate() const { return ((double)MissNum_ / AccessNum_);};
 
 protected:

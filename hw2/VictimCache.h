@@ -1,6 +1,3 @@
-//
-// Created by Yamin on 4/23/2019.
-//
 
 #ifndef COMPARCH_VICTIMCACHE_H
 #define COMPARCH_VICTIMCACHE_H
@@ -16,7 +13,7 @@ public:
 	VictimCache(unsigned int wr_type_, unsigned int BSize):wr_type(wr_type_), BSize_(BSize){access_num=0;miss_num=0;next_to_push = 0;};
 	~VictimCache(){};
 	bool get_and_remove_Line(uint32_t address);
-	void addLine(uint32_t address);
+	void addLine(uint32_t address,bool is_dirty);
 	int getAccessNum() const { return access_num;}
 	int getMissNum() const { return miss_num;}
     void WriteLine(uint32_t address);

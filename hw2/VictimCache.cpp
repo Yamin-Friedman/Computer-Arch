@@ -1,6 +1,4 @@
-//
-// Created by Yamin on 4/23/2019.
-//
+
 
 #include "VictimCache.h"
 
@@ -15,7 +13,7 @@ bool VictimCache::get_and_remove_Line(uint32_t address) {
 		currLine = &fifo_cache[i];
 		if(currLine->isValid() && currLine->getTag() == tag) {
 			found = true;
-			is_dirty = true;
+			is_dirty = currLine->isDirty();
 		}
 	}
 
@@ -32,10 +30,12 @@ bool VictimCache::get_and_remove_Line(uint32_t address) {
 
 
 
-void VictimCache::addLine(uint32_t address) {
+void VictimCache::addLine(uint32_t address,bool is_dirty) {
 	uint32_t tag = address >> BSize_;
 
 	fifo_cache[next_to_push] = CacheLine(tag);
+	if(is_dirty)
+		fifo_cache[next_to_push].markDirty();
 	next_to_push = ((next_to_push + 1) % VICTIM_CACHE_SIZE);
 
 }
@@ -56,7 +56,6 @@ void VictimCache::WriteLine(uint32_t address){
 			found = true;
 		}
 	}
-
 	if(!found)
 		miss_num++;
 }

@@ -1,6 +1,3 @@
-//
-// Created by Omer on 4/23/2019.
-//
 
 #include <stdint-gcc.h>
 #include "L1.h"
@@ -14,17 +11,13 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 //ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
 void L1::ReadLine(uint32_t address) {
-	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 
 	try {
 		getLine(address);
-		//DEBUG
-		//std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
-		//DEBUG
-		//std::cout << "L1 miss" << std::endl;
+
 		L2_.ReadLine(address); //read the line in L2- This makes sure the line is brought to L2 if it does not exist in it yet.
 		CacheLine* L2Line = L2_.getLine(address);
 
@@ -43,19 +36,15 @@ void L1::ReadLine(uint32_t address) {
 //WriteLine: Searches for the line according to address, if found marks dirty, if not then writes to L2 and if we are
 // using WRITE_ALLOCATE then also writes the line in the L1.
 void L1::WriteLine(uint32_t address){
-	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 	CacheLine *currLine;
 
 	try {
 		currLine = getLine(address);
 		currLine->markDirty();
-		//DEBUG
-		//std::cout << "L1 hit" << std::endl;
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
-		//DEBUG
-		//std::cout << "L1 miss" << std::endl;
+
 		L2_.WriteLine(address);
 		if (wr_type == WRITE_ALLOCATE) {
 
@@ -65,7 +54,6 @@ void L1::WriteLine(uint32_t address){
 				currLine = getLine(address);
 			}
 			catch(LINE_NOT_FOUND_EXCEPTION) {
-				std::cout << "error" << std::endl;
 			}
 			currLine->markDirty();
 		} else {
@@ -104,8 +92,6 @@ void L1::AddLine(uint32_t address) {
     if(LatestLine->isDirty()){
         try{
 	        uint32_t LatestLine_address = (LatestLine->getTag() << (cache_size_ - cache_assoc_)) + (set << BSize_);
-	        //DEBUG
-	        //std::cout << "Evict line address:" << LatestLine_address << std::endl;
             CacheLine* ToEvict = L2_.getLine(LatestLine_address);
             ToEvict->markDirty();
 

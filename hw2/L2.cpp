@@ -1,6 +1,3 @@
-//
-// Created by Omer on 4/23/2019.
-//
 
 #include <iostream>
 #include "L2.h"
@@ -13,18 +10,12 @@ L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsign
 
 //ReadLine: searches for line according to address, if not found seeks from victim cache if it exists and adds line to L2
 void L2::ReadLine(uint32_t address) {
-	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
 
 	try {
 		getLine(address);
-		//DEBUG
-		//std::cout << "L2 Hit" << std::endl;
-
 	}
 	catch (LINE_NOT_FOUND_EXCEPTION) {
 		MissNum_++;
-		//DEBUG
-		//std::cout << "L2 miss" << std::endl;
 		if (use_victim_cache == USE_VICTIM_CACHE) {
 			try{
 			    bool is_dirty = victimCache.get_and_remove_Line(address);
@@ -56,14 +47,9 @@ void L2::WriteLine(uint32_t address){
             currLine->markDirty();
         }
         else currLine->markClean(); // going to be dirty in L1
-	    //DEBUG
-	    //std::cout << "L2 hit" << std::endl;
-
     }
     catch (LINE_NOT_FOUND_EXCEPTION) {
         MissNum_++;
-		//DEBUG
-	    //std::cout << "L2 miss" << std::endl;
 
         if (wr_type == WRITE_ALLOCATE) {
             //must bring line to L2 (but not update as dirty)
@@ -124,8 +110,6 @@ void L2::AddLine(uint32_t address) {
             LatestLine->markDirty();
         }
         L1Evict->ChangeValid(false);
-        //DEBUG
-//        printf("L2 Evicted from L1!!\n");
     }
     catch(LINE_NOT_FOUND_EXCEPTION){
         //if not in L1- just continue;
@@ -133,7 +117,7 @@ void L2::AddLine(uint32_t address) {
 
 
     if (use_victim_cache == USE_VICTIM_CACHE) {
-        victimCache.addLine(LatestLine_address);
+        victimCache.addLine(LatestLine_address,LatestLine->isDirty());
     }
 
     //finally, write new line over evicted line

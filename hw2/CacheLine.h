@@ -1,6 +1,3 @@
-//
-// Created by Omer on 4/23/2019.
-//
 
 #ifndef WET2_CACHELINE_H
 #define WET2_CACHELINE_H
