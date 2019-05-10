@@ -1,6 +1,6 @@
 # Makefile for the smash program
 CC = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -std=c++11
 CCLINK = $(CC)
 OBJS = cacheSim.o Cache.o L1.o L2.o VictimCache.o CacheLine.o
 RM = rm -f
