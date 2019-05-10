@@ -7,7 +7,7 @@
 
 Cache::Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle,
              unsigned int cache_assoc) : BSize_(bsize), cache_size_(cache_size),
-                                         cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), wr_access_num(0), cache_array_(NumOfLines)
+                                         cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), cache_array_(NumOfLines)
 {
 }
 
