@@ -9,7 +9,7 @@ L1::L1(unsigned int mem_cycle, unsigned int bsize, unsigned int L1_size, unsigne
 
 }
 
-//ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1
+//ReadLine: searches for line according to address, if not found seeks from L2 and adds line to L1.
 void L1::ReadLine(uint32_t address) {
 
 	try {
@@ -61,7 +61,7 @@ void L1::WriteLine(uint32_t address){
 	AccessNum_++;
 }
 
-//adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with nwLine
+//AddLine: Adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with a line with the new address.
 void L1::AddLine(uint32_t address) {
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
 	uint32_t tag = (address >> (cache_size_ - cache_assoc_));
@@ -104,10 +104,12 @@ void L1::AddLine(uint32_t address) {
 	LatestLine->ChangeValid(true);
 }
 
+//GetL2MissRate: Gets the miss rate from the L2.
 double L1::GetL2MissRate(){
 	return L2_.GetMissRate();
 }
 
+//GetAvgTime: Gets the average access time of the cache.
 double L1::GetAvgTime() const{
 	double time = 0;
 	time += AccessNum_ * cache_cyc_;

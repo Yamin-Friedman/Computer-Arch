@@ -14,7 +14,7 @@ using std::ifstream;
 using std::stringstream;
 
 
-
+//Runs the cache simulator.
 int main(int argc, char *argv[]) {
 
 	if (argc < 21) {
@@ -94,7 +94,6 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	//TODO: below cancled for debug, make sure to return when ready
 	printf("L1miss=%.03f ", L1_.GetMissRate());
 	printf("L2miss=%.03f ", L1_.GetL2MissRate());
 	printf("AccTimeAvg=%.03f\n", L1_.GetAvgTime());

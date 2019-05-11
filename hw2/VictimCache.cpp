@@ -2,7 +2,8 @@
 
 #include "VictimCache.h"
 
-
+//get_and_remove_Line: Finds and removes a line from the victim cache. If not found throws exception and if it is found
+//returns if the line was dirty or not.
 bool VictimCache::get_and_remove_Line(uint32_t address) {
 	uint32_t tag = address >> BSize_;
 	CacheLine *currLine;
@@ -25,11 +26,9 @@ bool VictimCache::get_and_remove_Line(uint32_t address) {
 		miss_num++;
 		throw LINE_NOT_FOUND_EXCEPTION();
 	}
-
 }
 
-
-
+//addLine: Adds a line to the victim cache. Pushes out old lines in a FIFO order.
 void VictimCache::addLine(uint32_t address,bool is_dirty) {
 	uint32_t tag = address >> BSize_;
 
@@ -37,10 +36,9 @@ void VictimCache::addLine(uint32_t address,bool is_dirty) {
 	if(is_dirty)
 		fifo_cache[next_to_push].markDirty();
 	next_to_push = ((next_to_push + 1) % VICTIM_CACHE_SIZE);
-
 }
 
-
+//WriteLine: Accesses the victim cache and if the line is found marks it dirty.
 void VictimCache::WriteLine(uint32_t address){
 	uint32_t tag = address >> BSize_;
 	CacheLine *currLine;

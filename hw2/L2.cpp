@@ -1,16 +1,13 @@
 
-#include <iostream>
 #include "L2.h"
 
 L2::L2(unsigned int L2_size, unsigned int L2_cycle,unsigned int L2_assoc, unsigned int BSize, unsigned int mem_cycle,
        unsigned int victim_cache, Cache* L1_, unsigned int wr_type) : Cache(BSize,L2_size,L2_cycle,L2_assoc), use_victim_cache(victim_cache),
                                     mem_cycle_(mem_cycle), victimCache(wr_type,BSize), pL1_(L1_), wr_type(wr_type){
-
 }
 
-//ReadLine: searches for line according to address, if not found seeks from victim cache if it exists and adds line to L2
+//ReadLine: searches for line according to address, if not found seeks from victim cache if it exists and adds line to L2.
 void L2::ReadLine(uint32_t address) {
-
 	try {
 		getLine(address);
 	}
@@ -23,13 +20,10 @@ void L2::ReadLine(uint32_t address) {
 				CacheLine *currLine = getLine(address);
 				if(is_dirty)
 					currLine->markDirty();
-
-
 			}
 			catch(LINE_NOT_FOUND_EXCEPTION){ //line was not found in Victim
 			    AddLine(address);  //"bring" line from memory directly to L2
 			}
-
 		}
 		else{
 		    AddLine(address); //"bring" line from memory
@@ -38,6 +32,8 @@ void L2::ReadLine(uint32_t address) {
 	AccessNum_++;
 }
 
+//WriteLine: Searches for the line according to address, if found marks dirty, if not then writes to the victime cache.
+// If we are using WRITE_ALLOCATE then also writes the line in the L2.
 void L2::WriteLine(uint32_t address){
     CacheLine *currLine;
     try {
@@ -65,13 +61,11 @@ void L2::WriteLine(uint32_t address){
         } else {
 	        if (use_victim_cache == USE_VICTIM_CACHE) victimCache.WriteLine(address);
         }
-
     }
     AccessNum_++;
-
 }
 
-
+//AddLine: Adds a new line to the cache. If needed, evicts an existing line from cache according to LRU policy and replaces with a line with the new address.
 void L2::AddLine(uint32_t address) {
 
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
@@ -79,7 +73,6 @@ void L2::AddLine(uint32_t address) {
     CacheLine* LatestLine = &cache_array_[set];//get from first way
     double timeDiff = 0;
     CacheLine* currLine;
-
 
     for (int i=0;i < (1 << cache_assoc_);i++){
         currLine=&cache_array_[set + (i * (NumOfLines / (1 << cache_assoc_)))];
@@ -110,7 +103,6 @@ void L2::AddLine(uint32_t address) {
         //if not in L1- just continue;
     }
 
-
     if (use_victim_cache == USE_VICTIM_CACHE) {
         victimCache.addLine(LatestLine_address,LatestLine->isDirty());
     }
@@ -121,6 +113,7 @@ void L2::AddLine(uint32_t address) {
 	LatestLine->ChangeValid(true);
 }
 
+//GetAvgTime: Returns the total access time in the L2 cahce and victim cache. Later the average is calculated by the L1.
 double L2::GetAvgTime() const {
 	double time = 0;
 

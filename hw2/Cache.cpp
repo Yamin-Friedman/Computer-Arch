@@ -7,15 +7,14 @@
 
 Cache::Cache(unsigned int bsize, unsigned int cache_size, unsigned int cache_cycle,
              unsigned int cache_assoc) : BSize_(bsize), cache_size_(cache_size),
-                                         cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), cache_array_(NumOfLines)
-{
+                                         cache_cyc_(cache_cycle), cache_assoc_(cache_assoc), AccessNum_(0), MissNum_(0), cache_array_(NumOfLines) {
 }
 
 Cache::~Cache(){
 }
 
 
-//getLine: searches for the given tag in the current cache
+//getLine: searches for the given address in the current cache. Also updates the LRU time for all the Cachelines in the same set.
 CacheLine* Cache::getLine(uint32_t address) {
 
 	uint32_t set = ((address % (1 << (cache_size_ - cache_assoc_))) >> BSize_);
