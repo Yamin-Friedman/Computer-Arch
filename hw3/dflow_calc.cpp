@@ -3,21 +3,24 @@
 
 #include "dflow_calc.h"
 #include <vector>
+#include <map>
 
 using std::vector
+using std::map
 
 
 #define MAX_REGISTERS 32
 
 class DepNode {
 public:
-	DepNode():first_dep(NULL), second_dep(NULL), is_entry(false){};
+	DepNode():first_dep(NULL), second_dep(NULL), is_entry(false), instruction_len(0){};
 	bool check_is_entry(){ return is_entry;};
 	void set_entry_node(){is_entry = true;};
 
 
 	DepNode *first_dep;
 	DepNode *second_dep;
+	unsigned int instruction_len;
 	bool is_entry;
 };
 
@@ -31,6 +34,7 @@ public:
 private:
 	unsigned int num_of_register_false_dependencies[MAX_REGISTERS] = {0};
 	vector<DepNode> dep_nodes;
+	map<DepNode*,unsigned int> exit_nodes;
 	DepNode entry_node;
 
 };
