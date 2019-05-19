@@ -39,6 +39,29 @@ public:
 
 };
 
+int get_node_depth(DflowCtx *ctx,unsigned int node_num) {
+	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+	int curr_depth = 0;
+	int tmp_depth = 0;
+	DepNode *curr_node = &dflow_ctx->dep_nodes[node_num];
+
+	if(curr_node->is_entry) {
+		return curr_node->instruction_len;
+	}
+
+	if(curr_node->first_dep != -1) {
+		curr_depth = get_node_depth(ctx,curr_node->first_dep);
+	}
+
+	if(curr_node->second_dep != -1) {
+		tmp_depth = get_node_depth(ctx,curr_node->second_dep);
+		if(tmp_depth > curr_depth)
+			curr_depth = tmp_depth;
+	}
+
+	return curr_depth + curr_node->instruction_len;
+}
+
 ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[], unsigned int numOfInsts) {
 	int i;
 	DflowCtx *ctx = new DflowCtx();
@@ -88,7 +111,15 @@ void freeProgCtx(ProgCtx ctx) {
 }
 
 int getInstDepth(ProgCtx ctx, unsigned int theInst) {
-    return -1;
+	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+
+	map<unsigned int, DepNode>::iterator it = dflow_ctx->dep_nodes.find(theInst);
+
+	if(it == dflow_ctx->dep_nodes.end())
+		return -1;
+
+	return get_node_depth(dflow_ctx,theInst);
+
 }
 
 int getInstDeps(ProgCtx ctx, unsigned int theInst, int *src1DepInst, int *src2DepInst) {
@@ -112,7 +143,18 @@ int getRegfalseDeps(ProgCtx ctx, unsigned int reg){
 }
 
 int getProgDepth(ProgCtx ctx) {
-    return 0;
+	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+	map<unsigned int, DepNode*>::iterator it = dflow_ctx->exit_nodes.begin();
+	int max_depth = 0;
+	int curr_depth = 0;
+
+	for(; it != dflow_ctx->exit_nodes.end(); it++) {
+		curr_depth = get_node_depth(dflow_ctx,it->first);
+		if(curr_depth > max_depth)
+			max_depth = curr_depth;
+	}
+
+	return max_depth;
 }
 
 
