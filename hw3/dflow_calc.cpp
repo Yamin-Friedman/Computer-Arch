@@ -5,9 +5,9 @@
 #include <vector>
 #include <map>
 
-using std::vector
-using std::map
-using std::pair
+using std::vector;
+using std::map;
+using std::pair;
 
 
 #define MAX_REGISTERS 32
@@ -29,10 +29,12 @@ class DflowCtx {
 public:
 	DflowCtx() {
 		entry_node.set_entry_node();
+		for(int i = 0; i < MAX_REGISTERS; i++)
+			last_instruction_write[i] = -1;
 	}
 
 	unsigned int num_of_register_false_dependencies[MAX_REGISTERS] = {0};
-	int last_instruction_write[MAX_REGISTERS] = {-1};
+	int last_instruction_write[MAX_REGISTERS];
 	map<unsigned int, DepNode> dep_nodes;
 	map<unsigned int, DepNode*> exit_nodes;
 	DepNode entry_node;
@@ -97,8 +99,8 @@ ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[],
 
 		curr_inst.instruction_len = opsLatency[progTrace[i].opcode];
 
-		ctx->dep_nodes.insert(pair(i, curr_inst));
-		ctx->exit_nodes.insert(pair(i, &curr_inst));
+		ctx->dep_nodes.insert(pair<unsigned int, DepNode>(i, curr_inst));
+		ctx->exit_nodes.insert(pair<unsigned int, DepNode*>(i, &curr_inst));
 
 	}
 
