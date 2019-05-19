@@ -7,19 +7,20 @@
 
 using std::vector
 using std::map
+using std::pair
 
 
 #define MAX_REGISTERS 32
 
 class DepNode {
 public:
-	DepNode():first_dep(NULL), second_dep(NULL), is_entry(false), instruction_len(0){};
+	DepNode():first_dep(-1), second_dep(-1), is_entry(false), instruction_len(0){};
 	bool check_is_entry(){ return is_entry;};
 	void set_entry_node(){is_entry = true;};
 
 
-	DepNode *first_dep;
-	DepNode *second_dep;
+	int first_dep;
+	int second_dep;
 	unsigned int instruction_len;
 	bool is_entry;
 };
@@ -30,20 +31,60 @@ public:
 		entry_node.set_entry_node();
 	}
 
-
-private:
 	unsigned int num_of_register_false_dependencies[MAX_REGISTERS] = {0};
-	vector<DepNode> dep_nodes;
-	map<DepNode*,unsigned int> exit_nodes;
+	int last_instruction_write[MAX_REGISTERS] = {-1};
+	map<unsigned int, DepNode> dep_nodes;
+	map<unsigned int, DepNode*> exit_nodes;
 	DepNode entry_node;
 
 };
 
 ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[], unsigned int numOfInsts) {
-    return PROG_CTX_NULL;
+	int i;
+	DflowCtx *ctx = new DflowCtx();
+
+	//Add instructions to graph
+	for(i = 0; i < numOfInsts; i++) {
+		DepNode curr_inst;
+		if(ctx->last_instruction_write[progTrace[i].src1Idx] != -1) {
+			curr_inst.first_dep = ctx->last_instruction_write[progTrace[i].src1Idx];
+			ctx->exit_nodes.erase((unsigned int)ctx->last_instruction_write[progTrace[i].src1Idx]);
+		}
+		if(ctx->last_instruction_write[progTrace[i].src2Idx] != -1) {
+			curr_inst.second_dep = ctx->last_instruction_write[progTrace[i].src2Idx];
+			ctx->exit_nodes.erase((unsigned int)ctx->last_instruction_write[progTrace[i].src2Idx]);
+		}
+
+		if(curr_inst.first_dep == -1 && curr_inst.second_dep == -1){
+			curr_inst.set_entry_node();
+		}
+
+		//make instruction the latest to write to the dst register.
+		ctx->last_instruction_write[progTrace[i].dstIdx] = i;
+
+		//Check if there is a false dependency.
+		if(i > 0) {
+			//WAW
+			if(progTrace[i].dstIdx == progTrace[i - 1].dstIdx)
+				ctx->num_of_register_false_dependencies[progTrace[i].dstIdx]++;
+			//WAR
+			else if(progTrace[i].dstIdx == progTrace[i - 1].src1Idx || progTrace[i].dstIdx == progTrace[i - 1].src2Idx)
+				ctx->num_of_register_false_dependencies[progTrace[i].dstIdx]++;
+		}
+
+		curr_inst.instruction_len = opsLatency[progTrace[i].opcode];
+
+		ctx->dep_nodes.insert(pair(i, curr_inst));
+		ctx->exit_nodes.insert(pair(i, &curr_inst));
+
+	}
+
+    return ctx;
 }
 
 void freeProgCtx(ProgCtx ctx) {
+	DflowCtx *curr_ctx = (DflowCtx*)ctx;
+	delete curr_ctx;
 }
 
 int getInstDepth(ProgCtx ctx, unsigned int theInst) {
@@ -51,11 +92,23 @@ int getInstDepth(ProgCtx ctx, unsigned int theInst) {
 }
 
 int getInstDeps(ProgCtx ctx, unsigned int theInst, int *src1DepInst, int *src2DepInst) {
-    return -1;
+	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+
+	map<unsigned int, DepNode>::iterator it = dflow_ctx->dep_nodes.find(theInst);
+
+	if(it == dflow_ctx->dep_nodes.end())
+		return -1;
+
+	*src1DepInst = it->second.first_dep;
+	*src2DepInst = it->second.second_dep;
+
+	return 0;
+
 }
 
 int getRegfalseDeps(ProgCtx ctx, unsigned int reg){
-	return -1;
+	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+	return dflow_ctx->num_of_register_false_dependencies[reg];
 }
 
 int getProgDepth(ProgCtx ctx) {
