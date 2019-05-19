@@ -4,4 +4,4 @@ project(CompArch)
 SET(CMAKE_C_STANDARD 99)
 
 
-add_executable(wet2 ./hw2/cacheSim.cpp hw2/Cache.h hw2/Cache.cpp hw2/CacheLine.cpp hw2/CacheLine.h hw2/VictimCache.cpp hw2/VictimCache.h hw2/L1.h hw2/L1.cpp hw2/L2.h hw2/L2.cpp)
+add_executable(wet3 hw3/dflow_calc.h hw3/dflow_calc-skeleton.c hw3/dflow_main.c)
