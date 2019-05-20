@@ -120,7 +120,8 @@ int getInstDepth(ProgCtx ctx, unsigned int theInst) {
 	if(it == dflow_ctx->dep_nodes.end())
 		return -1;
 
-	return get_node_depth(dflow_ctx,theInst);
+	int curr_len = it->second.instruction_len;
+	return get_node_depth(dflow_ctx,theInst)-curr_len;
 
 }
 
