@@ -1,5 +1,5 @@
 /* 046267 Computer Architecture - Spring 2019 - HW #3 */
-/* Implementation (skeleton)  for the dataflow statistics calculator */
+/* Implementation for the dataflow statistics calculator */
 
 #include "dflow_calc.h"
 #include <vector>
@@ -9,13 +9,13 @@ using std::vector;
 using std::map;
 using std::pair;
 
-
+// Maximum number of registers in the processor
 #define MAX_REGISTERS 32
 
+// DepNode: A node in the dependency tree.
 class DepNode {
 public:
-	DepNode():first_dep(-1), second_dep(-1), is_entry(false), instruction_len(0){};
-	bool check_is_entry(){ return is_entry;};
+	DepNode():first_dep(-1), second_dep(-1), instruction_len(0), is_entry(false){};
 	void set_entry_node(){is_entry = true;};
 
 
@@ -25,24 +25,24 @@ public:
 	bool is_entry;
 };
 
+// DflowCtx: The context for the dflow program.
 class DflowCtx {
 public:
 	DflowCtx() {
-		entry_node.set_entry_node();
 		for(int i = 0; i < MAX_REGISTERS; i++)
 			last_instruction_write[i] = -1;
 	}
 
 	unsigned int num_of_register_false_dependencies[MAX_REGISTERS] = {0};
-	int last_instruction_write[MAX_REGISTERS];
-	map<unsigned int, DepNode> dep_nodes;
-	map<unsigned int, DepNode*> exit_nodes;
-	DepNode entry_node;
+	int last_instruction_write[MAX_REGISTERS]; // Array of all the last functions to write to each register
+	map<unsigned int, DepNode> dep_nodes; // Map of all the instructions in the program and their dependencies
+	map<unsigned int, DepNode*> exit_nodes; // Map of all the nodes that are not depended on.
 
 };
 
+// get_node_depth: Recursively calculate the depth of a specific node.
 int get_node_depth(DflowCtx *ctx,unsigned int node_num) {
-	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+	DflowCtx *dflow_ctx = ctx;
 	int curr_depth = 0;
 	int tmp_depth = 0;
 	DepNode *curr_node = &dflow_ctx->dep_nodes[node_num];
@@ -64,7 +64,13 @@ int get_node_depth(DflowCtx *ctx,unsigned int node_num) {
 	return curr_depth + curr_node->instruction_len;
 }
 
-ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[], unsigned int numOfInsts) {
+/** analyzeProg: Analyze given program and save results
+    \param[in] opsLatency An array of MAX_OPS values of functional unit latency for each opcode
+               (some entries may be unused - in that case their value would be 0)
+    \param[in] progTrace An array of instructions information from execution trace of a program
+    \param[in] numOfInsts The number of instructions in progTrace[]
+    \returns Analysis context that may be queried using the following query functions or PROG_CTX_NULL on failure */
+ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[], int numOfInsts) {
 	int i;
 	DflowCtx *ctx = new DflowCtx();
 
@@ -107,11 +113,20 @@ ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[],
     return ctx;
 }
 
+/** freeProgCtx: Free the resources associated with given program context
+    \param[in] ctx The program context to free
+*/
 void freeProgCtx(ProgCtx ctx) {
 	DflowCtx *curr_ctx = (DflowCtx*)ctx;
 	delete curr_ctx;
 }
 
+/** getInstDepth: Get the dataflow dependency depth in clock cycles
+    Instruction that are direct decendents to the entry node (depend only on Entry) should return 0
+    \param[in] ctx The program context as returned from analyzeProg()
+    \param[in] theInst The index of the instruction of the program trace to query (the index in given progTrace[])
+    \returns >= 0 The dependency depth, <0 for invalid instruction index for this program context
+*/
 int getInstDepth(ProgCtx ctx, unsigned int theInst) {
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
 
@@ -125,6 +140,13 @@ int getInstDepth(ProgCtx ctx, unsigned int theInst) {
 
 }
 
+/** getInstDeps: Get the instructions that a given instruction depends upon
+    \param[in] ctx The program context as returned from analyzeProg()
+    \param[in] theInst The index of the instruction of the program trace to query (the index in given progTrace[])
+    \param[out] src1DepInst Returned index of the instruction that src1 depends upon (-1 if depends on "entry")
+    \param[out] src2DepInst Returned index of the instruction that src2 depends upon (-1 if depends on "entry")
+    \returns 0 for success, <0 for error (e.g., invalid instruction index)
+*/
 int getInstDeps(ProgCtx ctx, unsigned int theInst, int *src1DepInst, int *src2DepInst) {
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
 
@@ -140,11 +162,19 @@ int getInstDeps(ProgCtx ctx, unsigned int theInst, int *src1DepInst, int *src2De
 
 }
 
+/** getRegfalseDeps: Get the number of false dependencies
+ *  reg the index of the register
+ *  returns the number of times register was found in a false dependency
+ */
 int getRegfalseDeps(ProgCtx ctx, unsigned int reg){
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
 	return dflow_ctx->num_of_register_false_dependencies[reg];
 }
 
+/** getProgDepth: Get the longest execution path of this program (from Entry to Exit)
+    \param[in] ctx The program context as returned from analyzeProg()
+    \returns The longest execution path duration in clock cycles
+*/
 int getProgDepth(ProgCtx ctx) {
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
 	map<unsigned int, DepNode*>::iterator it = dflow_ctx->exit_nodes.begin();
