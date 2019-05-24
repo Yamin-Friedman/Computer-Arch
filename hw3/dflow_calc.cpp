@@ -117,6 +117,10 @@ ProgCtx analyzeProg(const unsigned int opsLatency[], InstInfo progTrace[], int n
     \param[in] ctx The program context to free
 */
 void freeProgCtx(ProgCtx ctx) {
+
+	if(ctx == NULL)
+		return;
+
 	DflowCtx *curr_ctx = (DflowCtx*)ctx;
 	delete curr_ctx;
 }
@@ -128,7 +132,14 @@ void freeProgCtx(ProgCtx ctx) {
     \returns >= 0 The dependency depth, <0 for invalid instruction index for this program context
 */
 int getInstDepth(ProgCtx ctx, unsigned int theInst) {
+
+	if(ctx == NULL)
+		return -1;
+
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+
+	if(theInst < 0 || theInst > dflow_ctx->dep_nodes.size())
+		return -1;
 
 	map<unsigned int, DepNode>::iterator it = dflow_ctx->dep_nodes.find(theInst);
 
@@ -148,7 +159,14 @@ int getInstDepth(ProgCtx ctx, unsigned int theInst) {
     \returns 0 for success, <0 for error (e.g., invalid instruction index)
 */
 int getInstDeps(ProgCtx ctx, unsigned int theInst, int *src1DepInst, int *src2DepInst) {
+
+	if(ctx == NULL)
+		return -1;
+
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
+
+	if(theInst < 0 || theInst > dflow_ctx->dep_nodes.size())
+		return -1;
 
 	map<unsigned int, DepNode>::iterator it = dflow_ctx->dep_nodes.find(theInst);
 
@@ -167,6 +185,10 @@ int getInstDeps(ProgCtx ctx, unsigned int theInst, int *src1DepInst, int *src2De
  *  returns the number of times register was found in a false dependency
  */
 int getRegfalseDeps(ProgCtx ctx, unsigned int reg){
+
+	if(ctx == NULL)
+		return -1;
+
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
 	return dflow_ctx->num_of_register_false_dependencies[reg];
 }
@@ -176,6 +198,10 @@ int getRegfalseDeps(ProgCtx ctx, unsigned int reg){
     \returns The longest execution path duration in clock cycles
 */
 int getProgDepth(ProgCtx ctx) {
+
+	if(ctx == NULL)
+		return -1;
+
 	DflowCtx *dflow_ctx = (DflowCtx*)ctx;
 	map<unsigned int, DepNode*>::iterator it = dflow_ctx->exit_nodes.begin();
 	int max_depth = 0;
