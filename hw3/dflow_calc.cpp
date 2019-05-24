@@ -70,7 +70,7 @@ int get_node_depth(DflowCtx *ctx,unsigned int node_num) {
     \param[in] progTrace An array of instructions information from execution trace of a program
     \param[in] numOfInsts The number of instructions in progTrace[]
     \returns Analysis context that may be queried using the following query functions or PROG_CTX_NULL on failure */
-ProgCtx analyzeProg(const unsigned int opsLatency[], const InstInfo progTrace[], int numOfInsts) {
+ProgCtx analyzeProg(const unsigned int opsLatency[], InstInfo progTrace[], int numOfInsts) {
 	int i;
 	DflowCtx *ctx = new DflowCtx();
 
