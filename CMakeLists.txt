@@ -4,4 +4,4 @@ project(CompArch)
 SET(CMAKE_C_STANDARD 99)
 
 
-add_executable(wet3 hw3/dflow_calc.h hw3/dflow_calc.cpp hw3/dflow_main.c)
+add_executable(wet4 hw4/core_api.c hw4/core_api.h hw4/sim_api.h hw4/sim_mem.c hw4/main.c)

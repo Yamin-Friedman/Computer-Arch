@@ -259,7 +259,7 @@ void SIM_MemDataWrite(uint32_t addr, int32_t val) {
     data[addr_i] = val;
 }
 
-void SIM_MemInstRead(int addr, Instuction *dst, int id) {
+void SIM_MemInstRead(uint32_t addr, Instuction *dst, int id) {
     dst->opcode = instructions[id][addr].opcode;
     dst->dst_index = instructions[id][addr].dst_index;
     dst->src1_index = instructions[id][addr].src1_index;
