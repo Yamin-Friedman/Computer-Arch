@@ -112,6 +112,8 @@ Status Core_blocked_Multithreading(){
 		if (check_halted)
 			break;
 	}
+
+	free(curr_inst);
 	return Success;
 }
 
@@ -146,12 +148,10 @@ Status Core_fineGrained_Multithreading(){
 
 			if(curr_thread_ctx->curr_inst_cycles == -1) {
 				curr_thread_ctx->halted = true;
-				break;
 			}
 
 			if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE || curr_inst->opcode == CMD_HALT) {
 				curr_thread_ctx->last_cycle = fine_cycle_cnt;
-				break;
 			}
 
 		} else {
@@ -168,6 +168,8 @@ Status Core_fineGrained_Multithreading(){
 		if (check_halted)
 			break;
 	}
+
+	free(curr_inst);
 	return Success;
 }
 
