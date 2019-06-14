@@ -73,8 +73,7 @@ Status Core_blocked_Multithreading(){
 		return Failure;
 	}
 
-	Mem_latency((int*)&prog_lat);//TODO: Make sure this works.
-
+	Mem_latency((int*)&prog_lat);
 	while (1) {
 		curr_thread_ctx = &blocked_thread_ctx_array[curr_thread_num];
 
@@ -136,7 +135,7 @@ Status Core_fineGrained_Multithreading(){
 		return Failure;
 	}
 
-	Mem_latency((int*)&prog_lat);//TODO: Make sure this works.
+	Mem_latency((int*)&prog_lat);
 
 	while (1) {
 		curr_thread_ctx = &fine_thread_ctx_array[curr_thread_num];
