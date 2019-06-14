@@ -190,19 +190,27 @@ Status Core_fineGrained_Multithreading(){
 
 double Core_finegrained_CPI(){
 	double  inst_cnt = 0;
+	double CPI;
 
 	for (int i = 0; i < Get_thread_number(); i++) {
 		inst_cnt += fine_thread_ctx_array[i].curr_inst_addr ;
 	}
-	return (double)fine_cycle_cnt/inst_cnt;
+
+	CPI = (double)fine_cycle_cnt/inst_cnt;
+	free(fine_thread_ctx_array);
+	return CPI;
 }
 double Core_blocked_CPI(){
 	double  inst_cnt = 0;
+	double CPI;
 
 	for (int i = 0; i < Get_thread_number(); i++) {
 		inst_cnt += blocked_thread_ctx_array[i].curr_inst_addr;
 	}
-	return (double)blocked_cycle_cnt/inst_cnt;
+
+	CPI = (double)blocked_cycle_cnt/inst_cnt;
+	free(blocked_thread_ctx_array);
+	return CPI;
 }
 
 Status Core_blocked_context(tcontext* bcontext,int threadid){
