@@ -67,6 +67,12 @@ Status Core_blocked_Multithreading(){
 		return Failure;
 	memset(blocked_thread_ctx_array,0,thread_num * sizeof(Thread_ctx));
 
+	curr_inst = (Instuction*)malloc(sizeof(Instuction));
+	if (curr_inst == NULL) {
+		free(blocked_thread_ctx_array);
+		return Failure;
+	}
+
 	Mem_latency((int*)&prog_lat);//TODO: Make sure this works.
 
 	while (1) {
@@ -97,6 +103,8 @@ Status Core_blocked_Multithreading(){
 
 
 		curr_thread_num = (curr_thread_num + 1) % thread_num;
+		if (!blocked_thread_ctx_array[curr_thread_num].halted)
+			blocked_cycle_cnt += Get_switch_cycles();
 
 		bool check_halted = blocked_thread_ctx_array[0].halted;
 		for (int i = 1; i < thread_num; i++)
@@ -119,6 +127,12 @@ Status Core_fineGrained_Multithreading(){
 	if (fine_thread_ctx_array == NULL)
 		return Failure;
 	memset(fine_thread_ctx_array,0,thread_num * sizeof(Thread_ctx));
+
+	curr_inst = (Instuction*)malloc(sizeof(Instuction));
+	if (curr_inst == NULL) {
+		free(fine_thread_ctx_array);
+		return Failure;
+	}
 
 	Mem_latency((int*)&prog_lat);//TODO: Make sure this works.
 
@@ -181,7 +195,7 @@ Status Core_blocked_context(tcontext* bcontext,int threadid){
 		return Failure;
 
 	for (int i = 0; i < REGS; i++) {
-		bcontext->reg[i] = blocked_thread_ctx_array[threadid].regs.reg[i];
+		(bcontext + threadid)->reg[i] = blocked_thread_ctx_array[threadid].regs.reg[i];
 	}
 
 	return Success;
@@ -193,7 +207,7 @@ Status Core_finegrained_context(tcontext* finegrained_context,int threadid){
 		return Failure;
 
 	for (int i = 0; i < REGS; i++) {
-		finegrained_context->reg[i] = fine_thread_ctx_array[threadid].regs.reg[i];
+		(finegrained_context + threadid)->reg[i] = fine_thread_ctx_array[threadid].regs.reg[i];
 	}
 
 	return Success;
