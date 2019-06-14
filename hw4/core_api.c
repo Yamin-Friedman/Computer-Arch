@@ -15,8 +15,11 @@ typedef struct thread_ctx_ {
 
 } Thread_ctx;
 
-Thread_ctx *thread_ctx_array;
+Thread_ctx *blocked_thread_ctx_array;
+Thread_ctx *fine_thread_ctx_array;
 Latency prog_lat;
+int blocked_cycle_cnt;
+int fine_cycle_cnt;
 
 int perform_op(Instuction *inst, tcontext *t_ctx){
 
@@ -55,25 +58,26 @@ int perform_op(Instuction *inst, tcontext *t_ctx){
 Status Core_blocked_Multithreading(){
 	int thread_num = Get_thread_number();
 	int curr_thread_num = 0;
-	int cycle_cnt = 0;
+	blocked_cycle_cnt = 0;
 	Thread_ctx *curr_thread_ctx;
 	Instuction *curr_inst;
 
-	thread_ctx_array = (Thread_ctx*)malloc(thread_num * sizeof(Thread_ctx));
-	if (thread_ctx_array == NULL)
+	blocked_thread_ctx_array = (Thread_ctx*)malloc(thread_num * sizeof(Thread_ctx));
+	if (blocked_thread_ctx_array == NULL)
 		return Failure;
-	memset(thread_ctx_array,0,thread_num * sizeof(Thread_ctx));
+	memset(blocked_thread_ctx_array,0,thread_num * sizeof(Thread_ctx));
 
 	Mem_latency((int*)&prog_lat);//TODO: Make sure this works.
 
 	while (1) {
-		curr_thread_ctx = &thread_ctx_array[curr_thread_num];
+		curr_thread_ctx = &blocked_thread_ctx_array[curr_thread_num];
 
-		if (cycle_cnt - curr_thread_ctx->last_cycle >= curr_thread_ctx->curr_inst_cycles && !curr_thread_ctx->halted) {
+		if (blocked_cycle_cnt - curr_thread_ctx->last_cycle >= curr_thread_ctx->curr_inst_cycles && !curr_thread_ctx->halted) {
 			while (1) {
 				SIM_MemInstRead(curr_thread_ctx->curr_inst_addr, curr_inst, curr_thread_num);
 				curr_thread_ctx->curr_inst_cycles = perform_op(curr_inst, &curr_thread_ctx->regs);
 				curr_thread_ctx->curr_inst_addr++;
+				blocked_cycle_cnt++;
 
 				if(curr_thread_ctx->curr_inst_cycles == -1) {
 					curr_thread_ctx->halted = true;
@@ -81,23 +85,22 @@ Status Core_blocked_Multithreading(){
 				}
 
 				if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE || curr_inst->opcode == CMD_HALT) {
-					curr_thread_ctx->last_cycle = cycle_cnt;
+					curr_thread_ctx->last_cycle = blocked_cycle_cnt;
 					break;
 				}
 
-				cycle_cnt++;
 			}
 		} else {
-			cycle_cnt++;
+			blocked_cycle_cnt++;
 		}
 
 
 
 		curr_thread_num = (curr_thread_num + 1) % thread_num;
 
-		bool check_halted = thread_ctx_array[0].halted;
+		bool check_halted = blocked_thread_ctx_array[0].halted;
 		for (int i = 1; i < thread_num; i++)
-			check_halted &= thread_ctx_array[i].halted;
+			check_halted &= blocked_thread_ctx_array[i].halted;
 		if (check_halted)
 			break;
 	}
@@ -106,22 +109,92 @@ Status Core_blocked_Multithreading(){
 
 
 Status Core_fineGrained_Multithreading(){
+	int thread_num = Get_thread_number();
+	int curr_thread_num = 0;
+	fine_cycle_cnt = 0;
+	Thread_ctx *curr_thread_ctx;
+	Instuction *curr_inst;
 
+	fine_thread_ctx_array = (Thread_ctx*)malloc(thread_num * sizeof(Thread_ctx));
+	if (fine_thread_ctx_array == NULL)
+		return Failure;
+	memset(fine_thread_ctx_array,0,thread_num * sizeof(Thread_ctx));
+
+	Mem_latency((int*)&prog_lat);//TODO: Make sure this works.
+
+	while (1) {
+		curr_thread_ctx = &fine_thread_ctx_array[curr_thread_num];
+		if (fine_cycle_cnt - curr_thread_ctx->last_cycle >= curr_thread_ctx->curr_inst_cycles && !curr_thread_ctx->halted) {
+			SIM_MemInstRead(curr_thread_ctx->curr_inst_addr, curr_inst, curr_thread_num);
+			curr_thread_ctx->curr_inst_cycles = perform_op(curr_inst, &curr_thread_ctx->regs);
+			curr_thread_ctx->curr_inst_addr++;
+			fine_cycle_cnt++;
+
+			if(curr_thread_ctx->curr_inst_cycles == -1) {
+				curr_thread_ctx->halted = true;
+				break;
+			}
+
+			if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE || curr_inst->opcode == CMD_HALT) {
+				curr_thread_ctx->last_cycle = fine_cycle_cnt;
+				break;
+			}
+
+		} else {
+			fine_cycle_cnt++;
+		}
+
+
+
+		curr_thread_num = (curr_thread_num + 1) % thread_num;
+
+		bool check_halted = fine_thread_ctx_array[0].halted;
+		for (int i = 1; i < thread_num; i++)
+			check_halted &= fine_thread_ctx_array[i].halted;
+		if (check_halted)
+			break;
+	}
 	return Success;
 }
 
 
 double Core_finegrained_CPI(){
-	return 0;
+	double  inst_cnt = 0;
+
+	for (int i = 0; i < Get_thread_number(); i++) {
+		inst_cnt += fine_thread_ctx_array[i].curr_inst_addr;
+	}
+	return (double)fine_cycle_cnt/inst_cnt;
 }
 double Core_blocked_CPI(){
-	return 0;
+	double  inst_cnt = 0;
+
+	for (int i = 0; i < Get_thread_number(); i++) {
+		inst_cnt += blocked_thread_ctx_array[i].curr_inst_addr;
+	}
+	return (double)blocked_cycle_cnt/inst_cnt;
 }
 
 Status Core_blocked_context(tcontext* bcontext,int threadid){
+
+	if (bcontext == NULL || blocked_thread_ctx_array == NULL)
+		return Failure;
+
+	for (int i = 0; i < REGS; i++) {
+		bcontext->reg[i] = blocked_thread_ctx_array[threadid].regs.reg[i];
+	}
+
 	return Success;
 }
 
 Status Core_finegrained_context(tcontext* finegrained_context,int threadid){
+
+	if (finegrained_context == NULL || fine_thread_ctx_array == NULL)
+		return Failure;
+
+	for (int i = 0; i < REGS; i++) {
+		finegrained_context->reg[i] = fine_thread_ctx_array[threadid].regs.reg[i];
+	}
+
 	return Success;
 }
