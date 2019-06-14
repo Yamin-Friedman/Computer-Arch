@@ -97,12 +97,14 @@ Status Core_blocked_Multithreading(){
 
 				if(curr_inst->opcode == CMD_HALT) {
 					curr_thread_ctx->halted = true;
+					blocked_cycle_cnt += Get_switch_cycles();
 					break;
 				}
 
 				if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE) {
 					curr_thread_ctx->last_cycle = blocked_cycle_cnt;
 					curr_thread_ctx->need_data_commit = true;
+					blocked_cycle_cnt += Get_switch_cycles();
 					break;
 				}
 
@@ -113,8 +115,6 @@ Status Core_blocked_Multithreading(){
 
 
 		curr_thread_num = (curr_thread_num + 1) % thread_num;
-		if (!blocked_thread_ctx_array[curr_thread_num].halted)
-			blocked_cycle_cnt += Get_switch_cycles();
 
 		bool check_halted = blocked_thread_ctx_array[0].halted;
 		for (int i = 1; i < thread_num; i++)
@@ -123,6 +123,7 @@ Status Core_blocked_Multithreading(){
 			break;
 	}
 
+	blocked_cycle_cnt -= Get_switch_cycles();
 	free(curr_inst);
 	return Success;
 }
@@ -193,7 +194,7 @@ double Core_finegrained_CPI(){
 	double CPI;
 
 	for (int i = 0; i < Get_thread_number(); i++) {
-		inst_cnt += fine_thread_ctx_array[i].curr_inst_addr ;
+		inst_cnt += fine_thread_ctx_array[i].curr_inst_addr;
 	}
 
 	CPI = (double)fine_cycle_cnt/inst_cnt;
