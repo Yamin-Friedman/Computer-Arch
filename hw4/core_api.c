@@ -82,8 +82,18 @@ Status Core_blocked_Multithreading(){
 			blocked_cycle_cnt++;
 			while (1) {
 				if (blocked_cycle_cnt - curr_thread_ctx->last_cycle < curr_thread_ctx->curr_inst_cycles) {
-					blocked_cycle_cnt++;
-					continue;
+					bool check_halted = true;
+					for (int i = 0; i < thread_num; i++) {
+						if (i == curr_thread_num)
+							continue;
+						check_halted &= blocked_thread_ctx_array[i].halted;
+					}
+					if (check_halted) {
+						blocked_cycle_cnt++;
+						continue;
+					}
+					blocked_cycle_cnt += Get_switch_cycles();
+					break;
 				}
 				if (curr_thread_ctx->need_data_commit) {
 					blocked_cycle_cnt++;
@@ -104,6 +114,16 @@ Status Core_blocked_Multithreading(){
 				if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE) {
 					curr_thread_ctx->last_cycle = blocked_cycle_cnt;
 					curr_thread_ctx->need_data_commit = true;
+					bool check_halted = true;
+					for (int i = 0; i < thread_num; i++) {
+						if (i == curr_thread_num)
+							continue;
+						check_halted &= blocked_thread_ctx_array[i].halted;
+					}
+					if (check_halted) {
+						blocked_cycle_cnt++;
+						continue;
+					}
 					blocked_cycle_cnt += Get_switch_cycles();
 					break;
 				}
