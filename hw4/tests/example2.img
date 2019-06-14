@@ -1,7 +1,7 @@
 # Test 2
 
 L5 #load latency
-S2 #store latency
+S0 #store latency
 O1 #overhead for switch
 N4  #there is three threads that run 
 

@@ -12,6 +12,7 @@ typedef struct thread_ctx_ {
 	int curr_inst_cycles;
 	int last_cycle;
 	bool halted;
+	bool need_data_commit;
 
 } Thread_ctx;
 
@@ -51,7 +52,7 @@ int perform_op(Instuction *inst, tcontext *t_ctx){
 				SIM_MemDataWrite(t_ctx->reg[inst->dst_index] + t_ctx->reg[inst->src2_index_imm], t_ctx->reg[inst->src1_index]);
 			return prog_lat.Store_latency;
 		case CMD_HALT:
-			return -1;
+			return 1;
 	}
 }
 
@@ -77,26 +78,36 @@ Status Core_blocked_Multithreading(){
 	while (1) {
 		curr_thread_ctx = &blocked_thread_ctx_array[curr_thread_num];
 
-		if (blocked_cycle_cnt - curr_thread_ctx->last_cycle >= curr_thread_ctx->curr_inst_cycles && !curr_thread_ctx->halted) {
+		if (!curr_thread_ctx->halted) {
+			blocked_cycle_cnt++;
 			while (1) {
+				if (blocked_cycle_cnt - curr_thread_ctx->last_cycle < curr_thread_ctx->curr_inst_cycles) {
+					blocked_cycle_cnt++;
+					continue;
+				}
+				if (curr_thread_ctx->need_data_commit) {
+					blocked_cycle_cnt++;
+					curr_thread_ctx->need_data_commit = false;
+					continue;
+				}
+
 				SIM_MemInstRead(curr_thread_ctx->curr_inst_addr, curr_inst, curr_thread_num);
 				curr_thread_ctx->curr_inst_cycles = perform_op(curr_inst, &curr_thread_ctx->regs);
 				curr_thread_ctx->curr_inst_addr++;
-				blocked_cycle_cnt++;
 
-				if(curr_thread_ctx->curr_inst_cycles == -1) {
+				if(curr_inst->opcode == CMD_HALT) {
 					curr_thread_ctx->halted = true;
 					break;
 				}
 
-				if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE || curr_inst->opcode == CMD_HALT) {
+				if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE) {
 					curr_thread_ctx->last_cycle = blocked_cycle_cnt;
+					curr_thread_ctx->need_data_commit = true;
 					break;
 				}
 
+				blocked_cycle_cnt++;
 			}
-		} else {
-			blocked_cycle_cnt++;
 		}
 
 
@@ -139,25 +150,29 @@ Status Core_fineGrained_Multithreading(){
 
 	while (1) {
 		curr_thread_ctx = &fine_thread_ctx_array[curr_thread_num];
+
+		if (!curr_thread_ctx->halted)
+			fine_cycle_cnt++;
+
 		if (fine_cycle_cnt - curr_thread_ctx->last_cycle >= curr_thread_ctx->curr_inst_cycles && !curr_thread_ctx->halted) {
-			SIM_MemInstRead(curr_thread_ctx->curr_inst_addr, curr_inst, curr_thread_num);
-			curr_thread_ctx->curr_inst_cycles = perform_op(curr_inst, &curr_thread_ctx->regs);
-			curr_thread_ctx->curr_inst_addr++;
-			fine_cycle_cnt++;
+			if (curr_thread_ctx->need_data_commit) {
+				curr_thread_ctx->need_data_commit = false;
+			} else {
 
-			if(curr_thread_ctx->curr_inst_cycles == -1) {
-				curr_thread_ctx->halted = true;
+				SIM_MemInstRead(curr_thread_ctx->curr_inst_addr, curr_inst, curr_thread_num);
+				curr_thread_ctx->curr_inst_cycles = perform_op(curr_inst, &curr_thread_ctx->regs);
+				curr_thread_ctx->curr_inst_addr++;
+
+				if (curr_inst->opcode == CMD_HALT) {
+					curr_thread_ctx->halted = true;
+				}
+
+				if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE) {
+					curr_thread_ctx->last_cycle = fine_cycle_cnt;
+					curr_thread_ctx->need_data_commit = true;
+				}
 			}
-
-			if (curr_inst->opcode == CMD_LOAD || curr_inst->opcode == CMD_STORE || curr_inst->opcode == CMD_HALT) {
-				curr_thread_ctx->last_cycle = fine_cycle_cnt;
-			}
-
-		} else {
-			fine_cycle_cnt++;
 		}
-
-
 
 		curr_thread_num = (curr_thread_num + 1) % thread_num;
 
@@ -177,7 +192,7 @@ double Core_finegrained_CPI(){
 	double  inst_cnt = 0;
 
 	for (int i = 0; i < Get_thread_number(); i++) {
-		inst_cnt += fine_thread_ctx_array[i].curr_inst_addr;
+		inst_cnt += fine_thread_ctx_array[i].curr_inst_addr ;
 	}
 	return (double)fine_cycle_cnt/inst_cnt;
 }
